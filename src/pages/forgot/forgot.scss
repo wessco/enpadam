@@ -1,0 +1,64 @@
+page-forgot {
+    .back_img{
+        // background-image:url('assets/imgs/theatre-owner-bg.jpg');
+        -webkit-box-shadow: inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+        -moz-box-shadow:    inset -352 0px 21px 45px rgba(50, 48, 50, 0.88);
+        box-shadow:         inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+                            // inset -352px 0px 21px 27px rgba(50, 48, 50, 0.79);
+                            // box-shadow: inset -352px 0px 21px 27px rgba(50, 48, 50, 0.88);
+}
+
+.txtbox{
+    
+    margin: auto;
+    display: table;
+    background-color: #ffffff;
+    margin-top: 5px;
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #CA37C0;
+    padding-left: 10px;
+}
+.btn_submit{
+    width: 45%;
+    border-radius: 12px;
+    margin: auto;
+    display: table;
+    background: linear-gradient(#a32d66, #c22e5e);
+    margin-top: 20px;
+}
+.background_div{
+    width: 100%;
+    background-color: white;
+}
+.img_set{
+    height: 75px;
+    margin: auto;
+    display:table;
+}
+.second_div{
+    width: 90%;
+    margin: auto;
+}
+.Retrieve_pwd{
+    font-size: 17px;
+    font-weight: 900;
+    margin-top: 62px;
+    color: white;
+}
+.syntax{
+    font-size: 14px;
+    color: white;
+    margin-top: 12px;
+}
+.check_member{
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+    margin: auto;
+    display: table;
+    margin-top: 15px;
+}
+}

@@ -1,0 +1,87 @@
+page-register {
+    .back_img{
+        -webkit-box-shadow: inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+        -moz-box-shadow:    inset -352 0px 21px 45px rgba(50, 48, 50, 0.88);
+        box-shadow:         inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+                            // inset -352px 0px 21px 27px rgba(50, 48, 50, 0.79);
+                            // box-shadow: inset -352px 0px 21px 27px rgba(50, 48, 50, 0.88);
+}
+.img_div{
+    width: 100%;
+    background-color: white;
+}
+.img_set{
+    height: 75px;
+    margin: auto;
+    display: table;
+}
+.register{
+    color:#ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+}
+.div_set{
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+}
+    .txtbox{
+    
+        margin: auto;
+        background-color: #ffffff;
+        margin-top: 5px;
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: 1px solid #CA37C0;
+        padding-left: 10px;
+    }
+
+    .txtbox1{
+    
+        margin: auto;
+        background-color: #ffffff;
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: 1px solid #CA37C0;
+        padding-left: 10px;
+    }
+    // .text_center{
+    //     border: none; 
+    //     background-color: transparent;
+    //     height: 40px;
+    //     padding-left: 10px;
+    // }
+    .chkbox{
+        border: 1px solid #ffffff;
+        }
+    .Accept_Conditions{
+        color: white;
+        font-size: 16px;
+    }
+    .member_div{
+        color: #ffffff;
+        font-size: 17px;
+        font-weight: 500;
+        margin-top: 15px;
+    }
+    .button-md{ 
+        margin-top: 15px;
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        border-color: #c22e5e;
+        background: linear-gradient(#a32d66, #c22e5e);
+        // background-color: #BB3161;
+    }
+    
+    
+}

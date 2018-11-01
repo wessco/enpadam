@@ -1,0 +1,31 @@
+<!--
+  Generated template for the OtpconformPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>otpconform</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content class="back_img" style="background-image:url('assets/imgs/theatre-owner-bg.jpg')">
+
+  <div class="img_div" >
+      <img src="assets/imgs/ticketlite_logo.png" class="img_set">
+  </div>
+    
+      <div class="register"> OTP Confirmation</div>
+      <div class="syntax"> Please entre the 4-digit Confirmation code you received.</div>
+
+      <div class="input_div">
+      <input type="number" placeholder="Enter OTP " [(ngModel)]="otp.number"  class="txtbox">
+
+      <button ion-button (click)="verifyotp()">Verify</button>
+       </div>
+
+</ion-content>

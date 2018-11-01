@@ -1,0 +1,83 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>booktime</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-grid>
+      <ion-row  [ngClass]="(book) ? 'cancel_background' : 'book_background'">
+          <ion-col col-10>
+              <div [ngClass]="(book) ? 'cancel_book' : 'verify_book'">Booking {{verifybook}} </div>
+              <!-- <div style="color: #E7334A;font-size: 26px;font-weight: 900;">close</div> -->
+          </ion-col>
+          <ion-col col-2>
+              <img *ngIf="!book" src="assets/imgs/circular.png" >
+              <img *ngIf="book" src="assets/imgs/close.png" >
+          </ion-col>
+          <ion-col>
+            <div class="movie_contain"  *ngIf="!book">
+              Please collect your tickets from box-office counter at the cinema hall by showing the booking ID given below.
+            </div>
+            <div class="movie_contain"  *ngIf="book">
+            Your ticket has been canceled. You will get return your cash in 24 hours.
+            </div>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+      <ion-row>
+          <ion-col col-3>
+              <img src="assets/imgs/{{img}}" class="movie_img">
+          </ion-col>
+          <ion-col col-9 style="margin-top: 23px;">
+            <div class="movie_title">{{moviename}} </div>
+            <div class="movie_language">{{movieLanguage}}</div>
+            <div class="movie_language">Booking ID:30342</div>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <hr class="hr_line">
+
+  <ion-grid >
+      <ion-row >
+          <ion-col col-3>
+              <img src="assets/imgs/calendar.png" class="png_img">
+          </ion-col>
+          <ion-col >
+            <div class="data_title">SHOW TIME</div>
+            <div class="data_show"> Fri,12 May 18,11:35AM</div>
+          </ion-col>  
+      </ion-row>
+
+      <hr class="hr_line">
+
+      <ion-row  >
+            <ion-col col-3>
+                <img src="assets/imgs/cinema.png" class="png_img" >
+            </ion-col>
+            <ion-col >
+                <div class="data_title">SCRREN & SEAT NO.</div>
+                <div class="data_show"> SCREEN 3:GL-F1,F2</div>
+            </ion-col> 
+      </ion-row>
+
+      <hr class="hr_line">
+
+      <ion-row >
+        <ion-col col-3 >
+            <img src="assets/imgs/map.png" class="png_img" >
+        </ion-col>
+        <ion-col >
+            <div class="data_show2">{{theatername}}</div>
+            <div class="data_show1">PVR Grand Galada Tirusulam, Arumalai Chavadi, Pallavaram, Chennai, Tamil Nadu 600100</div>
+            <div class="direction" (click)="maplocation()">Get directions</div>
+        </ion-col> 
+  </ion-row>
+  </ion-grid>
+</ion-content>

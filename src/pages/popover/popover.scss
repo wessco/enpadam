@@ -1,0 +1,129 @@
+page-popover {
+
+    // height: 370px !important;
+    // width: 95% !important;
+    // top: calc(50% - (370px/2)) !important;
+    // left: calc(50% - (95%/2)) !important;
+    // box-shadow: 1px 1px 10px -1px #999999 !important;
+
+    .model_color{
+    height: 370px !important;
+    width: 95% !important;
+    background-color: white;
+    margin: auto;
+    margin-top: 40%;
+    box-shadow: 1px 1px 10px -1px #999999 !important;
+    }
+    .time_btn{
+        padding: 10px;    
+        border-color: gray;
+     }
+
+     .close_btn{
+        text-align: right;
+        padding-right: 10px;
+        padding-top: 6px;
+        font-size: 20px;
+        font-weight: 900;
+     }
+
+     .all_btn{
+        // width: 50px;
+        // height: 50px;
+        background-color: transparent;
+        padding: 0px;
+        width: 30px;
+        height: 30px;
+     }
+     .all_col_padding{
+        padding: 0px;
+    }
+     .class2{
+         background-color: transparent;
+         width: 28px;
+         margin: 0px 3px;
+        height: 30px;
+     }
+     .popover_name{
+        margin: auto;
+        display: table;
+        margin-top: 8px;
+        font-size: 16px;
+        font-weight: 500;
+     }
+     .btn_div{
+        margin: auto;
+        display: table;
+        margin-top: 20px;
+     }
+     .last_btn{
+        margin: auto;
+        display: table;
+        margin-bottom: 8px;
+        border-radius: 7px;
+        margin-top: 22px;
+     }
+     .grid_set{
+        margin-top: 20px;
+     }
+     .available{
+        font-size: 11px;
+        color: #30CEA7;
+        margin-top: 2px
+     }
+
+     .selected_popup{
+        background-color: #00C393;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+     }
+     .col_set{
+       padding: 0px;
+       text-align: right;
+        padding: 0px 25px 0px 7px;
+     }
+     .ruppes{
+        font-size: 13px;
+        font-weight: 900;
+        margin-top: 3px;    
+     }
+     .seat-name{
+        font-size: 13px;
+        color: #666666;
+     }
+    //  .hover button {
+    //     background-color: slategray;
+    //     box-shadow: inset 0px 0px 0px 1px red;
+    //   }
+    .seat-name_gold{
+        font-size: 13px;
+        color: #666666;
+        margin-left: 15px;
+     }
+    .available_gold{
+        font-size: 11px;
+        color: #30CEA7;
+        margin-left: 10px;
+        margin-top: 2px;
+    }
+    .img{
+        height: 60px;
+        margin: auto;
+        display: table;
+        margin-top: 12px;
+    }
+
+    button:hover {
+
+        background-color: #00C393;
+        border-color:none !important;
+        }
+    .hr_line{
+        margin-top: 17px;
+        width: 90%;
+        height: 1px;
+        color: #F8F8F8;
+        }
+}

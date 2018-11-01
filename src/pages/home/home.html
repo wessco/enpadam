@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title> Home </ion-title>
+    </ion-navbar>
+</ion-header>
+<!-- HEADER ENDS -->
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-8  style="padding: 0px;">
+                <ion-searchbar  [showCancelButton]="true" (ionCancel)="onCancel($event)"  placeholder="Search in ticketlite....."(ionInput)="onInput($event)" ></ion-searchbar>            
+                <ion-list *ngIf="searchMovie">
+                <div *ngFor="let x of movienamesuggest" (click)="movie_desc(x)">
+                <h5 style="font-size: 13px;padding-left: 14px;">{{ x.MovieName }}</h5>  
+                          
+                </div>      
+                </ion-list>            
+            </ion-col>
+            <!-- COLUMN ENDS -->
+            <ion-col col-4 style="padding: 0px;padding-top: 9px;" >
+                <ion-item item-start (click)=callCityModal()>
+                    <!-- <ion-label>select city</ion-label> -->
+                    <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
+                {{cityname}}
+                </ion-item>
+            </ion-col>
+            <!-- COLUMN ENDS -->
+        </ion-row>
+        <!-- ROW ENDS -->
+    </ion-grid>
+    <!-- GRID ENDS -->
+    <!-- SLIDER -->   
+    
+    <div *ngIf="!showData" class="cityname">Please select your city...</div>
+    <div *ngIf="showData">  
+    <ion-slides *ngIf="slideimage && slideimage.length" pager autoplay="2000" loop="true" speed="1000" class="ion-slides" >
+        <ion-slide *ngFor="let x of slideimage "> 
+            <img src="{{ x }}" alt="">
+        </ion-slide>
+    </ion-slides>   
+    <!-- SLIDER ENDS-->
+    <!-- NOW RUNNING -->   
+    <!-- TITLE -->            
+    <div class="movie_heding2">Now Running</div>
+    <!-- TITLE ENDS-->
+    <hr class="hr_line">
+    <div *ngIf="NowRunningmovie" class="NoData">No Data Found</div>
+
+    <div class="img-display">    
+            <!-- <h1>Im inline</h1> -->
+        <div class="img-out" *ngFor="let x of movielist; let i=index">
+            <img class="image images" src="{{x.MovieImagePath}}" alt="no internet available" style="object-fit: cover !important;height: 230px;" (click)="movie_desc(x)">
+            <ion-row>
+                <div style="margin: auto;" class="vertical_centr">
+                    <button ion-button class="star_button" >
+                        <ion-icon name="md-star" class="star_icon"></ion-icon>
+                    </button>
+                    <span class="like">77%</span>
+                </div>
+            </ion-row>
+            <div class="movie_name">{{x.MovieName}}</div>
+            <ion-row>
+                <div style="margin: auto;" class="vertical_centr">
+                    <button ion-button class="tamil">{{x.MovieCertificationName}}</button>
+                    <span class="commedy">{{x.MovieLanguage}} | {{x.MovieGenre}}</span>
+                </div>
+        </ion-row>
+        </div>
+
+        <div class="movie_heding2"> Upcoming Movies</div>
+        <hr class="hr_line">
+        <div *ngIf="UpcomingmovieData" class="NoData">No Data Found</div>
+        <div class="img-out" *ngFor="let x of upcomingList; let i=index">
+            <img 
+                class="image images" 
+                src="{{x.MovieImagePath}}" 
+                alt="No Internet Available" style="object-fit: cover !important;height: 230px;" (click)="movie_desc(x)">
+            <ion-row>
+                <div style="margin: auto;" class="vertical_centr">
+                    <button ion-button class="star_button" >
+                        <ion-icon name="md-star" class="star_icon"></ion-icon>
+                    </button>
+                    <span class="like">77%</span>
+                </div>
+            </ion-row>
+            <div class="movie_name">{{x.MovieName}}</div>
+            <ion-row>
+                <div style="margin: auto;" class="vertical_centr">
+                    <button ion-button class="tamil">{{x.MovieCertificationName}}</button>
+                    <span class="commedy">{{x.MovieLanguage}} | {{x.MovieGenre}}</span>
+                </div>
+        </ion-row>
+        </div>
+    </div>
+</div>
+</ion-content>  
+  

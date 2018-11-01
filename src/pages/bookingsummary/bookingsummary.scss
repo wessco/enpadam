@@ -1,0 +1,179 @@
+page-bookingsummary {
+    .movie_name{
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 12px;
+    color: white;
+    }
+    .address{
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 3px;
+    color: white;
+    }
+    .title_PLATINUM{
+        padding-top: 15px;
+        padding-left: 5px;
+        color: #AB9EB8;
+    }
+
+    .arrow_up_down{
+        color: black;
+        font-size: 20px;
+        margin-top: 0px;
+    }
+    .date{
+        margin-top: 15px;
+         font-size: 13px;
+         margin: auto;
+         display: table;
+         margin-top: 17px;
+    }
+    .amount_col{
+        text-align: right;
+        padding: 0px;
+    }
+    .ticket_purchase{
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0px;
+    }
+    .rupees{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .internet_fees{
+        font-size: 13px;
+        padding: 0px;
+    }
+    .book_fees{
+        font-size: 11px;
+         color: #a2a2a2;
+    }
+    .gst_fees{
+        font-size: 11px;
+         color: #a2a2a2;
+         line-height: 2;
+    }
+    .hr_line{
+    
+        width: 95%;
+        background-color: #a2a2a2;
+        margin-top: 7px;
+     }
+     .ticket_select_type{
+        margin: auto;
+        display: table;
+        font-size: 17px;
+        margin-top: 25px;
+        color: #989898;
+     }
+     .div_type{
+        width: 80%;
+        margin: auto;
+        display: table;
+        text-align: center;
+     }
+     .ticket_pick{
+        margin: auto;
+        display: table;
+        font-size: 12px;
+
+     }
+     .radio_group_grid{
+        width: 85%;
+        padding:5px 3px 5px 0px;
+        margin-top: 10px;
+     }
+     .m-Ticket_col{
+        padding: 5px 1px ;
+     }
+     .box-Office{
+        padding: 5px 0px 0px 3px;
+     }
+     .radio_btn{
+        border-radius: 5px;
+        border: 1px solid black;
+        height: 46px;
+        font-size: 14px;
+        padding-left: 8px;
+     }
+     label, input, select, textarea{
+        font-size: 13px;
+        line-height: 4; 
+     }
+     .item-md .radio-md{
+        position: absolute;
+     }
+     .item-radio.item-md ion-label{
+        margin-left: 25px;
+        font-size: 13px;
+      }
+      .item-radio-checked.item-md ion-label{
+        color: black;
+       }
+      .radio-md .radio-checked{
+        border-color: #2BB98E;
+        width: 20px;
+        height: 20px;
+       }
+       .radio-md .radio-inner{
+        background-color: #2BB98E;
+        width: 12px;
+        height: 12px;
+       }
+    //  .item-radio-checked.item-md ion-label{
+    //     // margin: auto;
+    //     // display: table;
+    //     // font-size: 12px;
+    //  }
+     .item-cover{
+         position: relative;
+     }
+     .total_span{
+        margin-right: 58px;
+     }
+    .submit{
+        width: 275px;
+        margin: auto;
+        display: table;
+        background: linear-gradient(#a32d66, #c22e5e);
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .select-text{
+        min-width: fit-content;
+    }
+    .item-md{
+            padding-left:0px;
+    }
+    .item-md.item-block .item-inner{
+        border-bottom: none;
+    }
+    .select-md{
+        padding: 0px; 
+    }
+   
+    .xyz{
+        display: none !important;
+    }
+    .select-icon{
+        display: none !important;
+    }
+    ion-select{
+        max-width: 100%;
+    }
+    // select {
+    //     border:none;
+    //    background-color: transparent;
+    //    font-size: 14px;
+    //    color: #39f;
+    //  }
+    .radio-md .radio-icon{
+        margin-left: 5px;
+    }
+    .select-text{
+        color: #0078ff;
+    }
+}

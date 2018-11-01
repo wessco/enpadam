@@ -1,0 +1,567 @@
+<!--
+  Generated template for the PaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="detail_div">
+  <div class="share_div">Share your Contact Details</div>
+</div>
+
+<div class="input_div">
+  <input type="text" placeholder="Email Address" id="email" [(ngModel)]="pay.email" class="txtbox">
+
+  <input type="number" placeholder="Moblie Number" id="mob_numb" [(ngModel)]="pay.mobilenumber"  class="txtbox">
+
+  <button  ion-button class="submit" id="verifybook" (click)="ticketsend()">CONTINUE</button>
+</div>
+<div class="ticket_purchase toggle_ticket" style="display: none;">
+   <!-- {{email}} {{mobilenumber}} -->
+<div style="padding-top: 10px;"> <span class="ticket_span">Send Tickets to</span> {{pay.email}} /{{pay.mobilenumber}}</div>
+</div>
+
+<ion-grid class="login_social">
+  <ion-row>
+    <ion-col col-8 style="padding: 0px;">
+        <div  class="quikpay"> 
+            Please login to use MyWallet or Quikpay
+        </div>
+     </ion-col>
+     <ion-col col-4 style="padding: 0px;">
+        <button  ion-button class="login"  (click)="loginuser()">LOGIN</button>
+        <!-- (click)="presentProfileModal()" -->
+     </ion-col>
+  </ion-row>
+</ion-grid>
+
+<button  ion-button class="promocode_btn toggleClass" (click)="paymentlist()" >
+<ion-grid >
+  <ion-row>
+    <ion-col col-1 style="padding: 0px;">
+        <div>
+            <ion-icon name="ios-arrow-down" class="arrow_up_down"></ion-icon> 
+        </div>
+    </ion-col>
+    <ion-col col-11 style="padding: 0px;">
+        <div class="offers_div">Unlock offers or Apply Promocodes</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</button>
+
+<button  ion-button class="promocode_btn toggleClass1" (click)="cardlist()" >
+  <ion-grid >
+    <ion-row>
+      <ion-col col-1 style="padding: 0px;">
+          <div>
+              <ion-icon name="ios-arrow-down" class="arrow_up_down"></ion-icon> 
+          </div>
+      </ion-col>
+      <ion-col col-7 style="padding: 0px;">
+          <div class="offers_div">More Payment options</div>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+  </ion-grid>
+  </button>
+
+<div class="toggle" style="display: none;">
+    <div>
+        <ion-segment [(ngModel)]="relationship"> 
+
+          <ion-segment-button  value="Offer Code"> Offer Code </ion-segment-button>
+
+          <ion-segment-button value="Credit/ Debit/ Netbanking" > Credit/Debit <br> Netbanking</ion-segment-button>
+
+          <ion-segment-button value="Mobile Operators" > Mobile <br> Operators </ion-segment-button>
+
+           <ion-segment-button value="Others" >Others</ion-segment-button>
+
+           </ion-segment>  
+      </div>
+
+      <hr class="hr_line">
+
+      <div [ngSwitch]="relationship">
+ 
+            <div *ngSwitchCase="'Offer Code'">
+
+                    <div class="discount">Apply for Tickelite Offer/Discount</div>
+              
+                    <div class="check_div">
+                      <input type="text" placeholder="Enter your other Code"  [(ngModel)]="pay.code" class="txtbox">
+                      <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                    </div>   
+              </div>
+    
+          <div *ngSwitchCase="'Credit/ Debit/ Netbanking'">
+            <div class="discount">
+                Please select an Offer below
+            </div>
+
+            <div class="div_line">
+                <span class="span">
+                    POPULAR CARDS
+                </span>
+              </div> 
+
+              <ion-grid radio-group style="margin-top: 10px;">
+                    <ion-row>
+                      <ion-col col-6 (click)="bankinfo()">
+                          <ion-item class="radio_btn">
+                              <ion-label> Citibank World Debit <br> Card - Buy One Get One Free <div style="color: #B098A0;">Debit Card</div>  </ion-label>
+                              <ion-radio value="CitibankDebit" ></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                      <ion-col col-6 (click)="bankinfo1()">
+                          <ion-item class="radio_btn">
+                              <ion-label> SBI Signature/  Elite <br> card offer  <div style="color: #B098A0;">Credit Card</div> </ion-label>
+                              <ion-radio value="SBIoffer"></ion-radio>
+                        </ion-item>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                            <ion-col col-6 (click)="bankinfo2()">
+                                <ion-item class="radio_btn">
+                                    <ion-label> ICICI Bank Buy 1 Get 1 <br> Offer - Credit <div style="color: #B098A0;">Credit Card</div>  </ion-label>
+                                    <ion-radio value="ICICIBank " ></ion-radio>
+                                  </ion-item>
+                              </ion-col>
+                            <ion-col col-6 (click)="bankinfo3()">
+                                <ion-item class="radio_btn">
+                                    <ion-label> ICICI Bank Buy 1 Get 1 <br> Offer - Debit  <div style="color: #B098A0;">Debit Card </div> </ion-label>
+                                    <ion-radio value="ICICIDebit"></ion-radio>
+                              </ion-item>
+                            </ion-col>
+                          </ion-row>
+                  </ion-grid>
+              <!-- ------------------------------------------------------------------------ -->
+                <div class="toggle1 tog_div " style="display: none;" >
+                  <div class="discount">Citibank World Debit Card - Buy One Get One Free </div>
+              
+                  <div class="check_div">
+                    <input type="text" placeholder="Please enter your card number" class="txtbox">
+                    <button  ion-button class="submit" (click)="checkcode()" >CHECK</button>
+                  </div> 
+                </div>
+
+                <div class="toggle2 tog_div " style="display: none;">
+                    <div class="discount">SBI Signature/  Elite card offer </div>
+                
+                    <div class="check_div">
+                      <input type="text" placeholder="Please enter your card number" class="txtbox">
+                      <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                    </div> 
+                  </div>
+
+                  <div class="toggle3 tog_div" style="display: none;">
+                      <div class="discount">ICICI Bank Buy 1 Get 1 Offer - Credit </div>
+                  
+                      <div class="check_div">
+                        <input type="text" placeholder="Please enter your card number" class="txtbox">
+                        <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                      </div> 
+                    </div>
+
+                    <div class="toggle4 tog_div " style="display: none;" >
+                        <div class="discount">ICICI Bank Buy 1 Get 1 Offer - Debit </div>
+                    
+                        <div class="check_div">
+                          <input type="text" placeholder="Please enter your card number" class="txtbox">
+                          <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                        </div> 
+                      </div>
+                  <!-- ---------------------------------------------------------------- -->
+                  <div class="div_line">
+                        <span class="span">
+                            ALL OFFERS
+                        </span>
+                      </div> 
+
+                      <div class="check_div">
+                      <select name="select_offer"  class="txtbox1">
+                        <option value="-1" selected>SELECT OFFER</option>
+                        <option value="RBLCC1015">RBL Bank 10% Discount</option>
+                        <option value="UNION1017">Union Bank Debit and Credit card offer</option>
+                        <option value="SIB1217">South Indian Bank Debit Card Offer</option>
+                        <option value="SBIDB0718">SBI Platinum Debit Card Offer</option>
+                        <option value="AXASAP1017">Axis Asap Virtual Card Offer</option>
+                        <option value="YESPR0917">Yes Private Credit Card Offer</option>
+                        <option value="ICIFM0818">ICICI Bank Family Debit Card Offer</option>
+                        <option value="VIP0116">VIP – VISA Infinite Program</option>
+                        <option value="VISIN0511">IndusInd Bank Debit Card Offer</option>
+                        <option value="CITI1214">Citibank Platinum Debit Card - Rs.100 off</option>
+                        <option value="AXSNEO0415">Axis Bank Neo Credit Card Offer</option>
+                        <option value="INDUS0313">IndusInd Bank Indulge/Crest/Heritage Credit Card offer</option>
+                        <option value="YES0516">YES FIRST and YES Premia Credit Card 25% Off</option>
+                      </select><br>
+                      </div>
+          </div>
+
+    
+
+
+          <div *ngSwitchCase="'Mobile Operators'">
+              <div class="discount"> Please select an Offer below</div>
+              <div class="div_line">
+                  <span class="span">AVAILABLE</span>
+                </div> 
+             
+                <ion-grid radio-group style="margin-top: 10px;" >
+                    <ion-row>
+                      <ion-col col-6 (click)="mobileinfo1()">
+                          <ion-item class="radio_btn">
+                              <ion-label>Idea Select Postpaid <br> Blockbuster bonanza offer  </ion-label>
+                              <ion-radio value="Citibank World Debit " ></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                      <ion-col col-6 (click)="mobileinfo2()">
+                          <ion-item class="radio_btn">
+                              <ion-label>Idea Select Prepaid <br> Blockbuster bonanza offer </ion-label>
+                              <ion-radio value="Idea Select Prepaid"></ion-radio>
+                        </ion-item>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                            <ion-col col-6 (click)="mobileinfo3()">
+                                <ion-item class="radio_btn">
+                                    <ion-label> Idea Select <br> Prepaid Matinee Offer  </ion-label>
+                                    <ion-radio value="ICICI Bank " ></ion-radio>
+                                  </ion-item>
+                              </ion-col>
+                            <ion-col col-6 (click)="mobileinfo4()">
+                                <ion-item class="radio_btn">
+                                    <ion-label> Idea Select Postpaid <br> Matinee Offer </ion-label>
+                                    <ion-radio value="ICICI Debit"></ion-radio>
+                              </ion-item>
+                            </ion-col>
+                          </ion-row>
+                  </ion-grid>
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+                  <div class="toggle1 tog_div " style="display: none;" >
+                      <div class="discount">Idea Select Postpaid Blockbuster bonanza offer </div>
+                      <button  ion-button class="submit"  (click)="sendotp()">SEND OTP</button>
+                      <div class="otp_containt">The OTP will be sent only to valid Idea numbers.</div>
+                      <div class="check_div">
+                        <input type="text" placeholder="Please enter the otp" id="otp" [(ngModel)]="otp.number" class="txtbox">
+                        <button  ion-button class="submit"  (click)="checkcode()">CHECK</button>
+                      </div> 
+                    </div>
+
+                    <div class="toggle2 tog_div " style="display: none;" >
+                        <div class="discount">Idea Select Prepaid Blockbuster bonanza offer </div>
+                        <button  ion-button class="submit"  (click)="sendotp()" >SEND OTP</button>
+                        <div class="otp_containt">The OTP will be sent only to valid Idea numbers.</div>
+                        <div class="check_div">
+                          <input type="text" placeholder="Please enter the otp" id="otp" [(ngModel)]="otp.number" class="txtbox">
+                          <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                        </div> 
+                      </div>
+
+                      <div class="toggle3 tog_div " style="display: none;" >
+                          <div class="discount">Idea Select Prepaid Matinee Offer</div>
+                          <button  ion-button class="submit"  (click)="sendotp()">SEND OTP</button>
+                          <div class="otp_containt">The OTP will be sent only to valid Idea numbers.</div>
+                          <div class="check_div">
+                            <input type="text" placeholder="Please enter the otp" id="otp" [(ngModel)]="otp.number" class="txtbox">
+                            <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                          </div> 
+                        </div>
+                        
+                        <div class="toggle4 tog_div " style="display: none;" >
+                            <div class="discount">Idea Select Postpaid Matinee Offer </div>
+                            <button  ion-button class="submit"  (click)="sendotp()">SEND OTP</button>
+                            <div class="otp_containt">The OTP will be sent only to valid Idea numbers.</div>
+                            <div class="check_div">
+                              <input type="text" placeholder="Please enter the otp" id="otp" [(ngModel)]="otp.number" class="txtbox">
+                              <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                            </div> 
+                          </div>
+                      <!-- ----------------------- -->
+
+                  <div class="div_line">
+                      <span class="span">SOLD OUT / UNAVAILABLE</span>
+                    </div> 
+                    <ion-grid radio-group style="margin-top: 10px;" >
+                        <ion-row>
+                          <ion-col col-6 >
+                              <ion-item class="radio_btn">
+                                  <ion-label>Idea Postpaid Live <br> Entertainment Offer </ion-label>
+                                  <ion-radio value="Citibank Entertainment "  disabled="true" ></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                          <ion-col col-6 >
+                              <ion-item class="radio_btn">
+                                  <ion-label>Idea Prepaid Live <br> Entertainment offer </ion-label>
+                                  <ion-radio value="Idea Select offer Live"  disabled="true"></ion-radio>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                    </ion-grid>
+          </div>
+
+          <div *ngSwitchCase="'Others'">
+
+              <div class="discount"> Please select an Offer below</div>
+
+              <div class="div_line">
+                  <span class="span">AVAILABLE</span>
+                </div> 
+
+                
+              <div style="margin-top: 30px;padding-left: 10px;" (click)="otherinfo()" >
+                <ion-item class="radio_btn">
+                    <ion-label>Angel Broking Welcome Offer </ion-label>
+                    <ion-radio value="Idea Select Live"></ion-radio>
+              </ion-item>
+            </div>
+          
+<!-- ---------------------------------- -->
+            <div class="toggle1 tog_div " style="display: none;" >
+                <div class="discount">Angel Broking Welcome Offer</div>
+                <div class="check_div">
+                  <input type="text" placeholder="Enter the Client Id/ Client Code " class="txtbox">
+                  <button  ion-button class="submit" (click)="checkcode()">CHECK</button>
+                </div> 
+              </div>
+
+          </div>
+
+      </div>
+    </div>
+<!-- ==================== -->
+
+    <div class="toggle_card" style="display: none;">
+      <div>
+          <ion-segment [(ngModel)]="relationship1"> 
+  
+            <ion-segment-button  value="Credit/Debit Card"> Credit/ <br> Debit Card </ion-segment-button>
+  
+            <ion-segment-button value="Net Banking"> Net <br> Banking</ion-segment-button>
+  
+            <ion-segment-button value="Quick Checkout" > Quick <br> Checkout </ion-segment-button>
+  
+             <ion-segment-button value="Mobile Wallets"> Mobile <br> Wallets</ion-segment-button>
+  
+             </ion-segment>  
+        </div>
+
+        <hr class="hr_line">
+
+      <div [ngSwitch]="relationship1">
+ 
+         <div *ngSwitchCase="'Credit/Debit Card'">
+            <h4 class="h4">Enter your Card details</h4>
+                <div class="card_detail">
+                    <div class="card_number">card Number</div>
+                        <div class="input_div2">
+                          <input type="text" placeholder="Enter your card number" class="txtbox2">
+
+                           <input type="text" placeholder="Name on the card" class="txtbox2">
+                        </div>
+                        <div class="expiry">Expiry<span class="cvv">CVV</span></div>
+                        
+          <ion-grid class="input_div_grid">
+              <ion-row>
+                <ion-col style="padding: 0px 16px 3px;">
+                    <input type="text" placeholder="MM" class="txtbox2 three_input_text">
+                </ion-col>
+                <ion-col style="padding: 0px 0px 3px;">
+                     <input type="text" placeholder="YY" class="txtbox2 three_input_text">
+                </ion-col>
+                <ion-col></ion-col>
+                
+                <ion-col style="padding: 0px 5px 3px;">
+                    <input type="text" placeholder="CVV" class="txtbox2 three_input_text">
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+                </div>  
+            <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+      </div>
+
+          <div *ngSwitchCase="'Net Banking'">
+              <h4 class="h4">Pay using Net Banking</h4>
+            <ion-grid radio-group style="margin-top: 10px;">
+                <ion-row>
+                    
+                    <ion-col>
+                        <ion-item class="radio_btn">
+                            <ion-label><img src="assets/imgs/kotak.png" class="bank_img"> </ion-label>
+                            <ion-radio value="kotak"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+                   
+                   <ion-col>
+                      <ion-item class="radio_btn">
+                        <ion-label> <img src="assets/imgs/hdfc.png" class="bank_img"></ion-label>
+                        <ion-radio value="hdfc" ></ion-radio>
+                      </ion-item>
+                   </ion-col>
+              </ion-row>
+
+              <ion-row>
+                  <ion-col>
+                     <ion-item class="radio_btn">
+                         <ion-label> <img src="assets/imgs/icici.png" class="bank_img"> </ion-label>
+                         <ion-radio value="icici" ></ion-radio>
+                       </ion-item>
+                  </ion-col>
+                  <ion-col>
+                     <ion-item class="radio_btn">
+                       <ion-label> <img src="assets/imgs/idbl.png" class="bank_img"></ion-label>
+                       <ion-radio value="idbl" ></ion-radio>
+                     </ion-item>
+                  </ion-col>
+             </ion-row>
+
+             <ion-row>
+                <ion-col>
+                   <ion-item class="radio_btn">
+                       <ion-label> <img src="assets/imgs/pnjab.png" class="bank_img"> </ion-label>
+                       <ion-radio value="pnjab" ></ion-radio>
+                     </ion-item>
+                </ion-col>
+                <ion-col>
+                   <ion-item class="radio_btn">
+                     <ion-label> <img src="assets/imgs/sbi.png" class="bank_img"></ion-label>
+                     <ion-radio value="sbi" ></ion-radio>
+                   </ion-item>
+                </ion-col>
+           </ion-row>
+
+           <ion-row>
+              <ion-col>
+                 <ion-item class="radio_btn">
+                     <ion-label> <img src="assets/imgs/scb.png" class="bank_img"> </ion-label>
+                     <ion-radio value="scb" ></ion-radio>
+                   </ion-item>
+              </ion-col>
+              <ion-col>
+                 <ion-item class="radio_btn">
+                   <ion-label> <img src="assets/imgs/axis.png" class="bank_img"></ion-label>
+                   <ion-radio value="axis" ></ion-radio>
+                 </ion-item>
+              </ion-col>
+         </ion-row>
+            </ion-grid>
+            <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+          </div>
+
+
+          <div *ngSwitchCase="'Quick Checkout'">
+
+              <h4 class="h4">Pay using Quick Checkout</h4>
+
+            <ion-grid radio-group  [(ngModel)]="paypalcash" (ionChange)="radio_grid1()">
+                <ion-row>
+                    <ion-col>
+                        <ion-item class="radio_btn1">
+                            <ion-label> <img src="assets/imgs/paypal.png" class="bank_img1"></ion-label>
+                            <ion-radio value="paypal" ></ion-radio>
+                          </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item class="radio_btn1">
+                            <ion-label> <img src="assets/imgs/amexeze.png" class="bank_img1"></ion-label>
+                            <ion-radio value="ezeapp" ></ion-radio>
+                          </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <div class="div_type">
+                <div *ngIf="paypal" class="ticket_pick">
+                    PayPal - Sign up with PayPal and get Rs 300 cashback on first transaction (Ensure your PayPal A/c email id is the same as BookMyShow email id)</div>
+                <div *ngIf="ezeapp" class="ticket_pick">ezeClick provides American Express Cardmembers with an easy and fast method to complete their online purchase. All you need to do is create a unique ID - a one-time process. You will not have to refer to your card plastic for any future online transactions. You need to simply enter the ezeClick User ID. The transaction process is fast, safe and secure. Also, you get to Sync multiple American Express Cards to this account.
+                  </div>
+            </div> 
+
+            <div class="check_div">
+                <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+              </div> 
+          </div>
+
+
+          <div *ngSwitchCase="'Mobile Wallets'">
+              <h4 class="h4">Pay using by Wallets</h4>
+              <ion-grid radio-group style="margin-top: 10px;">
+                  <ion-row>
+                     <ion-col>
+                        <ion-item class="radio_btn" (click)="paymobile1()">
+                            <ion-label> <img src="assets/imgs/amazon.jpg" class="bank_img"> </ion-label>
+                            <ion-radio value="amazon" ></ion-radio>
+                          </ion-item>
+                     </ion-col>
+                     <ion-col>
+                        <ion-item class="radio_btn" (click)="paymobile2()">
+                          <ion-label> <img src="assets/imgs/mobikwik.jpg" class="bank_img"></ion-label>
+                          <ion-radio value="mobikwik" ></ion-radio>
+                        </ion-item>
+                     </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                    <ion-col>
+                       <ion-item class="radio_btn" (click)="paymobile3()">
+                           <ion-label> <img src="assets/imgs/freecharge.png" class="bank_img"> </ion-label>
+                           <ion-radio value="freecharge" ></ion-radio>
+                         </ion-item>
+                    </ion-col>
+                    <ion-col>
+                       <ion-item class="radio_btn" (click)="paymobile4()">
+                         <ion-label> <img src="assets/imgs/paytm.png" class="bank_img"></ion-label>
+                         <ion-radio value="paytm" ></ion-radio>
+                       </ion-item>
+                    </ion-col>
+               </ion-row>
+              </ion-grid>
+              <!-- ====================== -->
+              <div class="toggle1 tog_div " style="display: none;" >
+                  <div class="discount">Amazon Pay - Up to Rs 120* cashback, Amazon mobile verified customers only </div>
+                  <div class="otp_containt">Amazon Pay- Get up to Rs 120* cashback</div>
+                  <div class="check_div">
+                    <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+                  </div> 
+                </div>
+
+                <div class="toggle2 tog_div " style="display: none;" >
+                    <div class="discount">Mobikwik - Get up to Rs. 150 SuperCash Offer </div>
+                    <div class="otp_containt">Get 10% SuperCash up to Rs.150 when you pay using Mobikwik wallet</div>
+                    <div class="check_div">
+                      <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+                    </div> 
+                  </div>
+
+                  <div class="toggle3 tog_div " style="display: none;" >
+                      <div class="discount">FreeCharge </div>
+                      <!-- <div class="otp_containt">Get 10% SuperCash up to Rs.150 when you pay using Mobikwik wallet</div> -->
+                      <div class="check_div">
+                        <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+                      </div> 
+                    </div>
+
+                    <div class="toggle4 tog_div " style="display: none;" >
+                        <div class="discount">Paytm </div>
+                        <!-- <div class="otp_containt">Get 10% SuperCash up to Rs.150 when you pay using Mobikwik wallet</div> -->
+                        <div class="check_div">
+                          <button  ion-button class="submit"  (click)="checkcode()">MAKE PAYMENT</button>
+                        </div> 
+                      </div>
+          </div>
+    </div>
+</div>
+
+</ion-content>

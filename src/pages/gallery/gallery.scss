@@ -1,0 +1,61 @@
+page-gallery {
+    .picture{
+    display: block;
+    width: 100%;
+    height: 50%;
+    }
+    .row_margin{
+        margin-top: 20px;
+    }
+    .all_col_padding{
+        padding: 0px;
+    }
+    .movie_name{
+    line-height: 0px;
+    font-size: 22px;
+    font-weight: 600;
+    }
+    .tamil{
+        background-color: #005569;
+        height: 22px;
+        width: 40px;
+        border-radius: 20px;
+        font-size: 12px;
+        margin-top: 0px;
+    }
+    .commedy{
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 50px;
+    margin-top: -22px;
+    }
+    .commedy1{
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 30px;
+        margin-top: -22px;
+        }
+    .distribute{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 0px;
+    }
+
+    .descript{
+        margin-left: 6px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .div_contain{
+        margin-top: -10px;
+    }
+    .btn_submit{
+        width: 45%;
+        border-radius: 12px;
+        margin: auto;
+        display: table;
+        background: linear-gradient(#a32d66, #c22e5e);
+        margin-top: 20px;
+    }
+
+}

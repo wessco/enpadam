@@ -1,0 +1,263 @@
+page-seatslayout {
+    .back_img{
+        -webkit-box-shadow: inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+        -moz-box-shadow:    inset -352 0px 21px 45px rgba(50, 48, 50, 0.88);
+        box-shadow:         inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+                            // inset -352px 0px 21px 27px rgba(50, 48, 50, 0.79);
+                            // box-shadow: inset -352px 0px 21px 27px rgba(50, 48, 50, 0.88);
+}
+    // .row_css_seatslayout{
+    //     margin: auto;
+    //     display: table;
+    //     // border: 1px solid white;
+    //     margin-top: 10px;
+    // }
+.screen_png{
+    margin-top: 40px;
+    height: 35px;
+}
+    .background_div{
+        background-color: #232539;
+        height: 70px;
+    }
+    .all_col_padding{
+        padding: 0px;
+    }
+    .Cinema_title{
+        font-size: 12px;
+        color: white;
+    }
+    .Children_ticket{
+        margin-right: 10px;
+        font-size: 18px;
+        color: white;
+        text-align: center;
+        padding-top: 22px;
+    }
+    .Children_ticket1{
+
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 20px;
+        font-size: 15px;
+        color: white;
+    }
+    .time_set_div{
+        background-color: #F5F5FA;
+    }
+    .date_list{
+        width: 90%;
+        margin: auto;
+        display: table;
+        background-color: #F5F5FA;
+    }
+    .date_time_label{
+        color: black;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .title_PLATINUM{
+        padding-top: 15px;
+        padding-left: 5px;
+        color: #AB9EB8;
+    }
+    .title_gold{
+        padding-top: 15px;
+        padding-left: 5px;
+        color: #AB9EB8;
+    }
+    .selected_bookbutton{
+        background-color: #07C393;
+        border: 1px solid #07C393;
+        padding: 10px;  
+
+    }
+    .unselected_bookbutton{
+        background-color: transparent;
+        padding: 10px;  
+        border: 1px solid #07C393;
+    }
+    .title_a{
+        color: #AB9EB8;
+        font-size: 16px;
+        margin-top: 6px;
+    }
+    .title_section{
+        color: #AB9EB8;
+        font-size: 16px;
+        margin-top: 6px;
+        margin-right: 10px;
+    }
+    .selected_ticketbutton{
+        background-color:#07C393;
+        border: 1px solid #D7D7D7;
+        padding: 10px;  
+        height: 25px;
+        width: 20px;
+        border-radius: 8px;
+        // border: 1px solid black;
+
+    }
+    .unselected_ticketbutton{
+        background-color: transparent;
+        padding: 10px;  
+        border: 1px solid #a6a6a6;
+        height: 25px;
+        width: 20px;
+        border-radius: 8px;
+        border: 1px solid black;
+    }
+
+    .selected_goldticketbutton{
+        background-color:#D7D7D7;
+        border: 1px solid #D7D7D7;
+        padding: 10px;  
+        height: 25px;
+        width: 20px;
+        border-radius: 8px;
+        // border: 1px solid black;
+
+    }
+    .unselected_goldticketbutton{
+        background-color: transparent;
+        padding: 10px;  
+        border: 1px solid #a6a6a6;
+        height: 25px;
+        width: 20px;
+        border-radius: 8px;
+        border: 1px solid black;
+    }
+    
+    .arrow-back{
+        color: white;
+        font-size: 30px;
+        font-weight: 300;
+    }
+
+    .arrow_up_down{
+        color: white;
+        font-size: 25px;
+        // margin-top: 13px;
+    }
+    .available{
+        font-size: 15px;
+        color: white;
+        // color: #30CEA7;
+     }
+     .time_btn{
+        padding: 10px;    
+        border-color: gray;
+        border: 1px solid #07C393;
+      
+     }
+    
+     .item-md{
+        background-color: #F5F5FA;
+     }
+     .hr_line{
+        margin-top: 10px;
+        width: 95%;
+        height: 1px;
+        color: #F8F8F8;
+        }
+        // .seat_block{
+        //     height: 25px;
+        //     width: 20px;
+        //     border-radius: 8px;
+        //     background-color: #D7D7D7;
+        //     color: black;
+        //     padding: 0px 10px;
+        //  }
+         .seat_block1{
+            height: 22px;
+            width: 22px;
+            border-radius: 8px;
+            border: 1px solid black ;
+            // background-color: #D7D7D7;
+            // color: black;
+            padding: 0px 0px;
+            // border: 1px solid black;
+         }
+         .time_btn .button-inner{
+             color: black;
+         }
+
+         .submit .button-inner{
+            color: black;
+            font-size: 15px;
+        }
+        .button-inner{
+            color: black;
+            font-size: 10px;
+        }
+    // .block_number{
+    // height: 25px;
+    // width: 20px;
+    // border-radius: 8px;
+    // background-color: #D7D7D7;
+    //  }
+// .row_ticketblock{
+//     // overflow: auto;
+//     // white-space: nowrap;
+//     // display: inline-block;
+// }
+// .ticketblock .ion-col{
+//     // display: inline-block;
+//     // white-space: nowrap;
+
+// }   
+
+
+.imageDiv .col_block {
+    box-shadow: 1px 1px 10px #999;
+    margin: 2px;
+    max-height: 60px;
+    cursor: pointer;
+    display:inline-block;
+    *display:inline;/* For IE7*/
+    *zoom:1;/* For IE7*/
+    vertical-align:top;
+    white-space: nowrap;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+
+ }
+ .imageDiv{
+    margin-top: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 60px;
+    white-space:nowrap
+ }
+//  .button-md{ 
+//     margin-top: 15px;
+//     width: 100%;
+//     height: 40px;
+//     border-radius: 5px;
+//     font-size: 16px;
+//     font-weight: bold;
+//     border-color: #c22e5e;
+//     background: linear-gradient(#a32d66, #c22e5e);
+//     // background-color: #BB3161;
+// }
+.submit{
+        width: 83%;
+        border-radius: 12px;
+        margin: auto;
+        display: table;
+        background: linear-gradient(#a32d66, #c22e5e);
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+   
+    .submit .content-md{
+    color: #000;
+    background-color: transparent;
+    }
+    .content-md{
+        color: #000;
+        background-color:white;
+    }
+}

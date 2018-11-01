@@ -1,0 +1,94 @@
+page-sociallogin {
+
+    .model_color{
+        height: 370px !important;
+        width: 95% !important;
+        background-color: white;
+        margin: auto;
+        margin-top: 40%;
+        box-shadow: 1px 1px 10px -1px #999999 !important;
+        }
+        .close_btn{
+            text-align: right;
+            padding-right: 10px;
+            padding-top: 6px;
+            font-size: 20px;
+            font-weight: 900;
+         }
+         .login{
+            margin: auto;
+            display: table;
+            font-size: 16px;
+         }
+         .facebook_div{
+            position: relative;
+            width: 95%;
+            height: 45px;
+            background-color: #3b57a1;
+            margin: auto;
+            margin-top: 17px;
+         }
+         .facebook_img{
+            max-width: 100%;
+            border: 0;
+            margin-top: 10px;
+            padding-left: 10px;
+         }
+        .facebook{
+            position: absolute;
+            top: 0;
+            padding: 13px 0;
+            color: #fff;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+           
+        }
+        .google_div{
+            position: relative;
+            width: 95%;
+            height: 45px;
+            background-color: #ffffff;
+            margin: auto;
+            border: 1px solid #ebebeb;
+            margin-top: 7px;
+         }
+         .google{
+            position: absolute;
+            top: 0;
+            padding: 13px 0;
+            color: #666;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+        }
+        .txtbox{
+
+            width: 95%;
+            margin: auto;
+            display: table;
+            margin-top: 20px;
+            background-color: #ffffff;
+            height: 40px;
+            font-size: 13px;
+            border:none;
+            padding-left: 10px;
+            }
+            .hr_line{
+        
+                width: 95%;
+                height: 1px;
+                background-color: gray;
+                margin-top: 0px;
+                
+            }
+            .last_btn{
+                width: 95%;
+                height: 45px;
+                margin: auto;
+                display: table;
+                margin-bottom: 8px;
+                border-radius: 5px;
+                margin-top: 22px;
+             }
+        }

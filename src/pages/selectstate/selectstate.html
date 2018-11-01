@@ -1,0 +1,153 @@
+<!--
+  Generated template for the SelectstatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>selectstate</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: rgba(0, 0, 0, 0.67);"  >
+
+    <div class="model_color">
+      <ion-grid>
+          <ion-row>
+              <ion-col col-9>
+                  <div class="title">SELECT YOUR STATE  </div>
+                  
+              </ion-col>
+              <ion-col col-3>
+                  <div class="close_btn">
+                      <ion-icon name="md-close" (click)="close()"></ion-icon>
+                    </div>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  
+      <!-- <ion-grid radio-group style="margin-top: 10px;" >
+          <ion-row>
+            <ion-col >
+                <ion-item class="radio_btn">
+                    <ion-radio value="Delhi" ></ion-radio>
+                    <ion-label>Delhi</ion-label>
+                  </ion-item>
+              </ion-col>   
+          </ion-row>
+
+          <ion-row>
+                  <ion-col >
+                      <ion-item class="radio_btn">
+                          <ion-label> Goa</ion-label>
+                          <ion-radio value="Goa" ></ion-radio>
+                        </ion-item>
+                </ion-col>
+         </ion-row>
+
+          <ion-row>
+              <ion-col >
+                  <ion-item class="radio_btn">
+                      <ion-label> Bihar</ion-label>
+                      <ion-radio value="Bihar" ></ion-radio>
+                  </ion-item>
+         </ion-col>
+
+          </ion-row>
+                  <ion-row>
+                      <ion-col >
+                          <ion-item class="radio_btn">
+                              <ion-label> Gujarat</ion-label>
+                              <ion-radio value="Gujarat" ></ion-radio>
+                            </ion-item>
+                    </ion-col>
+            </ion-row>
+
+                 
+            <ion-row>
+                <ion-col >
+                    <ion-item class="radio_btn">
+                        <ion-label> Karnataka</ion-label>
+                        <ion-radio value="Karnataka" ></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+                    
+            <ion-row>
+                <ion-col >
+                    <ion-item class="radio_btn">
+                        <ion-label> Lakshwadeep</ion-label>
+                        <ion-radio value="Lakshwadeep" ></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col >
+                    <ion-item class="radio_btn">
+                        <ion-label> Maharashtra</ion-label>
+                        <ion-radio value="Maharashtra" ></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col >
+                    <ion-item class="radio_btn">
+                        <ion-label> Punjab</ion-label>
+                        <ion-radio value="Punjab" ></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+       -->
+      
+        <ion-item>
+            <ion-label>Toppings</ion-label>
+            <ion-select [(ngModel)]="toppings" multiple="false">
+              <ion-option>Bacon</ion-option>
+              <ion-option>Black Olives</ion-option>
+              <ion-option>Extra Cheese</ion-option>
+              <ion-option>Mushrooms</ion-option>
+              <ion-option>Pepperoni</ion-option>
+              <ion-option>Sausage</ion-option>
+            </ion-select>
+          </ion-item>
+      
+
+
+  <!-- <div>Bihar</div>
+  <div>Delhi</div>
+  <div>Goa</div>
+  <div>Gujarat</div>
+  <div>Karnataka</div>
+  <div>Lakshwadeep</div>
+  <div>Maharashtra</div>
+  <div>Punjab</div>
+  <div>Rajasthan</div>
+  <div>Sikkim</div>
+  <div>Tamil-Nadu</div>
+  <div>Uttarakhand</div> -->
+
+    <!-- <select name="select_state" >
+        <option value="-1" selected>select..</option>
+        <option value="Bihar">Bihar </option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Lakshwadeep">Lakshwadeep</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil-Nadu">Tamil-Nadu</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+      </select> -->
+
+      <button  ion-button class="submit"  (click)="ticketbook()"> Submit</button>
+</div>
+
+</ion-content>

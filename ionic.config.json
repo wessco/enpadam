@@ -1,0 +1,8 @@
+{
+  "name": "ticketlite",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "7f07501d"
+}

@@ -1,0 +1,26 @@
+<!--
+    Generated template for the ForgotPage page.
+    See http://ionicframework.com/docs/components/#navigation for more info on
+    Ionic pages and navigation.
+-->
+<!-- <ion-header>
+    <ion-navbar>
+        <ion-title>forgot</ion-title>
+    </ion-navbar>
+</ion-header> -->
+
+<ion-content class="back_img" style="background-image:url('assets/imgs/theatre-owner-bg.jpg')">
+    <div class="background_div">
+        <img src="assets/imgs/ticketlite_logo.png" class="img_set">
+    </div>
+    <div class="second_div">
+        <div class="Retrieve_pwd">Retrieve Password</div>
+        <div class="syntax">Please enter the email address registered on your account.</div>
+        <input type="text" placeholder="Email id" class="txtbox" [(ngModel)]="forgot.emailid" style="margin-top: 10px;">
+    </div>
+
+    <button ion-button class="btn_submit"  (click)="submit()">Submit</button>
+    <div class="check_member">
+        Already a member ?&nbsp;<span (click)="login()">Login</span> 
+    </div>
+</ion-content>

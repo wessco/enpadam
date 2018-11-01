@@ -1,0 +1,183 @@
+<!--
+  Generated template for the BookingsummaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bookingsummary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div style="background-color:#2D4050 ">
+<div class="movie_name">
+  Movie name:{{movie_name}}
+</div>
+<div class="address">
+  {{address1}}
+<!-- Address: 2nd Floor, Phoenix Market City, Velachery Main Road, Velachery, Chennai, Tamil Nadu 600042, India. -->
+</div>
+</div>
+<div class="date">
+ Date: {{display_date}}
+</div><br>
+<!-- <div>
+  <ion-list style="width: 90%;margin: auto;display: table;">
+    <ion-item>
+      <ion-label style="color: black;font-size: 16px;margin-left: 10px;" >Select Date & Time</ion-label>    
+       <ion-datetime
+         displayFormat="DDDD, MMM D YYYY"></ion-datetime>
+     </ion-item> 
+   </ion-list> 
+
+</div> -->
+<ion-grid style="width: 75%;margin-top: 15px;">
+  <ion-row>
+    <ion-col col-9 class="ticket_purchase">
+        PLATINUM- &nbsp;({{tickets}}&nbsp;Tickets) 
+    </ion-col>
+    <ion-col col-3 class="amount_col rupees"  >
+        Rs. {{amount}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top: 6px;">
+      <ion-col col-1 style="padding: 0px;">
+          <div>
+              <ion-icon *ngIf="!arrow" name="ios-arrow-dropdown-outline" class="arrow_up_down" (click)="disablelist()"></ion-icon> 
+              <ion-icon *ngIf="arrow" name="ios-arrow-dropup-outline" class="arrow_up_down" (click)="disablelist()"></ion-icon>
+          </div>
+      </ion-col>
+      <ion-col col-8 class="internet_fees">
+          Internet handling fees 
+      </ion-col>
+      <ion-col col-3 class="amount_col internet_fees">
+        Rs.129
+      </ion-col>
+  </ion-row>
+  <!-- <ion-row>
+    <ion-col class="internet_fees">
+        Internet handling fees 
+    </ion-col>
+    <ion-col class="amount_col internet_fees">
+      Rs.129  
+    </ion-col>
+  </ion-row> -->
+  <ion-row class="toggle" style="display: none;">
+    <ion-col class="book_fees">
+        Booking fees
+        <div class="gst_fees">
+            Integrated GST <br>(IGST)@ 18%
+        </div>
+    </ion-col>
+    <ion-col class="amount_col book_fees">
+        Rs.110
+        <div class="amount_col gst_fees">
+            Rs.19.80
+        </div>
+    </ion-col> 
+    <!-- <div class="gst_fees">
+        Integrated GST <br>(IGST)@ 18%
+    </div>
+    <div class="amount_col gst_fees">
+        Rs.19.80
+    </div> -->
+  </ion-row>
+  <!-- <ion-row>
+    <ion-col class="gst_fees">
+        Integrated GST <br>(IGST)@ 18%
+    </ion-col>
+    <ion-col class="amount_col gst_fees">
+        Rs.19.80
+    </ion-col>
+  </ion-row> -->
+
+  <hr class="hr_line">
+
+  <ion-row>
+    <ion-col>
+        Sub Total
+    </ion-col>
+    <ion-col class="amount_col">
+      Rs.&nbsp;{{totalamount}}
+    </ion-col>
+
+    <ion-row style="margin-top: 10px;width: 100%;">
+        <ion-col col-7 class="vertical_centr">
+          <div>your current state is</div>
+        </ion-col>
+      <ion-col col-5>
+        <!-- your current state is&nbsp;<span (click)="presentProfileModal()">Gujarat</span> -->
+        <ion-item>
+            <!-- <span >Gujarat</span> -->
+          <ion-label class="xyz"> Select Your state</ion-label>
+          <ion-select [(ngModel)]="toppings" multiple="false">
+            <ion-option value="-1" selected>Gujarat</ion-option>
+            <ion-option>Delhi</ion-option>
+            <ion-option>Goa</ion-option>
+            <ion-option>Gujarat</ion-option>
+            <ion-option>Karnataka</ion-option>
+            <ion-option>Lakshwadeep</ion-option>
+            <ion-option>Maharashtra</ion-option>
+            <ion-option>Punjab</ion-option>
+            <ion-option>Rajasthan</ion-option>
+            <ion-option>Sikkim</ion-option>
+            <ion-option>Tamil-Nadu</ion-option>
+            <ion-option>Uttarakhand</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col> 
+    </ion-row>
+    
+  </ion-row>
+</ion-grid>
+
+<div class="ticket_select_type">  
+  SELECT TICKET TYPE
+</div>
+
+
+
+<ion-grid radio-group [(ngModel)]="abc" (ionChange)="radio_grid()" class="radio_group_grid">
+    <ion-row>
+      <ion-col col-6 class="m-Ticket_col">
+          <ion-item class="radio_btn">
+              
+              <ion-label class="vertical_centr"> <img src="assets/imgs/summary_activity_mticket.png" style="height: 25px;" > M-Ticket  </ion-label>
+              <ion-radio value="MTicket" ></ion-radio>
+            </ion-item>
+      </ion-col>
+
+      <ion-col col-6 class="box-Office">
+          <ion-item class="radio_btn">
+              <ion-label class="vertical_centr">  <img src="assets/imgs/ticket-office.png" > <span>Box-Office pickup </span></ion-label>
+              <ion-radio value="Officepickup" >   </ion-radio>
+             </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<div class="div_type">
+ <div *ngIf="MTicket" class="ticket_pick">Download the m-Ticket QR Code on your mobile to enter the cinema. No PrintOut Needed. Entry will not be provided without showing QR code</div>
+ <div *ngIf="Officepickup" class="ticket_pick">Select this option to pick your tickets from Box Office.</div>
+</div>
+
+
+<ion-grid style="width: 75%">
+  <ion-row>
+    <ion-col>
+        <button  ion-button class="submit" (click)="amountprocess()"><span class="total_span">TOTAL:RS.&nbsp;{{totalamount}}</span> 
+          <span>PROCEED</span></button>
+    </ion-col>
+   
+  </ion-row>
+</ion-grid>
+
+
+
+</ion-content>

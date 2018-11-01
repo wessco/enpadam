@@ -1,0 +1,39 @@
+page-movieticket {
+    .movie_img{
+        margin-top: 3px;
+    }
+    .movie_name{
+        font-size: 18px;
+        font-weight: 700;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: white;
+        text-align: center;
+        }
+    .div_span_title{
+        font-size: 16px;
+        font-weight: 600;
+        }
+        .scol {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -moz-box-flex: 1;
+            -moz-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            display: block;
+            // padding: 5px;
+        //  padding-left: 7px;
+            width: 100%; }
+    .submit{
+        margin-left: 260px;
+        margin-top: -20px;
+        margin-bottom: 10px;
+        background: linear-gradient(#a32d66, #c22e5e);
+        height: 33px;
+         width: 100px;
+        }
+        .button-md{
+                 text-transform: none; 
+        }
+}

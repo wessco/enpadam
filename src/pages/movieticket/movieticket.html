@@ -1,0 +1,161 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Mymovieticket</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div style="background-color:#2D4050 ">
+  <div class="movie_name">Booking History</div>
+</div> 
+
+<ion-grid>
+    <ion-row (click)="checkbook('u2.jpg','The Stolen Princess','English |(U/A)','PVR: Grand Galada,Pallavaram','Booked')"> 
+        <ion-col col-3> 
+          <div><img src="assets/imgs/u2.jpg" class="movie_img"></div>
+        </ion-col>
+
+        <ion-col col-9 >
+            <div>
+              <span class="div_span_title"> Movie name: </span>
+              <span>The Stolen Princess  </span>
+            </div>
+
+          <div>
+            <span class="div_span_title"> Theatre name:</span>
+            <span> PVR: Grand Galada,Pallavaram </span>
+          </div> 
+          
+          <div>
+              <span class="div_span_title">MovieLanguage:</span>
+              <span>English |(U/A) </span>
+            </div>
+
+          <div>
+            <span class="div_span_title">Total ticket </span>
+            <span> 2 </span>
+          </div>
+          <div>
+            <span class="div_span_title"> Total </span>
+            <span> Rs.350 </span>
+          </div>
+        </ion-col>
+        <button  ion-button class="submit" >Booked</button> 
+    </ion-row>
+    
+
+
+    <ion-row (click)="checkbook('u3.jpg','Yennai noki paayum thotta','Tamil |(U/A)','PVR: Mayajaal Multiplex: Chennai','Cancelled')" >
+        <ion-col col-3 > 
+          <div class="scol"><img src="assets/imgs/u3.jpg" class="movie_img"></div>
+        </ion-col>
+
+        <ion-col col-9>
+
+            <div>
+              <span class="div_span_title"> Movie name:</span>
+              <span>Yennai noki paayum thotta</span>
+            </div>
+  
+            <div>
+              <span class="div_span_title">Theatre name: </span>
+              <span>PVR: Mayajaal Multiplex: Chennai</span>
+            </div>
+
+            <div>
+                <span class="div_span_title">MovieLanguage:</span>
+                <span>Tamil |(U/A) </span>
+              </div>
+
+            <div>
+              <span class="div_span_title">Total ticket</span>
+              <span>2</span>
+            </div>
+            <div>
+              <span class="div_span_title">Total</span>
+              <span> Rs.350</span>
+            </div>
+        </ion-col>
+        <button  ion-button class="submit" >Cancelled</button>
+    </ion-row>
+
+
+
+    <ion-row (click)="checkbook('u4.jpg','Aquaman','English|(U/A)','Woodlands Complex: Chennai','Booked')"> 
+        <ion-col col-3 > 
+          <div><img src="assets/imgs/u4.jpg" class="movie_img"></div>
+        </ion-col>
+
+        <ion-col col-9>
+
+            <div>
+                <span class="div_span_title"> Movie name: </span>
+                <span>Aquaman</span>
+              </div>
+         
+          <div>
+            <span class="div_span_title"> Theatre name:</span>
+            <span> Woodlands Complex: Chennai</span>
+          </div>
+          
+          <div>
+            <span class="div_span_title">MovieLanguage:</span>
+            <span> English|(U/A) </span>
+          </div>
+          <div>
+            <span class="div_span_title">Total ticket </span>
+            <span> 2 </span>
+          </div>
+          <div>
+            <span class="div_span_title"> Total </span>
+            <span> Rs.350 </span>
+          </div>
+         
+</ion-col>
+<button  ion-button class="submit" >Booked</button>
+    </ion-row>
+
+    <ion-row (click)="checkbook('u5.jpg','Venom','English| (U/A)','Anna Theatre: Mount Road','Cancelled')"> 
+        <ion-col col-3 > 
+          <div><img src="assets/imgs/u5.jpg" class="movie_img"></div>
+        </ion-col>
+
+        <ion-col col-9 >
+
+            <div>
+                <span class="div_span_title"> Movie name: </span>
+                <span>Venom</span>
+              </div>
+         
+          <div>
+            <span class="div_span_title"> Theatre name:</span>
+            <span> Anna Theatre: Mount Road</span>
+          </div> 
+          
+          <div>
+              <span class="div_span_title">MovieLanguage:</span>
+              <span> English| (U/A)</span>
+            </div>
+
+          <div>
+            <span class="div_span_title">Total ticket </span>
+            <span> 2 </span>
+          </div>
+          <div>
+            <span class="div_span_title"> Total </span>
+            <span> Rs.350 </span>
+          </div>
+          
+        </ion-col>
+        <button  ion-button class="submit" >Cancelled</button>
+    </ion-row>
+</ion-grid>
+
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar >
+            <!-- <div class="user-img"></div> -->
+            <div class="ionc" style="margin-top: 10px;">
+                <ion-icon name="md-person-add" class="img-circle"></ion-icon>
+            </div>
+            <h2 class="profile_name">{{ name }}</h2>
+            <h6>{{ emailid }} </h6>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <!-- <div style="background-image:url('assets/imgs/theatre-owner-bg.jpg')"> -->
+        <div>
+            <!-- <img src="assets/imgs/company_logo.png" style="height: 70px;
+            margin: auto;
+            display: table;
+            margin-top: 12px;" > -->
+        </div>
+        <!-- </div> -->
+        <ion-list>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                {{p?.title}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage"  #content swipeBackEnabled="false"></ion-nav>
+
+
+

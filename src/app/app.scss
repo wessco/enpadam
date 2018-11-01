@@ -1,0 +1,175 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 0px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .5);
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 8px;
+}
+
+.title.title-md {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 70%;
+    text-align: center;
+} 
+
+
+.img-circle {
+    
+    font-size: 40px;
+     border-radius: 50%;
+     margin: auto;
+     display: TABLE;
+     line-height: 68px;
+  
+ }
+ .ionc{
+     background-color:#d7d7d7;
+     width: 80px;
+     height:75px;
+     margin: auto;
+     display: table;
+     border-radius: 50%;
+     color: #fff;
+    margin-top: 6px;
+ }
+ .profile_name{
+    margin: auto;
+    display: table;
+    font-size: 17px;
+    margin-top: 5px;
+    color: white;
+ }
+ .menu3{
+    background-image:url('assets/imgs/theatre-owner-bg.jpg')
+ }
+
+ ion-menu{
+    ion-header{
+        &::after{
+            display: none;
+        }
+    }
+    h6 {
+        margin: auto;
+        display: table;
+        color: white;
+    }
+    .toolbar-md{
+        min-height: 160px;
+        padding: 4px 10px;
+        align-items: flex-end;
+    }
+    .toolbar-background-md{
+       
+        background-image: url(../assets/imgs/theatre-owner-bg.jpg);
+        // opacity: 0.7;
+            -webkit-box-shadow: inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+            -moz-box-shadow:    inset -352 0px 21px 45px rgba(50, 48, 50, 0.88);
+            box-shadow:         inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
+                                // inset -352px 0px 21px 27px rgba(50, 48, 50, 0.79);
+                                // box-shadow: inset -352px 0px 21px 27px rgba(50, 48, 50, 0.88);    
+    }
+    .user-img{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-bottom: 40px;
+        border: 2px solid #f2c65b;
+       
+        background-image: url(../assets/imgs/theatre-owner-bg.jpg);
+    }
+    .toolbar-title-md{
+        color: color($colors , light);
+        padding-bottom: 10px;
+        font-size: 1.4rem;
+    }
+    ion-list{
+        padding: 10px 0;
+    }
+    .item-md{
+        background: none;
+        font-size: 1.3rem;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: #000;
+        ion-icon[item-left]{
+            + .item-inner{
+                margin-left: 0;
+            }
+        }
+    }
+  
+    [icon-right]{
+            ion-icon{
+                font-size: 1.8em;
+                color: color($colors,secondary);
+            }
+        }
+
+        .scroll-content{
+            margin-top: 160px;
+        }
+    }
+    .footer-md{
+        padding-bottom: 10px;
+        &::before{
+            display: none;
+        }
+
+
+    }
+
+    .vertical_centr{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+  
+
+    
+     

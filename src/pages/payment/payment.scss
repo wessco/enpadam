@@ -1,0 +1,315 @@
+page-payment {
+
+    .detail_div{
+        background-color: #2BB98E;
+        height: 40px;
+    }
+    .share_div{
+        font-size: 19px; 
+        color: white;
+        padding-top: 5px; 
+        padding-left: 10px;
+    }
+    .input_div{
+        width: 90%;
+        margin: auto;
+        display: table;
+        background-color: #f1f1f1;
+    }
+    .ticket_purchase{
+        width: 90%;
+        margin: auto;
+        display: table;
+        background-color: #f1f1f1;  
+        margin-top: 10px;
+        height: 40px;
+    }
+    .ticket_span{
+        color: #545454;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .txtbox{
+        margin: auto;
+        background-color: #ffffff;
+        margin-top: 15px;
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+        border: 1px solid gray;
+        padding-left: 10px;
+        }
+    .login_social{
+        background-color: #f1f1f1;
+        margin-top: 15px;
+        width: 90%
+    }
+    .quikpay{
+        margin-top: 15px;
+        font-size: 15px; 
+        text-align: center;
+    }
+        .submit{
+            width: 100%;
+            // border-radius: 12px;
+            margin: auto;
+            display: table;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .login{
+            width: 70%;
+            // border-radius: 12px;
+            margin: auto;
+            display: table;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #D5373C;
+        }
+        .arrow_up_down{
+            color: black;
+            font-size: 25px;
+            margin-top: 0px;
+        }
+        .promocode_btn{
+            background-color: #EAEAEA;
+            height: 40px;
+            width: 100%;
+            margin-top: 8px;
+        }
+         .submit .button-md{
+            color: #000000;
+        }
+        .promocode_btn .button-md{
+            color: #ffffff;
+        }
+        .offers_div{
+            font-size: 15px; 
+            color: black;
+            padding-top: 5px;
+        }
+        .check_div{
+            width: 90%;
+            margin: auto;
+            display: table;
+        }
+
+
+
+
+
+
+
+
+
+        .segment-md .segment-button.segment-activated {
+            background-color: transparent;
+            border-bottom: 1px solid #2BB98E !important;
+            box-shadow: inset 0 -2px 0 #49ba8e;
+        }
+    
+        .segment-md .segment-button{
+            color: black;
+            height: 40%;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 20px;
+            padding: 0 6px;
+            border: none !important;
+            margin-top: 15px;
+        }
+        .hr_line{
+        
+            width: 95%;
+            height: 1px;
+            background-color: gray;
+            margin-top: 0px;
+            
+        }
+        .txtbox{
+            margin: auto;
+            background-color: #ffffff;
+            margin-top: 15px;
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            border: 1px solid gray;
+            padding-left: 10px;
+            }
+            .submit{
+                width: 60%;
+                // border-radius: 12px;
+                margin: auto;
+                display: table;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                font-size: 16px;
+                background-color: #2BB98E;
+                // #488aff
+            }
+            .discount{
+                margin-top: 40px;
+                font-size: 16px;
+                text-align: center;
+                font-weight: 600;
+            }
+            .div_line{
+                width: 100%; 
+                height: 10px; 
+                border-bottom: 1px solid #DEE2E6; 
+                text-align: center;
+                margin-top: 20px;
+            }
+            .span{
+                font-size: 12px;
+                padding: 0 10px;
+                color: #939393;
+                background-color: #ffffff;
+                font-weight: 500;
+            }
+            .radio_btn{
+                height: 50px;
+                font-size: 12px;
+                padding-left: 0px;
+            }
+            .item-md .radio-md{
+                position: absolute;
+             }
+             .item-radio.item-md ion-label{
+                margin-left: 25px;
+                font-size: 11px;
+                margin-top: -3px;
+               }
+               .item-md.item-block .item-inner{
+                border-bottom: none;
+                padding-right: 0px;
+               }
+               .radio-md .radio-icon{
+                margin-top: -27px;
+               }
+               .item-radio-checked.item-md ion-label{
+                color: black;
+               }
+               .radio-md .radio-checked{
+                border-color: #2BB98E;
+                // width: 20px;
+                // height: 20px;
+               }
+               .radio-md .radio-inner{
+                background-color: #2BB98E;
+                // width: 12px;
+                // height: 12px;
+               }
+               .txtbox1{
+                margin: auto;
+                background-color: #ffffff;
+                margin-top: 30px;
+                width: 100%;
+                height: 40px;
+                font-size: 14px;
+                border: 1px solid #B8B8B9;
+                padding-left: 10px;
+                }
+
+                .highlight{
+                    background-color: #2BB98E;
+                }
+                // .highlight1{
+                //     background-color: #2BB98E;
+                // }
+                .tog_div{
+                    border: 1px solid #989898;
+                    width: 95%;
+                    margin: auto;
+                    display: table;
+                }
+                .otp_containt{
+                    text-align: center;
+                    margin-top: 10px;
+                    font-size: 13px;
+                }
+
+            //  =========segment_2====
+    .h4{
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+    .card_detail{
+        margin: auto;
+        max-width: 340px;
+        border-radius: 5px;
+        box-shadow: 0 3px 0 #c9ccd2;
+        background: #dadee3;
+        background: linear-gradient(125deg,#dadee3 0,#dadee3 50%,#d2d6de 51%,#d2d6de 100%);
+    }
+    .card_number{
+        padding-left: 20px;
+        padding-top: 5px;
+        font-size: 15px;
+        font-weight: 300;
+        color: #9ba7c2;
+    }
+    .input_div2{
+        width: 80%;
+        margin-left: 17px;
+    } 
+    .input_div_grid{
+        padding: 0px;
+        margin-top: -8px;
+        margin-left: 3px;
+        width: 80%;
+    }
+    .txtbox2{
+        width: 100%;
+        padding: 9px;
+        border: 0;
+        box-shadow: inset 2px 1px 0 #bec1c9;
+        border-radius: 1px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        font-size: 13px;
+        }   
+    .three_input_text{
+        margin-bottom: 15px;
+    }
+    .expiry{
+        text-align: left;
+         margin-left: 22px;
+         margin-top: 10px;
+         color: #9ba7c2;
+    } 
+    .cvv{
+        margin-left: 156px;
+        color: #9ba7c2;
+    }
+    .bank_img{
+        width: 115px;
+    }
+
+    .bank_img1{
+        width: 115px;
+        height: 80px;
+    }
+    .div_type{
+        width: 80%;
+        margin: auto;
+        display: table;
+        text-align: center;
+     }
+     .ticket_pick{
+        margin: auto;
+        display: table;
+        font-size: 12px;
+        font-weight: 500;
+     }
+     .radio_btn1{
+        height: 99px;
+        font-size: 12px;
+        padding-left: 0px;
+     }
+}
