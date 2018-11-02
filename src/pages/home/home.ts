@@ -68,6 +68,11 @@ export class HomePage {
         this.service
             .MovieWisetheaterlist(this.movieid)
             .then(result => this.handlemovietheatre(result));
+            this.service.getSlider()
+            .then((res:any)=>{
+              let imagdata=res.MovieBGImage
+           this.slideimage=imagdata
+            })
     }
 
     handlemoviesuggest(result) {
@@ -253,7 +258,7 @@ showAlert(){
         console.log(results.NowRunningMovie);
         this.upcomingList=[]
         this.movielist=[]     
-        this.slideimage = [];
+       
         if (results.NowRunningMovie  && results.NowRunningMovie.length>0) {
             this.NowRunningmovie=false
             console.log("I am inner if condition Now Running Movie")
@@ -263,14 +268,14 @@ showAlert(){
             this.displayArtist = this.movienamesuggest;
             var n = this.movielist.length;
             console.log(n);
-            this.slideimage = [];
+        
             for (var i = 0; i < n; i++) {   
                 this.movienamesuggest[i]=this.movielist[i]
-                this.slideimage.push(this.movielist[i].MovieImagePath);
+              
             }   
 
             this.suggestedMoviesBackUp=this.movienamesuggest
-            console.log("images array",this.slideimage)   
+          
          //   console.log(this.slideimage);
         }          
         else{

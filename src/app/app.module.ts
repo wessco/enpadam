@@ -31,6 +31,7 @@ import { MapdirectionsPage } from '../pages/mapdirections/mapdirections';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CitylistModalPage } from '../pages/citylist-modal/citylist-modal';
 import { PaytmentprovProvider } from '../providers/paytmentprov/paytmentprov';
+import { PaymetdetailsPage } from '../pages/paymetdetails/paymetdetails';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PaytmentprovProvider } from '../providers/paytmentprov/paytmentprov';
     MovieticketPage,
     BooktimePage,
     MapdirectionsPage,
-    CitylistModalPage
+    CitylistModalPage,
+    PaymetdetailsPage
     ],
   imports: [
     BrowserModule,
@@ -84,10 +86,11 @@ import { PaytmentprovProvider } from '../providers/paytmentprov/paytmentprov';
     SocialloginPage,
     SelectstatePage,
     MovieticketPage,
-    BooktimePage,
+    BooktimePage,         
     MapdirectionsPage,
-    CitylistModalPage
-  ],                                                                     
+    CitylistModalPage,    
+    PaymetdetailsPage                  
+  ],                                                                         
   providers: [                  
     StatusBar,
     SplashScreen,

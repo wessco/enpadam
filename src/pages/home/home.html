@@ -38,7 +38,7 @@
     <div *ngIf="showData">  
     <ion-slides *ngIf="slideimage && slideimage.length" pager autoplay="2000" loop="true" speed="1000" class="ion-slides" >
         <ion-slide *ngFor="let x of slideimage "> 
-            <img src="{{ x }}" alt="">
+            <img src="{{ x.value }}" alt="">
         </ion-slide>
     </ion-slides>   
     <!-- SLIDER ENDS-->
