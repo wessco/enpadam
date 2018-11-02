@@ -30,6 +30,7 @@ import { BooktimePage } from '../pages/booktime/booktime';
 import { MapdirectionsPage } from '../pages/mapdirections/mapdirections';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CitylistModalPage } from '../pages/citylist-modal/citylist-modal';
+import { PaytmentprovProvider } from '../providers/paytmentprov/paytmentprov';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { CitylistModalPage } from '../pages/citylist-modal/citylist-modal';
     ServiceProvider,
     ConfigProvider,
     Geolocation,
+    PaytmentprovProvider,
   ]
 })
 export class AppModule {}

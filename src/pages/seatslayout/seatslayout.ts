@@ -5,6 +5,7 @@ import { BookingTicketPage } from '../booking-ticket/booking-ticket';
 import { BookingsummaryPage } from '../bookingsummary/bookingsummary';
 import { ServiceProvider } from '../../providers/service/service';
 import { HomePage } from '../home/home';
+import { PaytmentprovProvider } from '../../providers/paytmentprov/paytmentprov';
 
 /**
  * Generated class for the SeatslayoutPage page.
@@ -50,7 +51,7 @@ export class SeatslayoutPage {
     seatname2: any;
     seatname1: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController){
+    constructor(public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController){
         this.selectedseats=[]       
     }
 
@@ -96,6 +97,8 @@ export class SeatslayoutPage {
         })
 
         this.loading.present();
+
+        
         this.service.theaterlayout(this.theaterId, this.screenid, this.showid, this.moviedetailid, this.showdetailid)
         .then((result)=> this.handletheaterlayout(result));
     }
@@ -163,7 +166,17 @@ export class SeatslayoutPage {
                 seatStr:this.selectedseats.toString(),
                 dateId:this.datemovie,
                 TicketPrice:this.amount
-            }
+            }   
+            this.paymentprov.doPayment(this.theaterId).then((res:any)=>{
+                if(res.success){
+                    alert("payment res "+res)  
+                    this.service.ticketsolddetail(Params) 
+                    .then((result)=> this.handleticketsolddetail(result));
+                }else{
+                    alert("something went wrong please try again")
+                }   
+               
+            })
             console.log("Seat Layout Parameter: " + Params);
             this.service.ticketsolddetail(Params) 
             .then((result)=> this.handleticketsolddetail(result));

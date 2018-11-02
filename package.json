@@ -27,7 +27,9 @@
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "2.1.3",
     "@types/jquery": "^3.3.6",
+    "com.razorpay.cordova": "^1.3.14",
     "cordova-android": "7.1.1",
+    "cordova-browser": "5.0.4",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googlemaps": "^2.4.6",
@@ -64,10 +66,12 @@
         "API_KEY_FOR_IOS": "AIzaSyBNu-hDJi0f1GpP5vU7rUvLYO9Z3FcbCso",
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "com.razorpay.cordova": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }
