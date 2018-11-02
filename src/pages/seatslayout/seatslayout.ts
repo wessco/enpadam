@@ -170,16 +170,13 @@ export class SeatslayoutPage {
             this.paymentprov.doPayment(this.theaterId).then((res:any)=>{
                 if(res.success){
                     alert("payment res "+res)  
-                    this.service.ticketsolddetail(Params) 
+                    this.service.ticketsolddetail(Params)    
                     .then((result)=> this.handleticketsolddetail(result));
                 }else{
                     alert("something went wrong please try again")
                 }   
-               
             })
             console.log("Seat Layout Parameter: " + Params);
-            this.service.ticketsolddetail(Params) 
-            .then((result)=> this.handleticketsolddetail(result));
         } else {
             alert("Please Select Atleast " + this.selectseats + " seats ");
         }
