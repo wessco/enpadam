@@ -6,6 +6,7 @@ import { BookingsummaryPage } from '../bookingsummary/bookingsummary';
 import { ServiceProvider } from '../../providers/service/service';
 import { HomePage } from '../home/home';
 import { PaytmentprovProvider } from '../../providers/paytmentprov/paytmentprov';
+import { PaymentPage } from '../payment/payment';
 
 /**
  * Generated class for the SeatslayoutPage page.
@@ -165,17 +166,19 @@ export class SeatslayoutPage {
                 showDetailId:this.showdetailid,
                 seatStr:this.selectedseats.toString(),
                 dateId:this.datemovie,
-                TicketPrice:this.amount
+                TicketPrice:this.amount  
             }   
-            this.paymentprov.doPayment(this.theaterId).then((res:any)=>{
-                if(res.success){
-                    alert("payment res "+res)  
-                    this.service.ticketsolddetail(Params)    
-                    .then((result)=> this.handleticketsolddetail(result));
-                }else{
-                    alert("something went wrong please try again")
-                }   
-            })
+            this.loading.dismiss();
+            this.navCtrl.push(PaymentPage,Params)
+            // this.paymentprov.doPayment(Params).then((res:any)=>{
+            //     if(res.success){
+            //         alert("payment res "+res)  
+            //         this.service.ticketsolddetail(Params)    
+            //         .then((result)=> this.handleticketsolddetail(result));
+            //     }else{
+            //         alert("something went wrong please try again")
+            //     }      
+            // })
             console.log("Seat Layout Parameter: " + Params);
         } else {
             alert("Please Select Atleast " + this.selectseats + " seats ");
