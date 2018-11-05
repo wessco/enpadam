@@ -103,7 +103,7 @@ export class SeatslayoutPage {
         this.service.theaterlayout(this.theaterId, this.screenid, this.showid, this.moviedetailid, this.showdetailid)
         .then((result)=> this.handletheaterlayout(result));
     }
-
+       
     handletheaterlayout(result){
         this.loading.dismiss();
         console.log('main result',result);
@@ -198,14 +198,15 @@ export class SeatslayoutPage {
             if(this.selectedseats.length < this.selectseats) {
             this.selectedseats.push(k);
             console.log(this.selectedseats.toString());
+            this.amount=this.selectedseats.length * this.amount;
+            console.log(this.amount)   
+            this.tickets=this.selectedseats.length;
             } else {
                 alert("you have selected maximum seats");
             }
-        }
+        }    
            console.log("before pay",this.selectedseats.length,this.amount)
-        this.amount=this.selectedseats.length * this.amount;
-        console.log(this.amount)   
-        this.tickets=this.selectedseats.length;
+       
     }
  
     // removeselected(){
