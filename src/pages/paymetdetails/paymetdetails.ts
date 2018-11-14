@@ -20,15 +20,76 @@ import { BookingsummaryPage } from '../bookingsummary/bookingsummary';
 })
 export class PaymetdetailsPage {
  paymentdata=this.navParams.get('data')
+ showtimeMin: number = 2;   
+ showtimeSec:any=60
+   min:any
+   sec:any       
+   interval;
+   play=true
+   secinterval: number;
   constructor(public bookticketprov:BookticketProvider,public service:ServiceProvider,public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams) {
   console.log(this.paymentdata)
   console.log(new Date(this.paymentdata.dateId))
+  this.startTimer()
+  this.secondstimer()  
   }   
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymetdetailsPage');
   }
-  
+
+        
+decMin(){
+  console.log("in min")
+  this.showtimeMin= this.showtimeMin-1
+  console.log(this.showtimeMin)
+  if(this.showtimeMin==0){
+      console.log("time out")
+      alert("Time out !!")
+      clearInterval(this.interval);
+      clearInterval(this.secinterval)
+      this.navCtrl.pop()
+  }
+  else{     
+   
+  }
+}  
+startTimer() {  
+  console.log("in start timer")
+this.play = true;
+
+this.interval = setInterval(() => {
+    
+  console.log("in minute time")
+  this.decMin() 
+ 
+},30000) 
+
+}       
+
+secondstimer(){
+  console.log("in second timer function")
+this.secinterval= setInterval(() => {
+      console.log("in second timer")
+      if( this.showtimeSec==0){
+          this.showtimeSec=60
+      }
+      else{
+          this.showtimeSec=this.showtimeSec-1
+      }
+    
+      },1000)
+}
+
+minTimer(){
+
+}
+pauseTimer() {
+this.play = false;
+clearInterval(this.interval);
+}
+
+
 
   doPayment(){
     this.paymentprov.doPayment(this.paymentdata).then((res:any)=>{

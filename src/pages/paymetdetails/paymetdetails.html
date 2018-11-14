@@ -7,17 +7,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>paymetdetails</ion-title>
+    <ion-title>Booking Summary</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-ticket price:{{paymentdata.TicketPrice}}
-seats :{{paymentdata.seatStr}}    
-show time :{{paymentdata.showTime}}     
-date :{{paymentdata.dateId }}  
+    <div style="text-align: -webkit-right;" >
+        <button ion-button outline > {{showtimeMin}} : {{showtimeSec}} </button>
+    </div>
+    <ion-item>
+        Movie Name:{{paymentdata.movie_name}}  
+    </ion-item>
+   <ion-item>Theatre Name:{{paymentdata.TheatreName}}</ion-item>
+   <ion-item>  Total tickets:{{paymentdata.ticketsCount}}</ion-item>
+   <ion-item>Ticket price:{{paymentdata.TicketPrice}}</ion-item>
+   <ion-item>Seats :{{paymentdata.seatStr}}  </ion-item>
+   <ion-item>Show time :{{paymentdata.showTime}}  </ion-item>
+   <ion-item>Date :{{paymentdata.dateId }}  </ion-item>
 
-<button ion-button (click)=doPayment()>Book Now</button>
+      
+<button ion-button (click)=doPayment()>Pay Now</button>
 </ion-content>

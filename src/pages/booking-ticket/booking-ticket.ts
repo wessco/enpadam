@@ -213,8 +213,9 @@ else{
   //   console.log(result)
   // }
   
-    presentPopover(myEvent,TheatreId) {
-        console.log(myEvent)
+    presentPopover(myEvent,TheatreId,totaldata) {
+         console.log("in totel data ",totaldata)
+       // console.log(myEvent)
         // var abc={
         //   moviedetailid:myEvent.MovieDetailId,
         //   screenid:myEvent.ScreenId,
@@ -241,18 +242,19 @@ else{
             console.log(data.seats);
             if(data.seats != undefined) {
                 var params = {
-                    address1:this.detail.address1,
-                    movie_name:this.movie_name,
+                    address1:this.detail.address1,  
+                    movie_name: this.MovieName,  
                     moviedetailid: myEvent.MovieDetailId,
                     screenid: myEvent.ScreenId,
                     showdetailid: myEvent.ShowDetailId,
                     showid: myEvent.ShowId,
                     showtiming: myEvent.ShowTimig,
                     theaterId: TheatreId,  
+                    TheatreName:totaldata.TheatreName,
                     datemovie: this.datemovie,
-                }
+                }   
                 this.navCtrl.push(SeatslayoutPage, params)
-            }   
+            }      
         });   
         profileModal.present();
         // let popover = this.popoverCtrl.create(PopoverPage);

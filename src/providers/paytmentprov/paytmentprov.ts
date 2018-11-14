@@ -21,12 +21,12 @@ doPayment(data){
       image: 'https://i.imgur.com/3g7nmJC.png',
       currency: 'INR',
       key: 'rzp_live_1kzJgQOqdgLsey',  
-      amount: '5000',
+      amount: data.TicketPrice,
       name: 'foo',
       prefill: {
-        email: 'pranav@razorpay.com',
-        contact: '8879524924',
-        name: 'Pranav Gupta'
+        email: '',
+        contact: '',
+        name: ''
       },
       theme: {
         color: '#F37254'

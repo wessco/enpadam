@@ -69,7 +69,7 @@
             </div>
             <div class="img-display" >
                 <div class="img-out" *ngFor="let y of x.Screendetail; let i=index" >
-                    <button ion-button outline class="time_btn image" (click)="presentPopover(y,x.TheatreId)">{{y.ShowTimig}}</button>
+                    <button ion-button outline class="time_btn image" (click)="presentPopover(y,x.TheatreId,x)">{{y.ShowTimig}}</button>
                 </div>
             </div>
             <hr class="hr_line">

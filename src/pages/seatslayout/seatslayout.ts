@@ -58,62 +58,11 @@ export class SeatslayoutPage {
     interval;
     play=true
     secinterval: number;
+    TheatreName: any;
     constructor(public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController){
         this.selectedseats=[]      
-        this.startTimer()
-        this.secondstimer()    
+        
     }
-      
-decMin(){
-    console.log("in min")
-    this.showtimeMin= this.showtimeMin-1
-    console.log(this.showtimeMin)
-    if(this.showtimeMin==0){
-        console.log("time out")
-        alert("Time out !!")
-        clearInterval(this.interval);
-        clearInterval(this.secinterval)
-        this.navCtrl.pop()
-    }
-    else{     
-     
-    }
-}  
-startTimer() {  
-    console.log("in start timer")
-  this.play = true;
-
-  this.interval = setInterval(() => {
-      
-    console.log("in minute time")
-    this.decMin() 
-   
-  },30000) 
-
-}       
-
-secondstimer(){
-    console.log("in second timer function")
- this.secinterval= setInterval(() => {
-        console.log("in second timer")
-        if( this.showtimeSec==0){
-            this.showtimeSec=60
-        }
-        else{
-            this.showtimeSec=this.showtimeSec-1
-        }
-      
-        },1000)
-}
-
-minTimer(){
-
-}
-pauseTimer() {
-  this.play = false;
-  clearInterval(this.interval);
-}
-
     ionViewDidLoad() {
         this.selectseats = localStorage.getItem('selectseats');
         console.log("ticket user data",localStorage.getItem('ticket_userdata'))
@@ -123,7 +72,8 @@ pauseTimer() {
         this.img=this.navParams.get('img');
         this.address1=this.navParams.get('address1');
         this.movie_name=this.navParams.get('movie_name');
-        console.log(this.img,this.movie_name,this.address1);
+        this.TheatreName=this.navParams.get('TheatreName')
+        console.log(this.img,this.movie_name, this.TheatreName,this.address1);
     }
     ionViewWillEnter() {
         // var abc={
@@ -215,10 +165,12 @@ pauseTimer() {
                 showTime:this.showtiming,
                 seatStr:this.selectedseats.toString(),
                 dateId:this.datemovie,
-                TicketPrice:this.amount
+                TicketPrice:this.amount,
+                movie_name:this.movie_name,
+                TheatreName:this.TheatreName,
+                ticketsCount:this.selectedseats.length
             }          
-            clearInterval(this.interval);
-            clearInterval(this.secinterval)
+      
             this.navCtrl.push(PaymetdetailsPage,{data:Params})
            
             console.log("Seat Layout Parameter: " + Params);
