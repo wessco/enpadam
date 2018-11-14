@@ -70,8 +70,10 @@ decMin(){
     console.log(this.showtimeMin)
     if(this.showtimeMin==0){
         console.log("time out")
+        alert("Time out !!")
         clearInterval(this.interval);
         clearInterval(this.secinterval)
+        this.navCtrl.pop()
     }
     else{     
      
@@ -215,7 +217,8 @@ pauseTimer() {
                 dateId:this.datemovie,
                 TicketPrice:this.amount
             }          
-            
+            clearInterval(this.interval);
+            clearInterval(this.secinterval)
             this.navCtrl.push(PaymetdetailsPage,{data:Params})
            
             console.log("Seat Layout Parameter: " + Params);

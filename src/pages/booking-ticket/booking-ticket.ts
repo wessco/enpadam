@@ -177,7 +177,7 @@ export class BookingTicketPage {
         }           
         this.datemoviewisetheater();
     }
-
+   
     getStyle(selected){
 if(selected){
     return "green"
