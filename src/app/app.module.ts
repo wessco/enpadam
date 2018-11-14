@@ -100,5 +100,5 @@ import { PaymetdetailsPage } from '../pages/paymetdetails/paymetdetails';
     Geolocation,
     PaytmentprovProvider,
   ]
-})
+})    
 export class AppModule {}

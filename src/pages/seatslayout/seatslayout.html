@@ -10,7 +10,10 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content>     
+    <div>
+        Time {{showtimeMin}} : {{showtimeSec}} 
+    </div>
     <div class="background_div">
         <div class="Children_ticket"><span class="Children_ticket">Select Seats:</span> {{ tickets }} Tickets</div> 
     </div>
@@ -63,13 +66,13 @@
                     </div>
                 </ion-col>
                 <ion-col>
-                <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 62px;"> -->
+                <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 62px;"> -->      
                     <div *ngFor="let y of x.ScreenCategoryDetail[0].ScreenStatus">
-                        <button *ngIf="!isInclude(y.SeatName)" ion-button outline class="seat_block1 unselected_ticketbutton" (click)="selectedblock(y.SeatName)"  > {{y.SeatName}}</button>
-                        <button  *ngIf="isInclude(y.SeatName)" ion-button outline class="seat_block1 selected_ticketbutton"  (click)="selectedblock(y.SeatName)">{{y.SeatName}}</button>              
+                        <button *ngIf="!isInclude(y.SeatName)" ion-button outline class="seat_block1 unselected_ticketbutton" (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3"> {{y.SeatName}}</button>
+                        <button  *ngIf="isInclude(y.SeatName)" ion-button outline class="seat_block1 selected_ticketbutton"  (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3">{{y.SeatName}}</button>              
                     </div>
                 </ion-col>
-                
+                  
                 <ion-col>
                     <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 67px;"  > -->
                     <div *ngFor="let y of x.ScreenCategoryDetail[1].ScreenStatus" >

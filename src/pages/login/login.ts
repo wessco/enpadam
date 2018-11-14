@@ -44,6 +44,10 @@ export class LoginPage {
         console.log(results)
         console.log(results.map.status)
         if(results.map.status =='success') {
+            localStorage.setItem("isLoggedIn","true")
+            localStorage.setItem("email",results.map.email)
+            localStorage.setItem("id",results.map.id)
+            localStorage.setItem("name",results.map.name)
             localStorage.setItem('ticket_userdata',JSON.stringify(results.map))
             this.navCtrl.setRoot(HomePage)
         } else {

@@ -47,11 +47,19 @@ export class MyApp {
             splashScreen.hide();
 
             this.userdata = JSON.parse(localStorage.getItem("ticket_userdata"));
-            if (this.userdata) {
-                this.emailid = this.userdata.email;
-                this.name = this.userdata.name;
-            }
-            console.log("userdata", this.userdata);
+     let loginstat= localStorage.getItem("isLoggedIn")
+     if(loginstat=="true"){
+         this.nav.setRoot(HomePage)
+     }
+     else{ 
+         
+        if (this.userdata) {
+            this.emailid = this.userdata.email;
+            this.name = this.userdata.name;  
+        }
+        console.log("userdata", this.userdata); 
+         this.nav.setRoot(LoginPage)   
+     }
         });
 
         // used for an example of ngFor and navigation
@@ -95,6 +103,7 @@ export class MyApp {
                     text: "Log Out",
                     handler: () => {
                         console.log("Logged out");
+                        localStorage.clear()     
                         this.nav.setRoot(LoginPage);
                     }
                 }

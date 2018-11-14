@@ -17,10 +17,10 @@ export class PaytmentprovProvider {
 doPayment(data){
   return new Promise(resolve=>{
     var options = {
-      description: 'Credits towards consultation',
+      description: 'Booking Tickets Through Ticketlite',
       image: 'https://i.imgur.com/3g7nmJC.png',
       currency: 'INR',
-      key: 'rzp_test_oCfYA2xM5xFN9p',
+      key: 'rzp_live_1kzJgQOqdgLsey',  
       amount: '5000',
       name: 'foo',
       prefill: {

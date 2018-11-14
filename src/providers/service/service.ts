@@ -16,6 +16,19 @@ export class ServiceProvider {
         this.url=config.url
     }
 
+
+    //mail availability
+
+    checkMail(email){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'checkEmailAvailable?email='+email).map(res => res)
+            .subscribe(data => {
+                console.log("login response",data)
+              
+                resolve(data);  
+            });
+        });
+    }
   
     // LOGIN 
     login(email,password) {
@@ -24,6 +37,7 @@ export class ServiceProvider {
         return new Promise(resolve => {
             this.http.get(this.url + 'setLoginForUser?username='+email+'&password='+password+'&roleId=4').map(res => res)
             .subscribe(data => {
+                console.log("login response",data)
                 this.user = data;
                 resolve(this.user);
             });

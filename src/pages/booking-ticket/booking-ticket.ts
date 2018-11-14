@@ -86,8 +86,8 @@ export class BookingTicketPage {
     datemoviewisetheater(){
         this.service.datemoviewisetheater(this.movieid,this.datemovie)
         .then((result)=>this.handletheaterwisemoviedate(result));
-    }
-
+    }      
+   
     // theaterwisemovie(){
     //   this.service.theaterwisemovie(this.theaterId,this.datemovie)
     // .then((result)=>this.handletheaterwisemovie(result))
@@ -163,12 +163,45 @@ export class BookingTicketPage {
         console.log( this.theatermovie);
         this.theatertime=result.DateList;
         console.log(this.theatertime);
+       
         this.datemovie=this.theatertime[0].DateId;
         console.log(this.datemovie);
         this.loading.dismiss();
+         for(let i=0; i<this.theatertime.length;i++){
+            if(i==0){
+                this.theatertime[i].selected=true
+            }
+            else{
+                this.theatertime[i].selected=false
+            }     
+        }           
         this.datemoviewisetheater();
     }
 
+    getStyle(selected){
+if(selected){
+    return "green"
+}
+else{   
+    return "black"
+}
+    }       
+    changeDate(nowdate){
+        // let indexnum= this.theatertime.indexOf(nowdate.DateId)   
+         let indexnum= this.theatertime.findIndex(y => y.DateId==nowdate.DateId)
+         console.log(indexnum)
+         for(let i=0; i<this.theatertime.length;i++){
+             console.log(indexnum)
+            if(i==indexnum){
+                this.theatertime[i].selected=true  
+                this.datemovie=this.theatertime[i].DateId;
+            }
+            else{
+                this.theatertime[i].selected=false
+            }   
+        }   
+
+    }
     handletheaterwisemoviedate(result){
         console.log(result);
         this.theaterId=result.TheatreDetail[0].TheatreId;
@@ -215,12 +248,12 @@ export class BookingTicketPage {
                     showdetailid: myEvent.ShowDetailId,
                     showid: myEvent.ShowId,
                     showtiming: myEvent.ShowTimig,
-                    theaterId: TheatreId,
-                    datemovie: this.theatertime[0].DateId,
+                    theaterId: TheatreId,  
+                    datemovie: this.datemovie,
                 }
                 this.navCtrl.push(SeatslayoutPage, params)
-            }
-        });
+            }   
+        });   
         profileModal.present();
         // let popover = this.popoverCtrl.create(PopoverPage);
         // popover.present({
@@ -254,7 +287,7 @@ export class BookingTicketPage {
         }
         this.navCtrl.push(TheatreviewpagePage,params)
     }
-
+   
   
   // theaterview3(TheatreName){
   //   var params={

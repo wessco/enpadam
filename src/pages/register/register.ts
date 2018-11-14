@@ -32,15 +32,27 @@ export class RegisterPage {
   signup(){
     var abc=parseInt(this.reg.mobilenumber)
     console.log(abc.toString().length)
-    console.log(this.reg)
+    console.log(this.reg)   
+   
     // this.navCtrl.push(OtpconformPage)
     if(this.validateEmail(this.reg.emailid)){
         // this.validate()
 
         if(this.validate()){
-         this.service.submit(this.reg.fname,this.reg.lname,this.reg.emailid,this.reg.mobilenumber,this.reg.password)
-        //  this.service.signup(this.reg.emailid,this.reg.password)
-          .then((results)=> this.submit(results))
+          this.service.checkMail(this.reg.emailid).then((res:any)=>{
+            console.log("mail avilability",res.map.status)   
+                     
+            if(res.map.status==='success'){
+              this.service.submit(this.reg.fname,this.reg.lname,this.reg.emailid,this.reg.mobilenumber,this.reg.password)
+              //  this.service.signup(this.reg.emailid,this.reg.password)
+                .then((results)=> this.submit(results))
+            }
+            else{
+              alert("E-Mail ID is not available")
+            }
+          })
+
+        
         }
     }else{
        alert("please enter valid emailid")
