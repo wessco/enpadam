@@ -96,14 +96,6 @@ clearInterval(this.interval);
       if(res.success){
           alert("payment res "+res)  
          
-          this.paymentprov.savePaymentToApi(this.paymentdata).then((res:any)=>{
-            this.navCtrl.setRoot(HomePage)   
-          }).catch(err=>{
-          alert("sommething went wrong")
-          })    
-        
-          alert("payment res "+res)   
-          
           let obj={"theaterIdVal":this.paymentdata.theaterIdVal,
           "screenId":this.paymentdata.scrId,
           "ShowTimingId":this.paymentdata.showTimeId,
@@ -114,13 +106,20 @@ clearInterval(this.interval);
           "UserId":this.paymentdata.userId,
           "TicketPrice":this.paymentdata.TicketPrice
         }
-     this.bookticketprov.bookTicket(obj).then((res:any)=>{
-       console.log("booking status response",res)
-      this.navCtrl.setRoot(BookingsummaryPage)   
-     })  
 
-         
-          
+        this.bookticketprov.bookTicket(obj).then((res:any)=>{
+          console.log("booking status response",res)
+          this.paymentprov.savePaymentToApi(this.paymentdata).then((res:any)=>{
+            this.navCtrl.setRoot(BookingsummaryPage)   
+          }).catch(err=>{
+          alert("sommething went wrong")
+          })    
+        
+        }).catch(err=>{
+          console.log(err)
+          alert("something went wrong please try again ")
+        })
+        
       }else{
           alert("something went wrong please try again")
       }   
