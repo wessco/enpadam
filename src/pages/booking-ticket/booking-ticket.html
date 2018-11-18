@@ -48,8 +48,13 @@
 <div class="movierelease_title1">SYNOPSIS:</div>
 <div class="moviedescription">{{description}}</div>
 
-<hr class="hr_line">
-   
+<hr class="hr_line">  
+   <div>
+       <ion-row >   
+           <ion-col *ngFor="let showdate of theatertime" (click)="changeDate(showdate)" ><div><button ion-button  [style.background-color]="getStyle(showdate.selected)"
+         > {{showdate.Date}}</button></div>{{showdate.DayName}}</ion-col>    
+       </ion-row>
+   </div>
    <!-- <div class="img-display" >
         <div class="img-out" *ngFor="let x of [1,2,3,4,5,6,7];let i=index" >
             <button ion-button outline class="time_btn image" (click)="presentPopover($event)">03:15 PM</button>        
@@ -64,7 +69,7 @@
             </div>
             <div class="img-display" >
                 <div class="img-out" *ngFor="let y of x.Screendetail; let i=index" >
-                    <button ion-button outline class="time_btn image" (click)="presentPopover(y,x.TheatreId)">{{y.ShowTimig}}</button>
+                    <button ion-button outline class="time_btn image" (click)="presentPopover(y,x.TheatreId,x)">{{y.ShowTimig}}</button>
                 </div>
             </div>
             <hr class="hr_line">

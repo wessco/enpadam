@@ -51,11 +51,18 @@ export class SeatslayoutPage {
     userid: string;
     seatname2: any;
     seatname1: any;
-
+    showtimeMin: number = 2;   
+  showtimeSec:any=60
+    min:any
+    sec:any
+    interval;
+    play=true
+    secinterval: number;
+    TheatreName: any;
     constructor(public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController){
-        this.selectedseats=[]       
+        this.selectedseats=[]      
+        
     }
-
     ionViewDidLoad() {
         this.selectseats = localStorage.getItem('selectseats');
         console.log("ticket user data",localStorage.getItem('ticket_userdata'))
@@ -65,7 +72,8 @@ export class SeatslayoutPage {
         this.img=this.navParams.get('img');
         this.address1=this.navParams.get('address1');
         this.movie_name=this.navParams.get('movie_name');
-        console.log(this.img,this.movie_name,this.address1);
+        this.TheatreName=this.navParams.get('TheatreName')
+        console.log(this.img,this.movie_name, this.TheatreName,this.address1);
     }
     ionViewWillEnter() {
         // var abc={
@@ -103,7 +111,7 @@ export class SeatslayoutPage {
         this.service.theaterlayout(this.theaterId, this.screenid, this.showid, this.moviedetailid, this.showdetailid)
         .then((result)=> this.handletheaterlayout(result));
     }
-
+       
     handletheaterlayout(result){
         this.loading.dismiss();
         console.log('main result',result);
@@ -119,7 +127,7 @@ export class SeatslayoutPage {
         this.seatname2=result.TheatreLayout[0].ScreenCategoryDetail[0].ScreenStatus[0].SeatStatus;
         console.log(this.seatname2);
          this.amount=theaterdata.Price
-     
+        
         // console.log(result.TheatreLayout)
         this.seatsblock=result.TheatreLayout;
         console.log(this.seatsblock);
@@ -138,7 +146,7 @@ export class SeatslayoutPage {
         //     alert("Ticket Successfully Book")
         // }
     }
-
+   
     ticketbook() {
    
         if(this.selectseats == this.selectedseats.length) {   
@@ -149,7 +157,7 @@ export class SeatslayoutPage {
             // this.loading.present();
             var Params = {
                 userId: this.userid,
-                theaterIdVal: this.theaterId,
+                theaterIdVal:   this.theaterId,
                 scrId: this.screenid,
                 showTimeId: this.showid,
                 movieDetailsId:this.moviedetailid,
@@ -157,9 +165,12 @@ export class SeatslayoutPage {
                 showTime:this.showtiming,
                 seatStr:this.selectedseats.toString(),
                 dateId:this.datemovie,
-                TicketPrice:this.amount
+                TicketPrice:this.amount,
+                movie_name:this.movie_name,
+                TheatreName:this.TheatreName,
+                ticketsCount:this.selectedseats.length
             }          
-            
+      
             this.navCtrl.push(PaymetdetailsPage,{data:Params})
            
             console.log("Seat Layout Parameter: " + Params);
@@ -183,29 +194,36 @@ export class SeatslayoutPage {
     }
 
     selectedblock(k) {
-        console.log(k);
-        // this.selectedseats.push(k)
-        // console.log(this.selectedseats)
-        // this.selected1=k
 
-        var index = this.selectedseats.indexOf(k);
-        console.log(index);
-        if (index > -1) {
-            this.selectedseats.splice(index, 1);
-            console.log(this.selectedseats);
-        } else {
-            console.log("in else")
-            if(this.selectedseats.length < this.selectseats) {
-            this.selectedseats.push(k);
-            console.log(this.selectedseats.toString());
+        if(k.SeatActivateStatus==3){
+            console.log("seat booked already")
+        }else{
+            console.log(k);
+            // this.selectedseats.push(k)
+           // console.log(this.selectedseats)
+            // this.selected1=k
+       
+            var index = this.selectedseats.indexOf(k.seatName);
+            console.log(index);
+            if (index > -1) {
+                this.selectedseats.splice(index, 1);
+                console.log(this.selectedseats);
             } else {
-                alert("you have selected maximum seats");
-            }
+                console.log("in else")
+                if(this.selectedseats.length < this.selectseats) {
+                this.selectedseats.push(k.SeatName);
+                console.log(this.selectedseats.toString());
+                this.amount=this.selectedseats.length * this.amount;
+                console.log(this.amount)   
+                this.tickets=this.selectedseats.length;
+                } else {
+                    alert("you have selected maximum seats");
+                }  
+            }    
+               console.log("before pay",this.selectedseats.length,this.amount)
+    
         }
-           console.log("before pay",this.selectedseats.length,this.amount)
-        this.amount=this.selectedseats.length * this.amount;
-        console.log(this.amount)   
-        this.tickets=this.selectedseats.length;
+              
     }
  
     // removeselected(){
@@ -216,30 +234,35 @@ export class SeatslayoutPage {
 
     // }
 
-    selectedblockgold(v) {
-        console.log(v)
-        // this.selected2=v
-
-        var index = this.selectedseats.indexOf(v);
-        console.log(index);
-        if (index > -1) {
-            this.selectedseats.splice(index, 1);
-            console.log(this.selectedseats)
-        } else {
-            this.selectedseats.push(v)
-            console.log(this.selectedseats)
+    selectedblockgold(v) {  
+        if(v.SeatActivateStatus==3){  
+   console.log("seat booked already")
+        }else {  
+            console.log(v)
+            // this.selected2=v
+    
+            var index = this.selectedseats.indexOf(v);
+            console.log(index);
+            if (index > -1) {
+                this.selectedseats.splice(index, 1);
+                console.log(this.selectedseats)
+            } else {
+                this.selectedseats.push(v.SeatName)  
+                console.log(this.selectedseats)
+            }
+            console.log(this.selectedseats.length);
+          
+            this.amount=this.selectedseats.length* this.amount;
+            this.tickets=this.selectedseats.length;
+             
         }
-        console.log(this.selectedseats.length);
-      
-        this.amount=this.selectedseats.length* this.amount;
-        this.tickets=this.selectedseats.length;
-    }
+           }
 
     isInclude(chk_seats) {
         // console.log(chk_seats)
         var hh=this.selectedseats.includes(chk_seats);
-        // console.log(hh)
-        return hh;
+
+        return hh;   
     }
 
     back_btn() {

@@ -16,7 +16,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 export class LogoutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
-  }
+    localStorage.clear()
+  }  
 
 
   // presentConfirm() {

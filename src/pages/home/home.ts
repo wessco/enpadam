@@ -74,7 +74,7 @@ export class HomePage {
            this.slideimage=imagdata
             })
     }
-
+      
     handlemoviesuggest(result) {
         console.log(result);
         // console.log(result.movieName[0].value)

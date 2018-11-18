@@ -1,4 +1,16 @@
 page-seatslayout {
+    .seatAvailable{
+        background-color:white!important;
+        border: 1px solid #07C393 !important;
+        padding: 10px;    
+
+    }   
+    .seatNotAvailable{
+        background-color:darkgrey !important;
+        border: 1px solid #07C393 !important;
+        padding: 10px;      
+
+    }
     .back_img{
         -webkit-box-shadow: inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
         -moz-box-shadow:    inset -352 0px 21px 45px rgba(50, 48, 50, 0.88);

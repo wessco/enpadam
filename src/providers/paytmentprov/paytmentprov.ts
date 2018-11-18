@@ -20,16 +20,16 @@ url:any
 doPayment(data){
   return new Promise(resolve=>{
     var options = {
-      description: 'Credits towards consultation',
+      description: 'Booking Tickets Through Ticketlite',
       image: 'https://i.imgur.com/3g7nmJC.png',
       currency: 'INR',
-      key: 'rzp_test_oCfYA2xM5xFN9p',
-      amount: '5000',
+      key: 'rzp_live_1kzJgQOqdgLsey',  
+      amount: data.TicketPrice,
       name: 'foo',
       prefill: {
-        email: 'pranav@razorpay.com',
-        contact: '8879524924',
-        name: 'Pranav Gupta'
+        email: '',
+        contact: '',
+        name: ''
       },
       theme: {
         color: '#F37254'
