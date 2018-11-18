@@ -96,7 +96,7 @@ export class ServiceProvider {
             .subscribe(data => {
                 this.sliderbg = data;
                 resolve(this.sliderbg);
-                console.log("SLIDER:" + this.sliderbg);
+            
             })
         })
     }

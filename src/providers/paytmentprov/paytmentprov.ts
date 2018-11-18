@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { resolveDefinition } from '@angular/core/src/view/util';
+import { ConfigProvider } from '../config/config';
 declare var RazorpayCheckout: any;
 /*
   Generated class for the PaytmentprovProvider provider.
@@ -9,9 +11,10 @@ declare var RazorpayCheckout: any;
 */
 @Injectable()
 export class PaytmentprovProvider {
-
-  constructor(public http: HttpClient) {
+url:any
+  constructor(public config: ConfigProvider,public http: HttpClient) {
     console.log('Hello PaytmentprovProvider Provider');
+    this.url=config.url
   }
 
 doPayment(data){
@@ -58,6 +61,13 @@ doPayment(data){
   
 }
 
+savePaymentToApi(data){
+  return new Promise((resolve,reject)=>{
+this.http.get(this.url+`/userPrincingPlanInfomation?userId=${data.userId}&Amount=${data.price}`).subscribe(res=>{
+  resolve(res)
+})
+  })
+}
 
 checkPayment(){
 document.addEventListener('resume', onResume, false);
