@@ -62,10 +62,12 @@ export class PaytmentprovProvider {
         })      
     }
 
-    savePaymentToApi(data: { userId: any; price: any; }) {
+    // savePaymentToApi(data: { userId: any; price: any; }) {
+    savePaymentToApi(data) {
         return new Promise((resolve,reject) => {
-            // this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=${data.price}`).subscribe(res=>{
-            this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=420`).subscribe(res=>{
+            // this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=420`).subscribe(res=>{
+            this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=${data.TicketPrice}`)
+                .subscribe(res => {            
                 resolve(res)
             })
         })

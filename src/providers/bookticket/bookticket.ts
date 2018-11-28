@@ -19,7 +19,7 @@ export class BookticketProvider {
 
     bookTicket(data) {    
         return new Promise(resolve => {
-            this.http.get(this.url + `getUserTicketSoldDetail?userId = ${data.UserId}&theaterIdVal = ${data.theaterIdVal}&scrId = '2' ${data.scrId}&showTimeId = ${data.ShowTimingId}&movieDetailsId=${data.movieDetailsId}&showDetailId=${data.showDetailId}&seatStr=${data.seatStr}&dateId=${data.dateId}&TicketPrice=${data.TicketPrice}`).map(res => res)
+            this.http.get(this.url + `getUserTicketSoldDetail?userId=${data.UserId}&theaterIdVal=${data.theaterIdVal}&scrId=${data.screenId}&showTimeId=${data.ShowTimingId}&movieDetailsId=${data.movieDetailsId}&showDetailId=${data.showDetailId}&seatStr=${data.seatStr}&dateId=${data.dateId}&TicketPrice=${data.TicketPrice}`).map(res => res)
             // this.http.get(this.url + `getUserTicketSoldDetail?userId = ${data.UserId}&theaterIdVal = ${data.theaterIdVal}&scrId = ${data.scrId}&showTimeId = ${data.ShowTimingId}&movieDetailsId=${data.movieDetailsId}&showDetailId=${data.showDetailId}&seatStr=${data.seatStr}&dateId=${data.dateId}&TicketPrice=${data.TicketPrice}`).map(res => res)
             .subscribe(data => {
                 console.log("Ticket booking response", data);

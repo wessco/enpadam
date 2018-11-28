@@ -68,10 +68,11 @@ export class HomePage {
         this.service
             .MovieWisetheaterlist(this.movieid)
             .then(result => this.handlemovietheatre(result));
-            this.service.getSlider()
-            .then((res:any)=>{
-              let imagdata=res.MovieBGImage
-           this.slideimage=imagdata
+
+        this.service.getSlider()
+            .then((res:any) => {
+                let imagdata = res.MovieBGImage
+                this.slideimage = imagdata
             })
     }
       
@@ -171,7 +172,7 @@ export class HomePage {
         profileModal.present();
         profileModal.onDidDismiss(data => {
             console.log(data);
-            if(data==undefined|| data==null) {
+            if(data == undefined || data == null) {
                 this.showAlert()
             } else {
                 localStorage.setItem("ticket_selectedcity", data.id)

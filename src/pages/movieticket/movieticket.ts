@@ -20,7 +20,13 @@ export class MovieticketPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MovieticketPage');
+      console.log('ionViewDidLoad MovieticketPage');
+
+      // this.service.data()
+      //     .then((res:any) => {
+      //         let imagdata = res.MovieBGImage
+      //         this.slideimage = imagdata
+      //     })
   }
 
   checkbook(img,moviename,movieLanguage,theatername,verifybook){

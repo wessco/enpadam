@@ -13,31 +13,27 @@ export class ServiceProvider {
 
     constructor(public http: HttpClient,public config: ConfigProvider) {
         console.log('Service Started');    
-        this.url=config.url
+        this.url = config.url;
     }
 
-
-    //mail availability
-
-    checkMail(email){
+    //Email availability
+    checkMail(email) {
         return new Promise(resolve => {
-            this.http.get(this.url + 'checkEmailAvailable?email='+email).map(res => res)
+            this.http.get(this.url + 'checkEmailAvailable?email=' + email).map(res => res)
             .subscribe(data => {
-                console.log("login response",data)
-              
-                resolve(data);  
+                // console.log("login response", data);
+                resolve(data);
             });
         });
     }
   
     // LOGIN 
-    login(email,password) {
-        console.log(email)
-        console.log(password)
+    login(email, password) {
+        console.log("Email and Password: ", email, password);
         return new Promise(resolve => {
-            this.http.get(this.url + 'setLoginForUser?username='+email+'&password='+password+'&roleId=4').map(res => res)
+            this.http.get(this.url + 'setLoginForUser?username=' + email + '&password=' + password + '&roleId=4').map(res => res)
             .subscribe(data => {
-                console.log("login response",data)
+                console.log("Login Response: ", data);
                 this.user = data;
                 resolve(this.user);
             });
@@ -46,14 +42,14 @@ export class ServiceProvider {
     // LOGIN ENDS
 
     // REGISTRATION
-    submit(firstname,lastname,email,mobilenumber,password) {
+    submit(firstname, lastname, email, mobilenumber, password) {
         console.log(firstname)
         console.log(lastname)
         console.log(email)
         console.log(mobilenumber)
         console.log(password)      
         return new Promise(resolve => {
-            this.http.get(this.url + 'setUserRegisterSubmit?firstname='+firstname+'&email='+email+'&mobile='+mobilenumber+'&password='+password).map(res => res)
+            this.http.get(this.url + 'setUserRegisterSubmit?firstname=' + firstname + '&email=' + email + '&mobile=' + mobilenumber + '&password=' + password).map(res => res)
             // this.http.get(this.url + 'setLogin?username='+email+'&password='+password).map(res => res)
             .subscribe(data => {
                 this.user = data;
@@ -64,10 +60,10 @@ export class ServiceProvider {
     // REGISTRATION ENDS
 
     // OTP
-    verify(otpnumber,userid){
-        console.log(otpnumber)
+    verify(otpnumber, userid) {
+        console.log("OTP #: ", otpnumber);
         return new Promise(resolve => {
-            this.http.get(this.url + 'setAccountActivation?smspin='+otpnumber+'&userid='+userid).map(res => res)
+            this.http.get(this.url + 'setAccountActivation?smspin=' + otpnumber + '&userid=' + userid).map(res => res)
             // this.http.get(this.url + 'setLogin?username='+email+'&password='+password).map(res => res)
             .subscribe(data => {
                 this.user = data;
@@ -78,11 +74,11 @@ export class ServiceProvider {
     // OTP ENDS
 
     // HOME PAGE - GET CITYWISE OTHER DETAILS
-    selectcity(id){
-        console.log(id)
+    selectcity(id) {
+        console.log("City ID: ",id);
         // console.log(city)
         return new Promise(resolve => {
-            this.http.get(this.url + 'getCityWiseOtherDetails?cityId='+id).map(res => res)
+            this.http.get(this.url + 'getCityWiseOtherDetails?cityId=' + id).map(res => res)
             .subscribe(data => {
                 this.user = data;
                 resolve(this.user);
@@ -92,7 +88,7 @@ export class ServiceProvider {
     // GET CITYWISE OTHER DETAILS ENDS
 
     // GET CITY LIST
-    getcities(){
+    getcities() {
         return new Promise(resolve => {
             this.http.get(this.url + 'getCityValues').map(res => res)
             .subscribe(data => {
@@ -109,8 +105,18 @@ export class ServiceProvider {
             this.http.get(this.url + 'getBackgroundImages').map(res => res)
             .subscribe(data => {
                 this.sliderbg = data;
-                resolve(this.sliderbg);
-            
+                resolve(this.sliderbg);            
+            })
+        })
+    }
+
+    // BOOKED TICKET HISTORYhttps://emailforjobs.com/app/userHistory?userId=14
+    bookedTickets(id) {
+        return new Promise(resolve => {
+            this.http.get(this.url + 'userHistory?userId=' +id).map(res => res)
+            .subscribe(data => {
+                this.user = data;
+                resolve(this.user);            
             })
         })
     }
@@ -208,7 +214,7 @@ export class ServiceProvider {
         console.log(Params)
         return new Promise(resolve => {
             // this.http.get(this.url + 'getUserTicketSoldDetail?userId='+Params.userId+'&theaterIdVal='+Params.theaterIdVal+'&scrId='+Params.scrId+'&showTimeId='+Params.showTimeId+'&movieDetailsId='+Params.movieDetailsId+'&showDetailId='+Params.showDetailId+'&seatStr='+Params.seatStr+'&dateId='+Params.dateId+'&TicketPrice='+Params.TicketPrice).map(res => res)
-            this.http.get(this.url + 'getUserTicketSoldDetail?userId='+Params.userId+'&theaterIdVal='+Params.theaterIdVal+'&scrId='+Params.scrId+'&showTimeId='+Params.showTimeId+'&movieDetailsId='+Params.movieDetailsId+'&showDetailId='+Params.showDetailId+'&seatStr='+Params.seatStr+'&dateId='+Params.dateId+'&TicketPrice='+Params.TicketPrice).map(res => res)
+            this.http.get(this.url + 'getUserTicketSoldDetail?userId=' + Params.userId + '&theaterIdVal=' + Params.theaterIdVal + '&scrId=' + Params.scrId + '&showTimeId=' + Params.showTimeId + '&movieDetailsId=' + Params.movieDetailsId + '&showDetailId=' + Params.showDetailId + '&seatStr=' + Params.seatStr+'&dateId=' + Params.dateId + '&TicketPrice=' + Params.TicketPrice).map(res => res)
                 .subscribe(data => {
                     this.user = data;
                     resolve(this.user);

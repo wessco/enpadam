@@ -12,6 +12,11 @@
     <div style="background-color:#2D4050 ">
         <div class="movie_name">Booking History</div>
     </div>
+    <div>
+        <li *ngFor="let x of slideimage "> 
+            <img src="{{ x.value }}" alt="">
+        </li>
+    </div>
     <ion-grid>
         <ion-row (click)="checkbook('u2.jpg','The Stolen Princess','English |(U/A)','PVR: Grand Galada,Pallavaram','Booked')"> 
             <ion-col col-3> 

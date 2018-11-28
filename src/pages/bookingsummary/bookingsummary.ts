@@ -54,15 +54,15 @@ export class BookingsummaryPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad BookingsummaryPage');
-        this.movie_name=this.navParams.get('name');
-        this.address1=this.navParams.get('address1');
-        console.log(this.movie_name);
-        console.log(this.address1);
+        this.movie_name = this.navParams.get('name');
+        this.address1 = this.navParams.get('address1');
+        console.log("Movie Name: ",this.movie_name);
+        console.log("Address: ",this.address1);
         this.amount = this.navParams.get('amount');
         this.tickets = this.navParams.get('ticket');
         this.display_date = this.navParams.get('date');
         this.totalamount = this.amount + 129 + 110 + 19.80;
-        console.log(this.amount,this.tickets,this.display_date)
+        console.log("Amount: ",this.amount, this.tickets, this.display_date)
     }
 
 
