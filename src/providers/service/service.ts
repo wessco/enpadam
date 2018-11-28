@@ -189,16 +189,16 @@ export class ServiceProvider {
     // GET SEARCH DETAILS ENDS
     
     // THEATRE LAYOUT
-    theaterlayout(thid,scrid,shotmid,mdid,shodetailid) {
+    theaterlayout(thid, scrid, shotmid, mdid, shodetailid) {
     // theaterlayout()
         return new Promise(resolve => {
             // this.http.get(this.url + 'getTheaterLayout?theaterIdVal='+thid+'&scrId='+scrid+'&showTimeId='+shotmid+'&movieDetailsId='+mdid+'&showDetailId='+shodetailid).map(res => res)
             // this.http.get(this.url + 'getTheaterLayout?theaterIdVal='+6+'&scrId='+12+'&showTimeId='+14+'&movieDetailsId='+14+'&showDetailId='+7).map(res => res)
             this.http.get(this.url + 'getTheaterLayout?theaterIdVal=' + thid + '&scrId=' + scrid + '&showTimeId=' + shotmid + '&movieDetailsId='+ mdid + '&showDetailId=' + shodetailid).map(res => res)
-            .subscribe(data => {
-                this.user = data;
-                resolve(this.user);
-            });
+                .subscribe(data => {
+                    this.user = data;
+                    resolve(this.user);
+                });
         });
     }
     // THEATRE LAYOUT ENDS
@@ -209,16 +209,16 @@ export class ServiceProvider {
         return new Promise(resolve => {
             // this.http.get(this.url + 'getUserTicketSoldDetail?userId='+Params.userId+'&theaterIdVal='+Params.theaterIdVal+'&scrId='+Params.scrId+'&showTimeId='+Params.showTimeId+'&movieDetailsId='+Params.movieDetailsId+'&showDetailId='+Params.showDetailId+'&seatStr='+Params.seatStr+'&dateId='+Params.dateId+'&TicketPrice='+Params.TicketPrice).map(res => res)
             this.http.get(this.url + 'getUserTicketSoldDetail?userId='+Params.userId+'&theaterIdVal='+Params.theaterIdVal+'&scrId='+Params.scrId+'&showTimeId='+Params.showTimeId+'&movieDetailsId='+Params.movieDetailsId+'&showDetailId='+Params.showDetailId+'&seatStr='+Params.seatStr+'&dateId='+Params.dateId+'&TicketPrice='+Params.TicketPrice).map(res => res)
-            .subscribe(data => {
-                this.user = data;
-                resolve(this.user);
-            });
+                .subscribe(data => {
+                    this.user = data;
+                    resolve(this.user);
+                });
         });
     }
     // TICKET SOLD DETAIL ENDS
 
     // GET THEATRE MOVIES
-    theatermovie(id){
+    theatermovie(id) {
         console.log(id)
         return new Promise(resolve => {
             this.http.get(this.url + 'getTheaterMovies?theatreId='+id).map(res => res)
@@ -231,7 +231,7 @@ export class ServiceProvider {
     // GET THEATRE MOVIES ENDS
 
     // CITY WISE THEATRE DETAILS
-    citywisetheader(id){
+    citywisetheader(id) {
         console.log(id)
         return new Promise(resolve => {
             this.http.get(this.url + 'getCitywiseTheaderDetails?cityId='+id).map(res => res)
@@ -244,7 +244,7 @@ export class ServiceProvider {
     // CITY WISE THEATRE DETAILS ENDS
 
     // MOVIE SUGGEST AUTO SUGGEST
-    moviesuggest(ev){
+    moviesuggest(ev) {
         console.log(ev);
         return new Promise(resolve => {
             this.http.get(this.url + 'getMovieSuggest?movieName='+ev)

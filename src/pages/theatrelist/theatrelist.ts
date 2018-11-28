@@ -45,43 +45,42 @@ export class TheatrelistPage {
     }
 
     ionViewDidLoad() {
-        this.choosecity=localStorage.getItem("ticket_selectedcity")
-        this.cityname=localStorage.getItem('selectedCityName')   
+        this.choosecity = localStorage.getItem("ticket_selectedcity")
+        this.cityname = localStorage.getItem('selectedCityName')   
         console.log('ionViewDidLoad TheatrelistPage');  
         this.service.citywisetheader(this.choosecity)
-        .then((result)=>this.handlecitywisetheader(result));
-     
+            .then((result)=>this.handlecitywisetheader(result));     
     }
-    callCityModal(){
+
+    callCityModal() {
         let profileModal = this.modalCtrl.create(CitylistModalPage);
-   profileModal.present();
-   profileModal.onDidDismiss(data => {
-    console.log(data);
-    if(data==undefined|| data==null){
-
-    }else{
-   localStorage.setItem("ticket_selectedcity",data.id)
-   this.choosecity=data.id
-   this.cityname=data.value
-   localStorage.setItem("selectedCityName",data.value)
-   this.service.citywisetheader(this.choosecity)
-   .then((result)=>this.handlecitywisetheader(result));
-
+        profileModal.present();
+        profileModal.onDidDismiss(data => {
+            console.log(data);
+            if(data == undefined || data == null) {
+            } else {
+                localStorage.setItem("ticket_selectedcity",data.id)
+                this.choosecity = data.id;
+                this.cityname = data.value;
+                localStorage.setItem("selectedCityName", data.value);
+                this.service.citywisetheader(this.choosecity)
+                    .then((result)=>this.handlecitywisetheader(result));
+            }   
+        }); 
     }
-   
-  });
- 
-}
-    handlesearchtheader(result){
+
+    handlesearchtheader(result) {
         console.log(result);
         // console.log(result.MovieListMap[0].MovieName);
         console.log(result.TheatreMap);
     }
+
     setItems() {
         this.items = this.theatermovie;
     }
-    onInput(ev: any){
-        this.search=true
+
+    onInput(ev: any) {
+        this.search = true;
         this.setItems();
         console.log(ev);
         console.log(ev.target.value);
@@ -94,16 +93,17 @@ export class TheatrelistPage {
                 console.log(item.TheatreName.toLowerCase().indexOf(val.toLowerCase()) > -1);
                 return (item.TheatreName.toLowerCase().indexOf(val.toLowerCase()) > -1);
             })
-        console.log(this.displayArtist);
+            console.log(this.displayArtist);
         } else {
-            this.filterTheatres= this.displayArtist ;
+            this.filterTheatres = this.displayArtist ;
         }
     }
+
     onCancel(ev: any){
         console.log("onCancel");
         ev.target.value = '';
-        this.search=false
-        this.filterTheatres= this.displayArtist ;
+        this.search = false;
+        this.filterTheatres = this.displayArtist ;
         this.displayArtist = this.theatermovie;
     }
     //   ionViewWillEnter(){
@@ -116,13 +116,14 @@ export class TheatrelistPage {
     // }
     // }
 
-    ionViewWillEnter(){
+    ionViewWillEnter() {
         this.service.getcities()
-        .then((result)=> this.handleservice(result))
+            .then((result) => this.handleservice(result));
     }
-    handleservice(result){
+
+    handleservice(result) {
         console.log(result);
-        this.cities=result.CityValue;
+        this.cities = result.CityValue;
         console.log(this.cities);
         console.log(result.CityValue[0].id);
     }
@@ -131,7 +132,7 @@ export class TheatrelistPage {
         console.log(this.choosecity);
         localStorage.setItem('ticket_selectedcity',this.choosecity)
         this.service.citywisetheader(this.choosecity)
-        .then((result)=>this.handlecitywisetheader(result));
+        .then((result) => this.handlecitywisetheader(result));
     }
 
     handlecitywisetheader(result) {
@@ -146,16 +147,17 @@ export class TheatrelistPage {
         this.citytheater = result.TheatreMap[0].TheatreName;
         console.log(this.citytheater);
     }
-    movie_desc(x) {
+    // movie_desc(x) {
+    movie_desc(x: { TheatreId: any; }) {
         console.log(x);
         console.log(x.TheatreId);
         console.log(this.DateId);
         var params = {
-            movie_detail:x,
-            theaterId:x.TheatreId,
-            datemovie:this.navParams.get('datemovie')
+            movie_detail: x,
+            theaterId: x.TheatreId,
+            datemovie: this.navParams.get('datemovie')
         }
-        this.navCtrl.push(TheatreviewpagePage,params)
+        this.navCtrl.push(TheatreviewpagePage, params);
     }  
     arrow_press() {
         this.navCtrl.setRoot(HomePage)

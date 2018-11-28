@@ -1,79 +1,80 @@
 
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Theatreviewpage</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>Theatreviewpage</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
- <!-- <img src="{{img}}" >  -->
-
+    <!-- <img src="{{img}}" >  -->
     <!-- <div class="img-display"  >
     <div  class="img-out" >
         <img class="images" src="{{img}}" alt="no internet availabla" style="object-fit: cover !important;height: 230px;" >
-        <img  class="images" src="assets/imgs/m4.jpg" alt="" style="object-fit: cover !important;height: 230px;">
-       
+        <img  class="images" src="assets/imgs/m4.jpg" alt="" style="object-fit: cover !important;height: 230px;">       
     </div>
     </div> -->
-
-   
-<!-- <div style="background-color: #2D4050">
-    <ion-item (click)="theaterview()">
-
-  <div class="theatre_name">
-        {{theatrename}}
-  </div>
-  <div class="theatre_address">
-         {{address}}
-      2nd Floor, Phoenix Market City, Velachery Main Road, Velachery, Chennai, Tamil Nadu 600042, India
-  </div>
-</div> -->
-<div *ngFor="let x of datemovie1">
-
-<div class="div_images">
-        <div><img src="assets/imgs/m4.jpg" class="img_set"/></div>
-            <div class="movie_title">{{x.MovieName}} </div>
-     </div>
-
-<div class="movierelease_row">   
-        <div class="dayname">{{DayName}}</div>
-        <div class="movierelease_title">{{Date}}</div>
-       
-      <hr class="hr_line">
-
-     <div class="movierelease_title1">{{x.MovieLanguage}}</div>
-     <div class="formate_2d">{{x.MovieFormat}}</div>
-</div>   
-    <!-- ---one page to other page image send---- --> 
-<!-- <img src="assets/imgs/{{img}}" class="picture back_img">
-<div class="movie_name">{{name}}</div> -->
-<div class="movierelease_title1">SYNOPSIS:</div>
-<div class="moviedescription">{{x.MovieDescription}}</div>
-
-<hr class="hr_line">
-
-<!-- <div class="img-display" >
-    <div class="img-out" *ngFor="let x of [1,2,3,4,5,6,7];let i=index" >
-            <button ion-button outline class="time_btn image" (click)="presentPopover($event)">03:15 PM</button>
+    <!-- <div style="background-color: #2D4050">
+        <ion-item (click)="theaterview()">
+        <div class="theatre_name">
+            {{theatrename}}
+        </div>
+        <div class="theatre_address">
+            {{address}}
+            2nd Floor, Phoenix Market City, Velachery Main Road, Velachery, Chennai, Tamil Nadu 600042, India
+        </div>
+    </div> -->
     
-    </div>
-  </div> -->
+    <div *ngFor="let x of datemovie1">
+        <div class="div_images">
+            <div>
+                <img src="assets/imgs/m4.jpg" class="img_set"/>
+            </div>
+            <div class="movie_title">{{x.MovieName}} </div>
+        </div>
 
-  <ion-grid class="grid_box">
-
-        <!-- <div *ngFor="let x of desc "></div> -->
-                            <!-- <div class="Multiplax_title" (click)="movie_desc(x.MovieImagePath)"> {{x.TheatreName}} </div> -->
-                            <!-- <div class="Multiplax_title" (click)="movie_desc(x.TheatreId,x.DateId)"> {{x.TheatreName}} </div> -->
-                            <!-- <div class="Multiplax_title" (click)="movie_desc(x,x.TheatreId)"> {{x.TheatreName}} </div> -->
-                    <div class="img-display" >
-                            <div class="img-out" *ngFor="let y of x.Screendetail" >
-                                    <button ion-button outline class="time_btn image" (click)="presentPopover(y,x.TheatreId)" >{{y.ShowTimig}}</button>
-                            </div>
-                          </div>
-                <hr class="hr_line">
-            <!-- </div>    -->
-        </ion-grid> 
+        <div class="movierelease_row">   
+            <div class="dayname">
+                {{ DayName }}
+            </div>
+            <div class="movierelease_title">
+                {{ Date }}
+            </div>
+            <hr class="hr_line">
+            <div class="movierelease_title1">
+                {{ x.MovieLanguage }}
+            </div>
+            <div class="formate_2d">
+                {{ x.MovieFormat }}
+            </div>
+        </div>   
+        <!-- ---one page to other page image send---- --> 
+            <!-- <img src="assets/imgs/{{img}}" class="picture back_img">
+            <div class="movie_name">{{name}}</div> -->
+        <div class="movierelease_title1">
+            SYNOPSIS:
+        </div>
+        <div class="moviedescription">
+            {{ x.MovieDescription }}
+        </div>
+        <hr class="hr_line">
+        <!-- <div class="img-display" >
+            <div class="img-out" *ngFor="let x of [1,2,3,4,5,6,7];let i=index" >
+                <button ion-button outline class="time_btn image" (click)="presentPopover($event)">03:15 PM</button>    
+            </div>
+        </div> -->
+        
+        <ion-grid class="grid_box">
+            <!-- <div *ngFor="let x of desc "></div> -->
+                    <!-- <div class="Multiplax_title" (click)="movie_desc(x.MovieImagePath)"> {{x.TheatreName}} </div> -->
+                    <!-- <div class="Multiplax_title" (click)="movie_desc(x.TheatreId,x.DateId)"> {{x.TheatreName}} </div> -->
+                    <!-- <div class="Multiplax_title" (click)="movie_desc(x,x.TheatreId)"> {{x.TheatreName}} </div> -->
+            <div class="img-display">
+                <div class="img-out" *ngFor="let y of x.Screendetail" >
+                    <button ion-button outline class="time_btn image" (click)="presentPopover(y,x.TheatreId)">{{ y.ShowTimig }}</button>
+                </div>
+            </div>
+            <hr class="hr_line">
+            <!-- </div> -->
+        </ion-grid>
     </div>
 </ion-content>

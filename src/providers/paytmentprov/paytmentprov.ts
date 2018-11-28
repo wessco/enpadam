@@ -11,80 +11,80 @@ declare var RazorpayCheckout: any;
 */
 @Injectable()
 export class PaytmentprovProvider {
-url:any
-  constructor(public config: ConfigProvider,public http: HttpClient) {
-    console.log('Hello PaytmentprovProvider Provider');
-    this.url=config.url
-  }
+    url: any;
 
-doPayment(data){
-  return new Promise(resolve=>{
-    var options = {
-      description: 'Booking Tickets Through Ticketlite',
-      image: 'https://i.imgur.com/3g7nmJC.png',
-      currency: 'INR',
-      key: 'rzp_live_1kzJgQOqdgLsey',  
-      amount: data.TicketPrice,
-      name: 'foo',
-      prefill: {
-        email: '',
-        contact: '',
-        name: ''
-      },
-      theme: {
-        color: '#F37254'
-      }
-    }       
-    
-    RazorpayCheckout.open(options, function successCallback(payment_id){
-      alert('payment_id: ' + payment_id)
-      let obj ={
-        success:true,
-        payment_id:payment_id
-      }
-      resolve(obj)  
-    }, function cancelCallback(error){
-      alert(error.description + ' (Error '+error.code+')')
-      resolve(error)
-    })
-  
-    // var successCallback = function(payment_id) {
-    //   alert('payment_id: ' + payment_id)
-    //   resolve(payment_id)
-    // }
-           
-    // var cancelCallback = function(error) {
-    //   alert(error.description + ' (Error '+error.code+')')
-    //   resolve(error)
-    // }
-  })
-  
-}
+    constructor(public config: ConfigProvider,public http: HttpClient) {
+        console.log('Hello PaytmentprovProvider Provider');
+        this.url = config.url;
+    }
 
-savePaymentToApi(data){
-  return new Promise((resolve,reject)=>{
-this.http.get(this.url+`/userPrincingPlanInfomation?userId=${data.userId}&Amount=${data.price}`).subscribe(res=>{
-  resolve(res)
-})
-  })
-}
-
-checkPayment(){
-document.addEventListener('resume', onResume, false);
-var onResume = function(event) {
-        // Re-register the payment success and cancel callbacks
-        RazorpayCheckout.on('payment.success', successCallback)
-        RazorpayCheckout.on('payment.cancel', cancelCallback)
-        // Pass on the event to RazorpayCheckout
-        RazorpayCheckout.onResume(event);
-
-        var successCallback = function(payment_id) {
-          alert('payment_id: ' + payment_id)
-        }
+    doPayment(data) {
+        return new Promise(resolve => {
+            var options = {
+                description: 'Booking Tickets Through Ticketlite',
+                image: 'https://i.imgur.com/3g7nmJC.png',
+                currency: 'INR',
+                key: 'rzp_live_1kzJgQOqdgLsey',  
+                // amount: data.TicketPrice,
+                amount: 420,
+                name: 'foo',
+                prefill: {
+                    email: '',
+                    contact: '',
+                    name: ''
+                },
+                theme: {
+                    color: '#F37254'
+                }
+            }
         
-        var cancelCallback = function(error) {
-          alert(error.description + ' (Error '+error.code+')')
-        }
-      };
+            RazorpayCheckout.open(options, function successCallback(payment_id) {
+                alert('payment_id: ' + payment_id);
+                let obj = {
+                    success:true,
+                    payment_id:payment_id
+                }
+                resolve(obj)
+                }, function cancelCallback(error) {
+                    alert(error.description + ' (Error '+error.code+')');
+                    resolve(error)
+                })
+      
+                // var successCallback = function(payment_id) {
+                //   alert('payment_id: ' + payment_id)
+                //   resolve(payment_id)
+                // }
+                      
+                // var cancelCallback = function(error) {
+                //   alert(error.description + ' (Error '+error.code+')')
+                //   resolve(error)
+                // }
+        })      
+    }
+
+    savePaymentToApi(data: { userId: any; price: any; }) {
+        return new Promise((resolve,reject) => {
+            // this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=${data.price}`).subscribe(res=>{
+            this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=420`).subscribe(res=>{
+                resolve(res)
+            })
+        })
+    }
+
+    checkPayment() {
+        document.addEventListener('resume', onResume, false);
+        var onResume = function(event) {
+            // Re-register the payment success and cancel callbacks
+            RazorpayCheckout.on('payment.success', successCallback)
+            RazorpayCheckout.on('payment.cancel', cancelCallback)
+            // Pass on the event to RazorpayCheckout
+            RazorpayCheckout.onResume(event);
+            var successCallback = function(payment_id) {
+                alert('payment_id: ' + payment_id);
+            }
+            var cancelCallback = function(error) {
+                alert(error.description + ' (Error '+error.code+')');
+            }
+        };
     }
 }

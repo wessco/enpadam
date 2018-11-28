@@ -1,34 +1,28 @@
 
 <ion-header>
-
-  <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>My Tickets</ion-title>
-  </ion-navbar>
-
+        <ion-title>My Tickets</ion-title>
+    </ion-navbar>
 </ion-header>
 
-
 <ion-content >
-<div style="background-color:#2D4050 ">
-  <div class="movie_name">Booking History</div>
-</div> 
-
-<ion-grid>
-    <ion-row (click)="checkbook('u2.jpg','The Stolen Princess','English |(U/A)','PVR: Grand Galada,Pallavaram','Booked')"> 
-        <ion-col col-3> 
-          <div><img src="assets/imgs/u2.jpg" class="movie_img"></div>
-        </ion-col>
-
-        <ion-col col-9 >
+    <div style="background-color:#2D4050 ">
+        <div class="movie_name">Booking History</div>
+    </div>
+    <ion-grid>
+        <ion-row (click)="checkbook('u2.jpg','The Stolen Princess','English |(U/A)','PVR: Grand Galada,Pallavaram','Booked')"> 
+            <ion-col col-3> 
+                <div><img src="assets/imgs/u2.jpg" class="movie_img"></div>
+            </ion-col>
+            <ion-col col-9 >
+                <div>
+                    <span class="div_span_title"> Movie name: </span>
+                    <span>The Stolen Princess  </span>
+                </div>
             <div>
-              <span class="div_span_title"> Movie name: </span>
-              <span>The Stolen Princess  </span>
-            </div>
-
-          <div>
             <span class="div_span_title"> Theatre name:</span>
             <span> PVR: Grand Galada,Pallavaram </span>
           </div> 

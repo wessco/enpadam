@@ -68,7 +68,7 @@ export class BookingTicketPage {
     showid: any;
     showtiming: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,public modalCtrl: ModalController,
+    constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController,public modalCtrl: ModalController,
         public service: ServiceProvider,public loadingCtrl: LoadingController) {
         this.choosecity={}
     }
@@ -151,7 +151,7 @@ export class BookingTicketPage {
         console.log("theatre data",result);
         
         this.theaterId=result.Theatredetail.TheatreId;
-        console.log(this.theaterId);
+        console.log("Theatre ID: ",this.theaterId);
         this.description=result.MovieDescription;
         this.movieduration=result.MovieDuration;
         this.moviereleaseDate=result.MovieReleaseDate;
@@ -167,44 +167,42 @@ export class BookingTicketPage {
         this.datemovie=this.theatertime[0].DateId;
         console.log(this.datemovie);
         this.loading.dismiss();
-         for(let i=0; i<this.theatertime.length;i++){
-            if(i==0){
-                this.theatertime[i].selected=true
-            }
-            else{
-                this.theatertime[i].selected=false
+         for(let i = 0; i < this.theatertime.length; i++) {
+            if(i == 0){
+                this.theatertime[i].selected = true
+            } else {
+                this.theatertime[i].selected = false
             }     
         }           
         this.datemoviewisetheater();
     }
    
-    getStyle(selected){
-if(selected){
-    return "green"
-}
-else{   
-    return "black"
-}
-    }       
+    getStyle(selected) {
+        if(selected) {
+            return "green"
+        } else {
+            return "black"
+        }
+    }
+
     changeDate(nowdate){
         // let indexnum= this.theatertime.indexOf(nowdate.DateId)   
          let indexnum= this.theatertime.findIndex(y => y.DateId==nowdate.DateId)
          console.log(indexnum)
-         for(let i=0; i<this.theatertime.length;i++){
-             console.log(indexnum)
-            if(i==indexnum){
-                this.theatertime[i].selected=true  
-                this.datemovie=this.theatertime[i].DateId;
-            }
-            else{
-                this.theatertime[i].selected=false
+         for(let i = 0; i <this.theatertime.length; i++){
+            console.log(indexnum);
+            if(i == indexnum) {
+                this.theatertime[i].selected = true;
+                this.datemovie = this.theatertime[i].DateId;
+            } else {
+                this.theatertime[i].selected = false;
             }   
         }   
 
     }
-    handletheaterwisemoviedate(result){
+    handletheaterwisemoviedate(result) {
         console.log(result);
-        this.theaterId=result.TheatreDetail[0].TheatreId;
+        this.theaterId = result.TheatreDetail[0].TheatreId;
         console.log("Theatre ID:" + this.theaterId);
         // this.theaterwisemovie()
     }
@@ -213,8 +211,8 @@ else{
   //   console.log(result)
   // }
   
-    presentPopover(myEvent,TheatreId,totaldata) {
-         console.log("in totel data ",totaldata)
+    presentPopover(myEvent, TheatreId, totaldata) {
+         console.log("in totel data ", totaldata)
        // console.log(myEvent)
         // var abc={
         //   moviedetailid:myEvent.MovieDetailId,

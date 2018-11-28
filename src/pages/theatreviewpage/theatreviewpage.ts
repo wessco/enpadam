@@ -72,41 +72,34 @@ export class TheatreviewpagePage {
   
 
   ionViewWillEnter(){
-    this.movie_detail=this.navParams.get('movie_detail')
-    console.log(this.movie_detail)
+      this.movie_detail = this.navParams.get('movie_detail');
+      console.log(this.movie_detail);
+      // this.datemovie=this.navParams.get('datemovie')
+      this.theaterId = this.navParams.get('theaterId');
+      console.log(this.theaterId);
+      this.datemovie = this.navParams.get('datemovie');
+      console.log(this.datemovie);
+      // this.MovieName=this.movie_detail.MovieName
+      // this.img=this.movie_detail.MovieImagePath
+      // this.Certification=this.movie_detail.MovieCertificationName
+      // this.MovieLanguage=this.movie_detail.MovieLanguage
+      // this.MovieGenre=this.movie_detail.MovieGenre
+      // console.log(this.MovieName)
+      // console.log(this.img)
+      // console.log(this.Certification)
+      // console.log( this.MovieLanguage)
+      // console.log(this.MovieGenre)
+      // console.log(this.datemovie,this.theaterId)
+      // this.service.theaterwisemovie(this.theaterId,this.datemovie)
+      // .then((result)=>this.handletheaterwisemovie(result))
 
-    // this.datemovie=this.navParams.get('datemovie')
-    this.theaterId=this.navParams.get('theaterId')
-    console.log(this.theaterId)
-
-    this.datemovie=this.navParams.get('datemovie')
-    console.log(this.datemovie)
-    // this.MovieName=this.movie_detail.MovieName
-    // this.img=this.movie_detail.MovieImagePath
-    // this.Certification=this.movie_detail.MovieCertificationName
-    // this.MovieLanguage=this.movie_detail.MovieLanguage
-    // this.MovieGenre=this.movie_detail.MovieGenre
-
-    // console.log(this.MovieName)
-    // console.log(this.img)
-    // console.log(this.Certification)
-    // console.log( this.MovieLanguage)
-    // console.log(this.MovieGenre)
-    
-
-    // console.log(this.datemovie,this.theaterId)
-
-    // this.service.theaterwisemovie(this.theaterId,this.datemovie)
-    // .then((result)=>this.handletheaterwisemovie(result))
-   
-
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      this.loading = this.loadingCtrl.create({
+          content: 'Please wait...'
       })
       this.loading.present()
-          this.theaterId=47   
-    this.service.theatermovie(this.theaterId)
-    .then((result)=>this.handletheatermovie(result))
+      // this.theaterId=47
+      this.service.theatermovie(this.theaterId)
+          .then((result)=>this.handletheatermovie(result))
 
 
   //   this.movie_detail=this.navParams.get('movie_detail')
@@ -120,39 +113,39 @@ export class TheatreviewpagePage {
   //   console.log(result)
   // }
 
-  handletheatermovie(result){
-    console.log(result)
-   // this.datemovie1=result.MovieBGImage
-    // console.log(this.moviedetailid)
+  handletheatermovie(result) {
+      console.log("Result: ", result)
+      // this.datemovie1=result.MovieBGImage
+      // console.log(this.moviedetailid)
 
-     this.loading.dismiss()
-    // console.log(result.DayDetail)
-    console.log(result.MovieDetail)
+      this.loading.dismiss()
+      // console.log(result.DayDetail)
+      console.log("Movie Details: ",result.MovieDetail)
 
-     this.datemovie1=result.MovieDetail
-      console.log(this.datemovie1)
+      this.datemovie1 = result.MovieDetail;
+      console.log("DateMovie: ",this.datemovie1);
 
-    this.MovieName=result.MovieDetail[0].MovieName
-    this.MovieDescription=result.MovieDetail[0].MovieDescription
-    this.MovieFormat=result.MovieDetail[0].MovieFormat
-    this.MovieLanguage=result.MovieDetail[0].MovieLanguage
-    
-    console.log(result.DayDetail)
-    this.Date=result.DayDetail[0].Date
-    this.DayName=result.DayDetail[0].DayName
+      this.MovieName = result.MovieDetail[0].MovieName;
+      this.MovieDescription = result.MovieDetail[0].MovieDescription;
+      this.MovieFormat = result.MovieDetail[0].MovieFormat;
+      this.MovieLanguage = result.MovieDetail[0].MovieLanguage;
+      
+      console.log("Day Details: ",result.DayDetail);
+      this.Date = result.DayDetail[0].Date;
+      this.DayName = result.DayDetail[0].DayName;
 
-    ///-----------//
-    // console.log(this.Date, this.DayName)
-    
-    // console.log(this.datemovie.Screendetail)
-    //   this.ShowTimig=this.datemovie[0].Screendetail[0].ShowTimig
-    //   console.log( this.ShowTimig)
-    // console.log( this.theatreName)
-    // console.log(this.theatreaddress)
+      ///-----------//
+      // console.log(this.Date, this.DayName)
+      
+      // console.log(this.datemovie.Screendetail)
+      //   this.ShowTimig=this.datemovie[0].Screendetail[0].ShowTimig
+      //   console.log( this.ShowTimig)
+      // console.log( this.theatreName)
+      // console.log(this.theatreaddress)
   }
 
   presentPopover(myEvent) {
-    console.log(myEvent)
+    console.log(myEvent);
     // var abc={
     //   moviedetailid:myEvent.MovieDetailId,
     //   screenid:myEvent.ScreenId,
@@ -177,17 +170,19 @@ export class TheatreviewpagePage {
            
     let profileModal = this.modalCtrl.create(PopoverPage);
     profileModal.onDidDismiss(data => {
-      console.log(data.seats);
-      if(data.seats != undefined){
-        var params={
-          
-          moviedetailid:this.moviedetailid,
-          screenid:myEvent.ScreenId,
-          showdetailid:myEvent.ShowDetailId,
-          showid:myEvent.ShowId,
-          showtiming:myEvent.ShowTimig,
-           datemovie:this.navParams.get('datemovie'),
-           theaterId:this.navParams.get('theaterId')
+        console.log("Seats TVP: ", data.seats);
+        if(data.seats != undefined) {
+          var params = {          
+              // moviedetailid:this.moviedetailid,
+              // moviedetailid:myEvent.MovieDetailId,
+              // moviedetailid:this.navParams.get('movieDetailId'),
+              moviedetailid: 2,
+              screenid:myEvent.ScreenId,
+              showdetailid:myEvent.ShowDetailId,
+              showid:myEvent.ShowId,
+              showtiming:myEvent.ShowTimig,
+              datemovie:this.navParams.get('datemovie'),
+              theaterId:this.navParams.get('theaterId')
         }
         this.navCtrl.push(SeatslayoutPage,params)
       }

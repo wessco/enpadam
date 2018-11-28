@@ -151,57 +151,50 @@ export class HomePage {
     }
    
     ionViewWillEnter() {    
-      let city=  localStorage.getItem("ticket_selectedcity")
-      console.log("from local storage",city)
-      if(city == null || city==undefined ){
-       this.callCityModal()
-
-      }else{
-        this.showData=true
-          this.choosecity=localStorage.getItem("ticket_selectedcity")
-          this.cityname=localStorage.getItem('selectedCityName')   
-          this.service
-          .selectcity(this.choosecity)
-          .then(results => this.selectcity(results));
-
-      }       
+        let city = localStorage.getItem("ticket_selectedcity")
+        console.log("From Local Storage", city)
+        if(city == null || city == undefined ) {
+            this.callCityModal()
+        } else {
+            this.showData=true
+            this.choosecity=localStorage.getItem("ticket_selectedcity")
+            this.cityname=localStorage.getItem('selectedCityName')   
+            this.service
+                .selectcity(this.choosecity)
+                .then(results => this.selectcity(results))
+        }
         this.service.getcities().then(result => this.handleservice(result));
     }
 
-
-    callCityModal(){
+    callCityModal() {
         let profileModal = this.modalCtrl.create(CitylistModalPage);
-   profileModal.present();
-   profileModal.onDidDismiss(data => {
-    console.log(data);
-    if(data==undefined|| data==null){
-this.showAlert()
-    }else{
-   localStorage.setItem("ticket_selectedcity",data.id)
-   this.choosecity=data.id
-   this.cityname=data.value
-   localStorage.setItem("selectedCityName",data.value)
-   this.service
-       .selectcity(this.choosecity)
-       .then(results => this.selectcity(results));
-
+        profileModal.present();
+        profileModal.onDidDismiss(data => {
+            console.log(data);
+            if(data==undefined|| data==null) {
+                this.showAlert()
+            } else {
+                localStorage.setItem("ticket_selectedcity", data.id)
+                this.choosecity=data.id;
+                this.cityname=data.value;
+                localStorage.setItem("selectedCityName", data.value)
+                this.service
+                    .selectcity(this.choosecity)
+                    .then(results => this.selectcity(results))
+            }   
+        });
     }
-   
-  });
- 
-}
-showAlert(){
-    let alert = this.alertCtrl.create({
-       
-        subTitle: 'Please select a city',
-        buttons: ['Ok']
-      });
-      alert.present();
-    
-}
 
+    showAlert() {
+        let alert = this.alertCtrl.create({       
+            subTitle: 'Please select a city',
+            buttons: ['Ok']
+        });
+        alert.present();    
+    }
  
-    handleservice(result) {
+    // handleservice(result) {
+    handleservice(result: { CityValue?: any; }) {
         console.log(result);
         this.cities = result.CityValue;
         console.log(this.cities);
@@ -235,7 +228,7 @@ showAlert(){
     //   this.navCtrl.push(GalleryPage,params)
     // }
 
-    movie_desc(x) {
+    movie_desc(x: any) {
         console.log(x);
         var params = {
             movie_detail: x
@@ -246,55 +239,44 @@ showAlert(){
     // pic1(){
     //   this.navCtrl.push(BookingTicketPage)
     // }
-
-    
-    
     
     selectcity(results) {
+    // selectcity(results: { [x: string]: any[]; NowRunningMovie?: any; UpcommingMovie?: any; }) {
         // this.navCtrl.push(OtpconformPage)
         console.log(results);
         // console.log(results.map.City.id.value)
-        this.showData=true
+        this.showData=true;
         console.log(results.NowRunningMovie);
-        this.upcomingList=[]
-        this.movielist=[]     
+        this.upcomingList=[];
+        this.movielist=[]; 
        
-        if (results.NowRunningMovie  && results.NowRunningMovie.length>0) {
+        if (results.NowRunningMovie  && results.NowRunningMovie.length > 0) {
             this.NowRunningmovie=false
-            console.log("I am inner if condition Now Running Movie")
-            this.movielist = results.NowRunningMovie.slice();
-         
-           // console.log("Lists:" + this.movielist);
+            console.log("I am inner if condition Now Running Movie");
+            this.movielist = results.NowRunningMovie.slice();         
+            // console.log("Lists:" + this.movielist);
             this.displayArtist = this.movienamesuggest;
             var n = this.movielist.length;
-            console.log(n);
-        
+            console.log(n);        
             for (var i = 0; i < n; i++) {   
-                this.movienamesuggest[i]=this.movielist[i]
-              
-            }   
-
-            this.suggestedMoviesBackUp=this.movienamesuggest
-          
-         //   console.log(this.slideimage);
-        }          
-        else{
-            this.NowRunningmovie=true
+                this.movienamesuggest[i]=this.movielist[i];              
+            }
+            this.suggestedMoviesBackUp=this.movienamesuggest;          
+            //   console.log(this.slideimage);
+        } else {
+            this.NowRunningmovie=true;
         }
-        if(results.UpcommingMovie && results.UpcommingMovie.length>0  ){
-            console.log("in upcoming true")
-            this.UpcomingmovieData=false
-                this.upcomingList=results['UpcommingMovie']
-              for(let i=0;i<this.upcomingList.length;i++){
+        if(results.UpcommingMovie && results.UpcommingMovie.length > 0) {
+            console.log("in upcoming true");
+            this.UpcomingmovieData = false;
+            this.upcomingList = results['UpcommingMovie'];
+            for(let i=0; i<this.upcomingList.length; i++) {
                //   this.movienamesuggest.push(this.upcomingList[i])
-              }
-                console.log(this.upcomingList)
-        }      
-        else{    
-            console.log("in upcoming false")
-            this.UpcomingmovieData=true
-        }                  
-    }
-  
-   
+            }
+            console.log(this.upcomingList)
+        } else {
+            console.log("in upcoming false");
+            this.UpcomingmovieData = true;
+        }
+    }   
 }

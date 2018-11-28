@@ -23,7 +23,7 @@ export class PopoverPage {
     detail: any;
  
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-        this.selected=2;
+        this.selected = 2;
         this.detail = {
             movie_name1:'Pyaar Prema Kaadhal',
             movie_name2:'Vishwaroopam',
@@ -46,7 +46,7 @@ export class PopoverPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad PopoverPage');
-        this.date_display=this.navParams.get('date');
+        this.date_display = this.navParams.get('date');
         console.log(this.date_display);
     }
 

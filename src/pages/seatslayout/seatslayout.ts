@@ -86,58 +86,56 @@ export class SeatslayoutPage {
         // }
         // this.navCtrl.push(BookingsummaryPage,abc)
 
-        this.moviedetailid=this.navParams.get('moviedetailid')
-        this.screenid=this.navParams.get('screenid')
-        this.showdetailid=this.navParams.get('showdetailid')
-        this.showid=this.navParams.get('showid')
-        this.showtiming=this.navParams.get('showtiming')
-        this.theaterId=this.navParams.get('theaterId')
-        this.datemovie=this.navParams.get('datemovie')
-        console.log(this.moviedetailid)
-        console.log(this.screenid)
-        console.log(this.showdetailid)
-        console.log("Show ID:" + this.showid)
-        console.log(this.showtiming)
-        console.log(this.theaterId)
-        console.log(this.datemovie)
+        this.moviedetailid = this.navParams.get('moviedetailid')
+        this.screenid = this.navParams.get('screenid')
+        this.showdetailid = this.navParams.get('showdetailid')
+        this.showid = this.navParams.get('showid')
+        this.showtiming = this.navParams.get('showtiming')
+        this.theaterId = this.navParams.get('theaterId')
+        this.datemovie = this.navParams.get('datemovie')
+        console.log(this.moviedetailid);
+        console.log(this.screenid);
+        console.log(this.showdetailid);
+        console.log("Show ID:" + this.showid);
+        console.log(this.showtiming);
+        console.log(this.theaterId);
+        console.log(this.datemovie);
 
         this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
         })
 
-        this.loading.present();
-
-        
+        this.loading.present();        
         this.service.theaterlayout(this.theaterId, this.screenid, this.showid, this.moviedetailid, this.showdetailid)
         .then((result)=> this.handletheaterlayout(result));
     }
        
     handletheaterlayout(result){
         this.loading.dismiss();
-        console.log('main result',result);
-        let theaterdata=result.TheatreLayout[0]
-        this.seatname=result.TheatreLayout[0].ScreenCategoryDetail[0].ScreenStatus[0].SeatName;
+        console.log('Main Result', result);
+        let theaterdata = result.TheatreLayout[0];
+        this.seatname = result.TheatreLayout[0].ScreenCategoryDetail[0].ScreenStatus[0].SeatName;
         //this.seatname=result.TheatreLayout[0]. ScreenCategoryDetail[0].ScreenStatus[0].SeatNameStr;
         console.log('Main Filter',result.TheatreLayout[0]);
-        console.log('Filter Result Seat Name',this.seatname);
+        console.log('Filter Result Seat Name', this.seatname);
 
-        this.seatname1=result.TheatreLayout[0].CategoryName.Price;
-        console.log('Filter Result Seat Name 1',this.seatname1);
+        this.seatname1 = result.TheatreLayout[1].CategoryName.Price;
+        console.log('Filter Result Seat Name 1', this.seatname1);
 
-        this.seatname2=result.TheatreLayout[0].ScreenCategoryDetail[0].ScreenStatus[0].SeatStatus;
-        console.log(this.seatname2);
-         this.amount=theaterdata.Price
+        this.seatname2=result.TheatreLayout[1].ScreenCategoryDetail[1].ScreenStatus[1].SeatStatus;
+        console.log('SeatName 2: ', this.seatname2);
+         this.amount=theaterdata.Price;
         
         // console.log(result.TheatreLayout)
         this.seatsblock=result.TheatreLayout;
-        console.log(this.seatsblock);
+        console.log('SeatBlock: ', this.seatsblock);
         // console.log(this.seatsblock[0].ScreenStatus[0].SeatNameStr)
     }
 
     handleticketsolddetail(result) {
         console.log(result);
         if(this.selectseats!=undefined) {
-            alert("Ticket Successfully Book.");
+            alert("Ticket Successfully Booked");
             this.navCtrl.setRoot(HomePage);
         }  
         console.log(result);
@@ -147,32 +145,29 @@ export class SeatslayoutPage {
         // }
     }
    
-    ticketbook() {
-   
-        if(this.selectseats == this.selectedseats.length) {   
-            
+    ticketbook() {   
+        if(this.selectseats == this.selectedseats.length) {
             // this.loading = this.loadingCtrl.create({
             //     content: 'Please wait...'
             // })
             // this.loading.present();
             var Params = {
                 userId: this.userid,
-                theaterIdVal:   this.theaterId,
-                scrId: this.screenid,
+                theaterIdVal: this.theaterId,
+                // scrId: this.screenid,
+                scrId: 2,
                 showTimeId: this.showid,
-                movieDetailsId:this.moviedetailid,
-                showDetailId:this.showdetailid,
-                showTime:this.showtiming,
-                seatStr:this.selectedseats.toString(),
-                dateId:this.datemovie,
-                TicketPrice:this.amount,
-                movie_name:this.movie_name,
-                TheatreName:this.TheatreName,
-                ticketsCount:this.selectedseats.length
-            }          
-      
-            this.navCtrl.push(PaymetdetailsPage,{data:Params})
-           
+                movieDetailsId: this.moviedetailid,
+                showDetailId: this.showdetailid,
+                showTime: this.showtiming,
+                seatStr: this.selectedseats.toString(),
+                dateId: this.datemovie,
+                TicketPrice: this.amount,
+                movie_name: this.movie_name,
+                TheatreName: this.TheatreName,
+                ticketsCount: this.selectedseats.length
+            }
+            this.navCtrl.push(PaymetdetailsPage,{data:Params});           
             console.log("Seat Layout Parameter: " + Params);
         } else {
             alert("Please Select Atleast " + this.selectseats + " seats ");

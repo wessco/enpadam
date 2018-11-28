@@ -10,24 +10,21 @@ import { ConfigProvider } from '../config/config';
 */
 @Injectable()
 export class BookticketProvider {
-  url: string;
+    url: string;
 
-  constructor(public config: ConfigProvider,public http: HttpClient) {
-    console.log('Hello BookticketProvider Provider');
-    this.url=config.url
-  }
+    constructor(public config: ConfigProvider,public http: HttpClient) {
+        console.log('Hello BookticketProvider Provider');
+        this.url = config.url;
+    }
 
-  bookTicket(data){
-    
-      return new Promise(resolve => {
-          this.http.get(this.url + `getUserTicketSoldDetail?userId=${data.UserId}&theaterIdVal=${data.theaterIdVal}&scrId=${data.scrId}&showTimeId=${data.ShowTimingId}&movieDetailsId=${data.movieDetailsId}&showDetailId=${data.showDetailId}&seatStr=${data.seatStr}&dateId=${data.dateId}&TicketPrice=${data.TicketPrice}`).map(res => res)
-          .subscribe(data => {
-              console.log("Ticket booking response",data)
-            
-              resolve(data);  
-          });
-      });
-  
-  }
-
+    bookTicket(data) {    
+        return new Promise(resolve => {
+            this.http.get(this.url + `getUserTicketSoldDetail?userId = ${data.UserId}&theaterIdVal = ${data.theaterIdVal}&scrId = '2' ${data.scrId}&showTimeId = ${data.ShowTimingId}&movieDetailsId=${data.movieDetailsId}&showDetailId=${data.showDetailId}&seatStr=${data.seatStr}&dateId=${data.dateId}&TicketPrice=${data.TicketPrice}`).map(res => res)
+            // this.http.get(this.url + `getUserTicketSoldDetail?userId = ${data.UserId}&theaterIdVal = ${data.theaterIdVal}&scrId = ${data.scrId}&showTimeId = ${data.ShowTimingId}&movieDetailsId=${data.movieDetailsId}&showDetailId=${data.showDetailId}&seatStr=${data.seatStr}&dateId=${data.dateId}&TicketPrice=${data.TicketPrice}`).map(res => res)
+            .subscribe(data => {
+                console.log("Ticket booking response", data);
+                resolve(data);  
+            });
+        });
+    }
 }

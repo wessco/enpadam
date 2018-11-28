@@ -1,55 +1,40 @@
 <!--
   Generated template for the RegisterPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <!-- <ion-header>
-
   <ion-navbar>
     <ion-title>register</ion-title>
   </ion-navbar>
-
 </ion-header> -->
 
-
 <ion-content class="back_img" style="background-image:url('assets/imgs/theatre-owner-bg.jpg')">
-
-  <div class="img_div">
-  <img src="assets/imgs/ticketlite_logo.png" class="img_set">
-  </div>
-
- <div class="register">REGISTER</div>
-  
-<div class="div_set">
-  
-<input type="text" placeholder="FirstName" [(ngModel)]="reg.fname" class="txtbox" >
-
-<input type="text" placeholder="LastName" [(ngModel)]="reg.lname" class="txtbox1">
-
-<input type="text" placeholder="Email id" [(ngModel)]="reg.emailid" class="txtbox1">
-
-<input type="number" placeholder="Mobile Number" [(ngModel)]="reg.mobilenumber" class="txtbox1">
-
-<input type="password" placeholder="Password" [(ngModel)]="reg.password" class="txtbox1" >
-
-<input type="password" placeholder="Conform Password" [(ngModel)]="reg.conform_password" class="txtbox1"> <br>
-
-
-<!-- <label class = "checkbox" style="color: #ffffff;font-size: 17px;"> -->
-  <div style="margin-top: 15px;">
-    <input type = "checkbox" [(ngModel)]="reg.check" class="chkbox"> 
-     <span class="Accept_Conditions"> I Accept the Terms & Conditions</span> 
+    <div class="img_div">
+        <img src="assets/imgs/ticketlite_logo.png" class="img_set">
     </div>
- <!-- </label> -->
+    
+    <div class="register">REGISTER</div>
+    <div class="div_set">
+        <input type="text" placeholder="FirstName" [(ngModel)]="reg.fname" class="txtbox" />
+        <input type="text" placeholder="LastName" [(ngModel)]="reg.lname" class="txtbox1" />
+        <input type="email" placeholder="Email id" [(ngModel)]="reg.emailid" class="txtbox1" />
+        <input type="tel" minlength="10" maxlength="10" placeholder="Mobile Number" [(ngModel)]="reg.mobilenumber" class="txtbox1" />
+        <input type="password" placeholder="Password" [(ngModel)]="reg.password" class="txtbox1" />
+        <input type="password" placeholder="Conform Password" [(ngModel)]="reg.conform_password" class="txtbox1" />
 
-<button ion-button (click)="signup()">Sign up</button>
+        <!-- <label class = "checkbox" style="color: #ffffff;font-size: 17px;"> -->
+        <div class="mt-15">
+            <input type = "checkbox" [(ngModel)]="reg.check" class="chkbox" />
+            <span class="Accept_Conditions"> I Accept the Terms & Conditions</span> 
+        </div>
+        <!-- </label> -->
+        
+        <button ion-button (click)="signup()">Sign up</button>
 
-<div class="member_div">
-  Already a member ?&nbsp;<span (click)="login()">Login</span> 
-
-  <!-- <span style="color: #696969">Om</span>Square&nbsp;<span style="color: #696969">Infotech</span> -->
-</div>
-</div>
-
+        <div class="member_div">
+            Already a member ?&nbsp;<span (click)="login()">Login</span>
+        </div>
+    </div>
+    <!-- REGISTER FORM ENDS -->
 </ion-content>  

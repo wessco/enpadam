@@ -8,70 +8,70 @@ page-booktime {
     .movie_img{
         margin-top:12px;
     }
-.png_img{
-    margin-left: 25px;
-    height: 30px;
+    .png_img{
+        margin-left: 25px;
+        height: 30px;
+        }
+    .verify_book{
+        color: #00AB67;
+        font-size: 26px;
+        font-weight: 900;
     }
-.verify_book{
-    color: #00AB67;
-    font-size: 26px;
-    font-weight: 900;
-}
-.cancel_book{
-    color: red;
-    font-size: 26px;
-    font-weight: 900;
-}
-.movie_contain{
-    font-size: 15px;
-    color: #B1B1B1;
-    font-weight: 500;
-}
-.movie_title{
-    color: #00316B;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.5;
-}
-.movie_language{
-    color: #B1B1B1;
-    font-size: 16px;
-}
-.hr_line{
-    width: 80%;
-    height: 1px;
-    background-color: #d3d3d3;
-    margin-top: 15px;
-    margin-left: 82px;
-}
+    .cancel_book{
+        color: red;
+        font-size: 26px;
+        font-weight: 900;
+    }
+    .movie_contain{
+        font-size: 15px;
+        color: #B1B1B1;
+        font-weight: 500;
+    }
+    .movie_title{
+        color: #00316B;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+    .movie_language{
+        color: #B1B1B1;
+        font-size: 16px;
+    }
+    .hr_line{
+        width: 80%;
+        height: 1px;
+        background-color: #d3d3d3;
+        margin-top: 15px;
+        margin-left: 82px;
+    }
 
-.data_title{
-    color: #b1b1b1;
-    line-height: 1.5;
-    margin-left: -13px;
-}
-.data_show{
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: -13px;
-}
-.data_show1{
-    font-size: 18px;
-    font-weight: 500;
-    color: #b1b1b1;
-    margin-left: -13px;
-}
-.data_show2{
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
-    margin-left: -13px;
-}
-.direction{
-    line-height: 2;
-    font-size: 18px;
-    font-weight: 600;
-    color: #00B9EE;
-    margin-left: -13px;
-}
+    .data_title{
+        color: #b1b1b1;
+        line-height: 1.5;
+        margin-left: -13px;
+    }
+    .data_show{
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: -13px;
+    }
+    .data_show1{
+        font-size: 18px;
+        font-weight: 500;
+        color: #b1b1b1;
+        margin-left: -13px;
+    }
+    .data_show2{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-left: -13px;
+    }
+    .direction{
+        line-height: 2;
+        font-size: 18px;
+        font-weight: 600;
+        color: #00B9EE;
+        margin-left: -13px;
+    }
 }
