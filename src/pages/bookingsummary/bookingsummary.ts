@@ -31,9 +31,9 @@ export class BookingsummaryPage {
     MTicket: boolean;
     Officepickup: boolean;
     toppings: {};
-    arrow: any; 
+    arrow: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public service: ServiceProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public service: ServiceProvider) {
         this.MTicket = false;
         this.Officepickup = false;
         this.arrow = false;
