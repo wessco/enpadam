@@ -25,8 +25,8 @@ export class PaytmentprovProvider {
                 image: 'https://i.imgur.com/3g7nmJC.png',
                 currency: 'INR',
                 key: 'rzp_live_1kzJgQOqdgLsey',  
-                // amount: data.TicketPrice,
-                amount: 420,
+                amount: data.TicketPrice,
+                // amount: 420,
                 name: 'foo',
                 prefill: {
                     email: '',
