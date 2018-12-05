@@ -1,49 +1,33 @@
 page-theatrelist {
-
-   
-    .theatre_name{
+    ion-select{
+        overflow: visible;
+    }
+    .theatre_name {
         font-size: 14px;
         line-height: 2;
         font-weight: 500;
     }
-    .theaterlist_title{
+    .theaterlist_title {
         font-size: 20px;
         margin-top: 15px;
         font-weight: 500;
     }
-    .reply_arrow{
+    .reply_arrow {
         height: 25px;
         width: 30px;
         margin-top: 14px;
     }
-
-    .searchbar-md .searchbar-input{
-        padding: 6px 40px;
-    }
-    .searchbar-input-container{
-        border: 1px solid #CCD3D9;
-        border-radius: 5px;
-
-    }
-    .reg{
-    
-        background-color: white;
+    .reg {    
+        background-color: #ffffff;
         margin-top: 8px;
         width: 100%;
         height: 25px;
         border-radius: 5px;
         font-size: 16px;
-        // border: 1px solid #CCD3D9;
-        // padding-left: 10px;
-        
         margin: 0px;
-        // width: 100px;
         border: none;
         padding: 0px;
         max-width: 100%;
-    }
-    ion-select{
-        overflow: visible;
     }
     .item-md{
         padding-left: 0px;
@@ -66,10 +50,19 @@ page-theatrelist {
         min-width: 83%;
     }
     .cityname{
-    font-size: 20px;
-    color: #999;
-    text-align: center;
-    margin-top: 40%;
-    font-weight: 600;
+        font-size: 20px;
+        color: #999;
+        text-align: center;
+        margin-top: 40%;
+        font-weight: 600;
+    }
+    ul.theatre-list {
+        display: block;
+    }
+    ul.theatre-list li {
+        list-style-type: none;
+        margin: 0;
+        width: 50%;
+        float: left;
     }
 }

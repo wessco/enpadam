@@ -52,13 +52,20 @@
     </ion-grid>
 
     <div *ngIf="!displayArtist" class="cityname">Please select your city...</div>
-    <div *ngFor="let x of displayArtist">
-        <!-- <div class="div_images"> -->
-        <!-- <div><img src="assets/imgs/m4.jpg" class="img_set"/></div> -->
+    <ul class="theatre-list">
+        <li *ngFor="let x of displayArtist">
+            <a href="" (click) = "movie_desc(x, x.TheatreId, x.DateId)">
+                {{ x.TheatreName }}
+            </a>
+        </li>
+    </ul>
+    <!-- <div *ngFor="let x of displayArtist">
+        <div class="div_images"> -->
+        <!-- <div><img src="assets/imgs/m4.jpg" class="img_set"/></div> 
         <ul>
             <li class="theatre_name" (click)="movie_desc(x, x.TheatreId, x.DateId)">
                 {{x.TheatreName}}
             </li>
         </ul>
-    </div>
+    </div> -->
 </ion-content>
