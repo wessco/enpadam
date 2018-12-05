@@ -59,21 +59,22 @@
   
  }
  .ionc{
-     background-color:#d7d7d7;
-     width: 80px;
-     height:75px;
-     margin: auto;
-     display: table;
-     border-radius: 50%;
-     color: #fff;
-    margin-top: 6px;
+    background-color: #00000026;
+    width: 80px;
+    height:75px;
+    margin: auto;
+    display: table;
+    border-radius: 50%;
+    color: #fff;
+    border: 1px solid #f8f8f826;
  }
  .profile_name{
     margin: auto;
     display: table;
     font-size: 17px;
-    margin-top: 5px;
-    color: white;
+    margin: 5px auto;
+    color: #f8f8f8;
+    font-weight: normal;
  }
  .menu3{
     background-image:url('assets/imgs/theatre-owner-bg.jpg')
@@ -88,7 +89,9 @@
     h6 {
         margin: auto;
         display: table;
-        color: white;
+        font-weight: normal;
+        font-size: 95%;
+        color: #e0e0e0;
     }
     .toolbar-md{
         min-height: 160px;
@@ -168,6 +171,10 @@
         align-items: center;
     }
 
+    .searchbar-md .searchbar-input {
+        padding: 6px 15px;
+        padding-left: 50px;
+    }
 
   
 

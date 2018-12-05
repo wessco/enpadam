@@ -47,7 +47,10 @@ export class MyApp {
             splashScreen.hide();
 
             this.userdata = JSON.parse(localStorage.getItem("ticket_userdata"));
-            console.log("M Userdata: ", this.userdata);
+            // this.id = this.userdata.id;
+            this.emailid = this.userdata.email;
+            this.name = this.userdata.name;    
+            // console.log("M Userdata: ", this.userdata);
             let loginstat = localStorage.getItem("isLoggedIn")
             if(loginstat=="true") {
                 this.nav.setRoot(HomePage)
@@ -56,7 +59,7 @@ export class MyApp {
                     this.emailid = this.userdata.email;
                     this.name = this.userdata.name;                
                 }
-                console.log("Userdata: ", this.userdata); 
+                // console.log("Userdata: ", this.userdata); 
                 this.nav.setRoot(LoginPage);
             }
         });
