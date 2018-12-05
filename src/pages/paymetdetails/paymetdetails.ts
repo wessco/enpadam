@@ -60,7 +60,7 @@ export class PaymetdetailsPage {
         this.interval = setInterval(() => {    
             console.log("In Minute Time");
             this.decMin();
-        },60000)
+        },180000)
     }       
 
     secondstimer() {
@@ -119,7 +119,7 @@ export class PaymetdetailsPage {
                     "seatStr":this.paymentdata.seatStr,
                     "dateId":this.paymentdata.dateId,
                     "UserId":this.paymentdata.userId,
-                    "TicketPrice":this.paymentdata.TicketPrice
+                    "TicketPrice":this.paymentdata.TicketPrice * 100
                 }
                 console.log(obj);
 

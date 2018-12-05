@@ -34,12 +34,12 @@ export class MyApp {
     name: any;
     items: string[];
 
-    constructor(
+    constructor (
         public platform: Platform,
         statusBar: StatusBar,
         splashScreen: SplashScreen,
-        public alertCtrl: AlertController
-    ) {
+        public alertCtrl: AlertController )
+    {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -47,19 +47,18 @@ export class MyApp {
             splashScreen.hide();
 
             this.userdata = JSON.parse(localStorage.getItem("ticket_userdata"));
-     let loginstat= localStorage.getItem("isLoggedIn")
-     if(loginstat=="true"){
-         this.nav.setRoot(HomePage)
-     }
-     else{ 
-         
-        if (this.userdata) {
-            this.emailid = this.userdata.email;
-            this.name = this.userdata.name;  
-        }
-        console.log("userdata", this.userdata); 
-         this.nav.setRoot(LoginPage)   
-     }
+            console.log("M Userdata: ", this.userdata);
+            let loginstat = localStorage.getItem("isLoggedIn")
+            if(loginstat=="true") {
+                this.nav.setRoot(HomePage)
+            } else {
+                if(this.userdata) {
+                    this.emailid = this.userdata.email;
+                    this.name = this.userdata.name;                
+                }
+                console.log("Userdata: ", this.userdata); 
+                this.nav.setRoot(LoginPage);
+            }
         });
 
         // used for an example of ngFor and navigation
