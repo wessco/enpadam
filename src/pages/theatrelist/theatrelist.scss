@@ -58,11 +58,29 @@ page-theatrelist {
     }
     ul.theatre-list {
         display: block;
+        padding: 0;
+        margin: 0 12px;
+        overflow: hidden;
     }
-    ul.theatre-list li {
+    ul.theatre-list > li {
         list-style-type: none;
-        margin: 0;
-        width: 50%;
+        margin: 1%;
+        width: 48%;
         float: left;
+        background: #f4f4f4;
+        height: 75px;
+        text-align: center;
+        vertical-align: middle;
+        /* line-height: 47px; */
+        /* border-radius: 4px; */
+        padding: 15px;
+        box-shadow: 2px 2px 2px #eee;
+        overflow: hidden;
+    }
+    ul.theatre-list > li > div {
+        text-decoration: none;
+        color: #343434;
+        font-size: 1em;
+        vertical-align: middle;
     }
 }

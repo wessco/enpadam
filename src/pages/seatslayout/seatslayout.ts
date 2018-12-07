@@ -65,15 +65,15 @@ export class SeatslayoutPage {
     }
     ionViewDidLoad() {
         this.selectseats = localStorage.getItem('selectseats');
-        console.log("ticket user data",localStorage.getItem('ticket_userdata'))
-        this.userid=JSON.parse(localStorage.getItem('ticket_userdata')).id;
-        console.log(this.userid )
-        console.log('ionViewDidLoad SeatslayoutPage');
-        this.img=this.navParams.get('img');
-        this.address1=this.navParams.get('address1');
-        this.movie_name=this.navParams.get('movie_name');
-        this.TheatreName=this.navParams.get('TheatreName')
-        console.log(this.img,this.movie_name, this.TheatreName,this.address1);
+        console.log("Ticket User Data: ", localStorage.getItem('ticket_userdata'));
+        this.userid = JSON.parse(localStorage.getItem('ticket_userdata')).id;
+        console.log(this.userid);
+        console.log('IONViewDidLoad SeatslayoutPage');
+        this.img = this.navParams.get('img');
+        this.address1 = this.navParams.get('address1');
+        this.movie_name = this.navParams.get('movie_name');
+        this.TheatreName = this.navParams.get('TheatreName')
+        console.log("IONViewLoad: ",this.img, this.movie_name, this.TheatreName, this.address1);
     }
     ionViewWillEnter() {
         // var abc={
