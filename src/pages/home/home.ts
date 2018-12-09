@@ -268,13 +268,13 @@ export class HomePage {
             this.NowRunningmovie=true;
         }
         if(results.UpcommingMovie && results.UpcommingMovie.length > 0) {
-            console.log("in upcoming true");
+            console.log("In upcoming true: ");
             this.UpcomingmovieData = false;
             this.upcomingList = results['UpcommingMovie'];
             for(let i=0; i<this.upcomingList.length; i++) {
                //   this.movienamesuggest.push(this.upcomingList[i])
             }
-            console.log(this.upcomingList)
+            console.log(this.upcomingList);
         } else {
             console.log("in upcoming false");
             this.UpcomingmovieData = true;

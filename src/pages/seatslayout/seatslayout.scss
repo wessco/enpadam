@@ -272,4 +272,7 @@ page-seatslayout {
         color: #000;
         background-color:white;
     }
+    ion-col > div {
+        float: left;
+    }
 }

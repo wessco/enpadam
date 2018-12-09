@@ -56,16 +56,16 @@
     </div> -->
     <hr class="hr_line">
        
-    <ion-grid class="row_ticketblock" >
-        <div style="overflow-x: auto; white-space: nowrap;">
-            <ion-row *ngFor="let x of seatsblock" style="display: -webkit-box;">
-                <ion-col col-1 style="padding: 0px;">
-                    <div class="title_a" >{{x.CategoryName}} {{ amount }} </div>    
-                    <div class="title_gold">
+    <ion-grid class="row_ticketblock">
+        <!-- <div style="overflow-x: auto; white-space: nowrap;"> -->
+            <ion-row *ngFor="let x of seatsblock" class="left w100 d-block">
+                <ion-col class="left w100">
+                    <div class="title_a" >{{ x.CategoryName }} {{ amount }} </div>    
+                    <!-- <div class="title_gold">
                         GOLD-RS.130.00
-                    </div>
+                    </div> -->
                 </ion-col>
-                <ion-col style="width: 20%; float: left">
+                <ion-col class="left w100">
                 <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 62px;"> -->      
                     <div *ngFor="let y of x.ScreenCategoryDetail[0].ScreenStatus">
                         <button *ngIf="!isInclude(y.SeatName)" ion-button outline class="seat_block1 unselected_ticketbutton" (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3"> {{y.SeatName}}</button>
@@ -73,7 +73,7 @@
                     </div>
                 </ion-col>
                   
-                <ion-col style="width: 20%; float: left">
+                <ion-col class="left w100">
                     <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 67px;"  > -->
                     <div *ngFor="let y of x.ScreenCategoryDetail[1].ScreenStatus" >
                         <button *ngIf="!isInclude(y.SeatName)" ion-button outline class="seat_block1 unselected_ticketbutton" (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3"> {{y.SeatName}}</button>
@@ -81,12 +81,12 @@
                     </div>
                 </ion-col>
             </ion-row>
-        </div>
-        <div>
+        <!-- </div> -->
+        <div class="screen_img">
             <img src="assets/imgs/screen.png" class="screen_png">
         </div>
     </ion-grid>
-    <div>
+    <div class="disp_amount">
         Total Pay Rs.&nbsp; {{ amount }}
     </div>
     <!-- <div>
@@ -95,7 +95,7 @@
     <!-- </div> -->
     <hr class="hr_line">
     <button  ion-button class="submit" (click)="ticketbook(moviedetailid, screenid, showdetailid, showtiming, theaterId)">
-    <div>
+    <div class="net_amount">
         Total Pay Rs. <span> {{ amount }}  &nbsp; select seats: {{ tickets }}  </span>
     </div>
     </button>

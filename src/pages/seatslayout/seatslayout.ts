@@ -117,14 +117,16 @@ export class SeatslayoutPage {
         this.seatname = result.TheatreLayout[0].ScreenCategoryDetail[0].ScreenStatus[0].SeatName;
         //this.seatname=result.TheatreLayout[0]. ScreenCategoryDetail[0].ScreenStatus[0].SeatNameStr;
         console.log('Main Filter',result.TheatreLayout[0]);
+        console.log('Main Filter 1',result.TheatreLayout[1]);
         console.log('Filter Result Seat Name', this.seatname);
 
-        this.seatname1 = result.TheatreLayout[1].CategoryName.Price;
+        // this.seatname1 = result.TheatreLayout[1].CategoryName.Price;
+        this.seatname1 = result.TheatreLayout[0].CategoryName.Price;
         console.log('Filter Result Seat Name 1', this.seatname1);
 
-        this.seatname2=result.TheatreLayout[1].ScreenCategoryDetail[1].ScreenStatus[1].SeatStatus;
+        this.seatname2 = result.TheatreLayout[0].ScreenCategoryDetail[0].ScreenStatus[0].SeatStatus;
         console.log('SeatName 2: ', this.seatname2);
-         this.amount=theaterdata.Price;
+         this.amount = theaterdata.Price;
         
         // console.log(result.TheatreLayout)
         this.seatsblock=result.TheatreLayout;
