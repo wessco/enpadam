@@ -59,6 +59,8 @@ export class SeatslayoutPage {
     play=true
     secinterval: number;
     TheatreName: any;
+    add_cost: number;
+    amount_net: number;
     constructor(public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController){
         this.selectedseats=[]      
         
@@ -210,8 +212,12 @@ export class SeatslayoutPage {
                 if(this.selectedseats.length < this.selectseats) {
                 this.selectedseats.push(k.SeatName);
                 console.log(this.selectedseats.toString());
-                this.amount=this.selectedseats.length * this.amount;
-                console.log(this.amount)   
+                this.amount = this.selectedseats.length * this.amount;
+                console.log(this.amount);
+                this.add_cost = this.amount * 2 / 100;
+                console.log(this.add_cost);
+                this.amount_net = this.amount + this.add_cost;
+                console.log(this.amount_net);
                 this.tickets=this.selectedseats.length;
                 } else {
                     alert("you have selected maximum seats");

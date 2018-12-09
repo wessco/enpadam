@@ -80,15 +80,22 @@
                         <button  *ngIf="isInclude(y.SeatName)" ion-button outline class="seat_block1 selected_ticketbutton"  (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3" >{{y.SeatName}}</button>
                     </div>
                 </ion-col>
+                <ion-col class="left w100">
+                    <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 67px;"  > -->
+                    <div *ngFor="let y of x.ScreenCategoryDetail[2].ScreenStatus" >
+                        <button *ngIf="!isInclude(y.SeatName)" ion-button outline class="seat_block1 unselected_ticketbutton" (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3"> {{y.SeatName}}</button>
+                        <button  *ngIf="isInclude(y.SeatName)" ion-button outline class="seat_block1 selected_ticketbutton"  (click)="selectedblock(y)" [class.seatAvailable]="y.SeatActivateStatus == 0" [class.seatNotAvailable]="y.SeatActivateStatus==3" >{{y.SeatName}}</button>
+                    </div>
+                </ion-col>
             </ion-row>
         <!-- </div> -->
         <div class="screen_img">
             <img src="assets/imgs/screen.png" class="screen_png">
+        </div>        
+        <div class="disp_amount">
+            Selected Seats: {{ selectedseats.toString() }}
         </div>
     </ion-grid>
-    <div class="disp_amount">
-        Total Pay Rs.&nbsp; {{ amount }}
-    </div>
     <!-- <div>
         Total Pay Rs. <span> {{amount}}   &nbsp; select seats: {{tickets}}</span> -->
         <!-- &nbsp; {{tickets}} -->
@@ -96,7 +103,7 @@
     <hr class="hr_line">
     <button  ion-button class="submit" (click)="ticketbook(moviedetailid, screenid, showdetailid, showtiming, theaterId)">
     <div class="net_amount">
-        Total Pay Rs. <span> {{ amount }}  &nbsp; select seats: {{ tickets }}  </span>
+        Total Pay Rs. <span> {{ amount_net }}  &nbsp; Total seats: {{ tickets }}  </span>
     </div>
     </button>
 </ion-content>
