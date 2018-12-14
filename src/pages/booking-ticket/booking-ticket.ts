@@ -252,7 +252,7 @@ export class BookingTicketPage {
                     datemovie: this.datemovie,
                 }   
                 this.navCtrl.push(SeatslayoutPage, params)
-            }      
+            } else {}
         });   
         profileModal.present();
         // let popover = this.popoverCtrl.create(PopoverPage);

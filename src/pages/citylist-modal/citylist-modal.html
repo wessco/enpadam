@@ -21,7 +21,7 @@
     <div *ngFor="let city of filterCities">
         <ion-item item-start (click)=getCity(city)>
             <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
-            {{city.value}}
+            {{ city?.value }}
         </ion-item>   
     </div>
 </ion-content>

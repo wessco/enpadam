@@ -152,14 +152,14 @@ export class HomePage {
     }
    
     ionViewWillEnter() {    
-        let city = localStorage.getItem("ticket_selectedcity")
+        let city = localStorage.getItem("ticket_selectedcity");
         console.log("From Local Storage", city)
         if(city == null || city == undefined ) {
-            this.callCityModal()
+            this.callCityModal();
         } else {
-            this.showData=true
-            this.choosecity=localStorage.getItem("ticket_selectedcity")
-            this.cityname=localStorage.getItem('selectedCityName')   
+            this.showData = true;
+            this.choosecity = localStorage.getItem("ticket_selectedcity");
+            this.cityname = localStorage.getItem('selectedCityName');
             this.service
                 .selectcity(this.choosecity)
                 .then(results => this.selectcity(results))
