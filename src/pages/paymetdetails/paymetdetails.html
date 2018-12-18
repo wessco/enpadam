@@ -6,12 +6,12 @@
 -->
 <ion-header>
     <ion-navbar>
-        <ion-title>Booking Summary</ion-title>
+        <ion-title>Review Your Booking</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content padding>
     <div style="text-align: -webkit-right;" >
-        <button ion-button outline > {{showtimeMin}} : {{showtimeSec}} </button>
+        <button ion-button outline > {{ showtimeMin }} : {{ showtimeSec }} </button>
     </div>
     <ion-item>
         Movie Name:{{paymentdata.movie_name}}  
@@ -24,7 +24,7 @@
         Total tickets:{{paymentdata.ticketsCount}}
     </ion-item>
     <ion-item>
-        Ticket price:{{paymentdata.TicketPrice}}
+        Ticket price:{{ paymentdata.TicketPrice }}
     </ion-item>
     <ion-item>
         Seats :{{paymentdata.seatStr}}

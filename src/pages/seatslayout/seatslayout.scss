@@ -1,136 +1,110 @@
 page-seatslayout {
-    .seatAvailable{
+    .seatAvailable {
         background-color:white!important;
-        border: 1px solid #07C393 !important;
-        padding: 10px;    
-
-    }   
-    .seatNotAvailable{
-        background-color:darkgrey !important;
-        border: 1px solid #07C393 !important;
-        padding: 10px;      
-
+        border: 0px !important;
+        padding: 10px;
     }
-    .back_img{
+    .back_img {
         -webkit-box-shadow: inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
         -moz-box-shadow:    inset -352 0px 21px 45px rgba(50, 48, 50, 0.88);
         box-shadow:         inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
                             // inset -352px 0px 21px 27px rgba(50, 48, 50, 0.79);
                             // box-shadow: inset -352px 0px 21px 27px rgba(50, 48, 50, 0.88);
-}
-    // .row_css_seatslayout{
-    //     margin: auto;
-    //     display: table;
-    //     // border: 1px solid white;
-    //     margin-top: 10px;
-    // }
-.screen_png{
-    margin-top: 40px;
-    height: 35px;
-}
-    .background_div{
+    }
+    .screen_png {
+        margin-top: 40px;
+        height: 35px;
+    }
+    .background_div {
         background-color: #232539;
         height: 70px;
     }
-    .all_col_padding{
+    .all_col_padding {
         padding: 0px;
     }
-    .Cinema_title{
+    .Cinema_title {
         font-size: 12px;
         color: white;
     }
-    .Children_ticket{
+    .Children_ticket {
         margin-right: 10px;
         font-size: 18px;
         color: white;
         text-align: center;
         padding-top: 22px;
     }
-    .Children_ticket1{
-
+    .Children_ticket1 {
         text-align: right;
         margin-right: 10px;
         margin-top: 20px;
         font-size: 15px;
         color: white;
     }
-    .time_set_div{
+    .time_set_div {
         background-color: #F5F5FA;
     }
-    .date_list{
+    .date_list {
         width: 90%;
         margin: auto;
         display: table;
         background-color: #F5F5FA;
     }
-    .date_time_label{
+    .date_time_label {
         color: black;
         font-size: 16px;
         margin-left: 10px;
     }
-    .title_PLATINUM{
+    .title_PLATINUM {
         padding-top: 15px;
         padding-left: 5px;
         color: #AB9EB8;
     }
-    .title_gold{
+    .title_gold {
         padding-top: 15px;
         padding-left: 5px;
         color: #AB9EB8;
     }
-    .selected_bookbutton{
+    .selected_bookbutton {
         background-color: #07C393;
         border: 1px solid #07C393;
-        padding: 10px;  
-
+        padding: 10px;
     }
-    .unselected_bookbutton{
+    .unselected_bookbutton {
         background-color: transparent;
         padding: 10px;  
         border: 1px solid #07C393;
     }
-    .title_a{
+    .title_a {
         color: #AB9EB8;
         font-size: 16px;
         margin-top: 6px;
     }
-    .title_section{
+    .title_section {
         color: #AB9EB8;
         font-size: 16px;
         margin-top: 6px;
         margin-right: 10px;
     }
-    .selected_ticketbutton{
-        background-color:#07C393 !important;
-        border: 1px solid #D7D7D7;
-        padding: 10px;  
-        height: 25px;
-        width: 20px;
-        border-radius: 8px;
-        // border: 1px solid black;
-
+    .seat_block1.unselected_ticketbutton {
+        background-image: url('../../assets/imgs/seat.svg');
     }
-    .unselected_ticketbutton{
-        background-color: transparent;
-        padding: 10px;  
-        border: 1px solid #a6a6a6;
-        height: 25px;
-        width: 20px;
-        border-radius: 8px;
-        border: 1px solid black;
+    .seat_block1.selected_ticketbutton {
+        background-image: url('../../assets/imgs/seat_selected.svg');
     }
-
-    .selected_goldticketbutton{
+    .seat_block1.unselected_ticketbutton.seatNotAvailable {
+        border: 0px;
+        padding: 10px;
+        background-image: url('../../assets/imgs/seat_not_available.svg');
+    }
+    .selected_goldticketbutton {
         background-color:#D7D7D7;
         border: 1px solid #D7D7D7;
         padding: 10px;  
         height: 25px;
         width: 20px;
         border-radius: 8px;
-        // border: 1px solid black;
-
     }
-    .unselected_goldticketbutton{
+    .unselected_goldticketbutton {
         background-color: transparent;
         padding: 10px;  
         border: 1px solid #a6a6a6;
@@ -138,40 +112,34 @@ page-seatslayout {
         width: 20px;
         border-radius: 8px;
         border: 1px solid black;
-    }
-    
-    .arrow-back{
+    }    
+    .arrow-back {
         color: white;
         font-size: 30px;
         font-weight: 300;
     }
-
-    .arrow_up_down{
+    .arrow_up_down {
         color: white;
         font-size: 25px;
-        // margin-top: 13px;
     }
-    .available{
+    .available {
         font-size: 15px;
         color: white;
-        // color: #30CEA7;
-     }
-     .time_btn{
+    }
+    .time_btn {
         padding: 10px;    
         border-color: gray;
         border: 1px solid #07C393;
-      
-     }
-    
-     .item-md{
+    }    
+    .item-md {
         background-color: #F5F5FA;
-     }
-     .hr_line{
+    }
+    .hr_line {
         margin-top: 10px;
         width: 95%;
         height: 1px;
         color: #F8F8F8;
-        }
+    }
         // .seat_block{
         //     height: 25px;
         //     width: 20px;
@@ -180,28 +148,22 @@ page-seatslayout {
         //     color: black;
         //     padding: 0px 10px;
         //  }
-         .seat_block1{
-            height: 22px;
-            width: 22px;
-            border-radius: 8px;
-            border: 1px solid black ;
-            // background-color: #D7D7D7;
-            // color: black;
-            padding: 0px 0px;
-            // border: 1px solid black;
-         }
-         .time_btn .button-inner{
-             color: black;
-         }
-
-         .submit .button-inner{
-            color: black;
-            font-size: 15px;
-        }
-        .button-inner{
-            color: black;
-            font-size: 10px;
-        }
+    .seat_block1 {
+        height: 24px;
+        width: 24px;
+        background-repeat: no-repeat;
+    }
+    .time_btn .button-inner {
+        color: black;
+    }
+    .submit .button-inner {
+        color: black;
+        font-size: 15px;
+    }
+    .button-inner {
+        color: black;
+        font-size: 10px;
+    }
     // .block_number{
     // height: 25px;
     // width: 20px;

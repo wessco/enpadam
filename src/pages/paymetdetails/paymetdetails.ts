@@ -60,19 +60,19 @@ export class PaymetdetailsPage {
         this.interval = setInterval(() => {    
             console.log("In Minute Time");
             this.decMin();
-        },180000)
+        }, 180000)
     }       
 
     secondstimer() {
         console.log("in second timer function");
-        this.secinterval= setInterval(() => {
+        this.secinterval = setInterval(() => {
             console.log("in second timer");
             if( this.showtimeSec == 0){
                 this.showtimeSec = 60
             } else {
                 this.showtimeSec = this.showtimeSec - 1
             }    
-        },1000)
+        }, 1000)
     }
     
     minTimer() {

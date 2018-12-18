@@ -148,23 +148,21 @@ export class BookingTicketPage {
     // }
     
     handlemovietheatre(result){
-        console.log("theatre data",result);
-        
-        this.theaterId=result.Theatredetail.TheatreId;
-        console.log("Theatre ID: ",this.theaterId);
-        this.description=result.MovieDescription;
-        this.movieduration=result.MovieDuration;
-        this.moviereleaseDate=result.MovieReleaseDate;
-        this.movieformat=result.MovieFormatName;
-        this.language=result.Language;
-        this.genre=result.Genre;
-        this.desc=result.Theatredetail;
+        console.log("Theatre Data: ", result);        
+        this.theaterId = result.Theatredetail.TheatreId;
+        console.log("Theatre ID: ", this.theaterId);
+        this.description = result.MovieDescription;
+        this.movieduration = result.MovieDuration;
+        this.moviereleaseDate = result.MovieReleaseDate;
+        this.movieformat = result.MovieFormatName;
+        this.language = result.Language;
+        this.genre = result.Genre;
+        this.desc = result.Theatredetail;
         console.log(this.desc);
-        console.log( this.theatermovie);
-        this.theatertime=result.DateList;
-        console.log(this.theatertime);
-       
-        this.datemovie=this.theatertime[0].DateId;
+        // console.log( this.theatermovie);
+        this.theatertime = result.DateList;
+        console.log(this.theatertime);       
+        this.datemovie = this.theatertime[0].DateId;
         console.log(this.datemovie);
         this.loading.dismiss();
          for(let i = 0; i < this.theatertime.length; i++) {
@@ -187,9 +185,9 @@ export class BookingTicketPage {
 
     changeDate(nowdate){
         // let indexnum= this.theatertime.indexOf(nowdate.DateId)   
-         let indexnum= this.theatertime.findIndex(y => y.DateId==nowdate.DateId)
-         console.log(indexnum)
-         for(let i = 0; i <this.theatertime.length; i++){
+         let indexnum = this.theatertime.findIndex(y => y.DateId == nowdate.DateId);
+         console.log(indexnum);
+         for(let i = 0; i < this.theatertime.length; i++){
             console.log(indexnum);
             if(i == indexnum) {
                 this.theatertime[i].selected = true;
@@ -212,7 +210,7 @@ export class BookingTicketPage {
   // }
   
     presentPopover(myEvent, TheatreId, totaldata) {
-         console.log("in totel data ", totaldata)
+         console.log("Totel Data: ", totaldata)
        // console.log(myEvent)
         // var abc={
         //   moviedetailid:myEvent.MovieDetailId,
@@ -237,10 +235,11 @@ export class BookingTicketPage {
 
         let profileModal = this.modalCtrl.create(PopoverPage);
         profileModal.onDidDismiss(data => {
-            console.log(data.seats);
-            if(data.seats != undefined) {
+            console.log("Data Seats: ", totaldata);
+            // if(data.seats != undefined) {
+            if(data != undefined) {
                 var params = {
-                    address1:this.detail.address1,  
+                    address1: this.detail.address1,  
                     movie_name: this.MovieName,  
                     moviedetailid: myEvent.MovieDetailId,
                     screenid: myEvent.ScreenId,
@@ -248,7 +247,7 @@ export class BookingTicketPage {
                     showid: myEvent.ShowId,
                     showtiming: myEvent.ShowTimig,
                     theaterId: TheatreId,  
-                    TheatreName:totaldata.TheatreName,
+                    TheatreName: totaldata.TheatreName,
                     datemovie: this.datemovie,
                 }   
                 this.navCtrl.push(SeatslayoutPage, params)

@@ -251,7 +251,7 @@ export class ServiceProvider {
 
     // MOVIE SUGGEST AUTO SUGGEST
     moviesuggest(ev) {
-        console.log(ev);
+        // console.log(ev);
         return new Promise(resolve => {
             this.http.get(this.url + 'getMovieSuggest?movieName='+ev)
             .map(res => res)

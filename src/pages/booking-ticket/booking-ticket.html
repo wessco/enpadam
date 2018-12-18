@@ -75,12 +75,12 @@
     <ion-grid class="grid_box">
         <div *ngFor="let x of desc ">
             <!-- <div class="Multiplax_title" (click)="movie_desc(x.MovieImagePath)"> {{x.TheatreName}} </div> -->
-            <!-- <div class="Multiplax_title" (click)="movie_desc(x.TheatreId,x.DateId)"> {{x.TheatreName}} </div> -->
-            <div class="Multiplax_title" (click)="movie_desc(x,x.TheatreId,x.DateId)">
+            <!-- <div class="Multiplax_title" (click)="movie_desc(x.TheatreId, x.DateId)"> {{x.TheatreName}} </div> -->
+            <div class="Multiplax_title" (click)="movie_desc(x, x.TheatreId, x.DateId)">
                 {{ x.TheatreName }}                
                 <!-- {{ x.TheatreId }} -->
             </div>
-            <div class="img-display" >
+            <div class="img-display">
                 <div class="img-out" *ngFor="let y of x.Screendetail; let i=index" >
                     <button ion-button outline class="time_btn image" (click)="presentPopover(y, x.TheatreId, x)">{{ y.ShowTimig }}</button>
                 </div>

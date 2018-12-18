@@ -70,7 +70,6 @@ export class PopoverPage {
         console.log(h);
         this.selected=h;
     }
-
     close() {
         this.viewCtrl.dismiss();
     }

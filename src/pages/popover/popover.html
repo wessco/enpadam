@@ -1,72 +1,55 @@
-<!--
-  Generated template for the PopoverPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>popover</ion-title>
-  </ion-navbar>s
-
-</ion-header> -->
-
-
 <ion-content style="background-color: rgba(0, 0, 0, 0.67);">
-<div class="model_color">
-  <div class="close_btn">
-    <ion-icon name="md-close" (click)="close()"></ion-icon>
-  </div>
+    <div class="model_color">
+        <div class="close_btn">
+            <ion-icon name="md-close" (click)="close()"></ion-icon>
+        </div>
 
-  <div class="popover_name">How Many Seats?</div>
+        <div class="popover_name">How Many Seats?</div>
+        <img *ngIf="selected==1" src="assets/imgs/vehicles/rsz_cycle.png" class="img">
+        <img *ngIf="selected==2" src="assets/imgs/vehicles/rsz_bike.png" class="img">
+        <img *ngIf="selected==3" src="assets/imgs/vehicles/rsz_auto.png" class="img">
+        <img *ngIf="selected==4" src="assets/imgs/vehicles/rsz_minicar.png" class="img">
+        <img *ngIf="selected==5" src="assets/imgs/vehicles/rsz_car3.png" class="img">
+        <img *ngIf="selected==6" src="assets/imgs/vehicles/rsz_van2.png" class="img">
+        <img *ngIf="selected==7" src="assets/imgs/vehicles/rsz_van2.png" class="img">
+        <img *ngIf="selected==8" src="assets/imgs/vehicles/rsz_van2.png" class="img">
+        <img *ngIf="selected==9" src="assets/imgs/vehicles/rsz_bus3.png" class="img">
+        <img *ngIf="selected==10" src="assets/imgs/vehicles/rsz_bus3.png" class="img">
 
-  <img *ngIf="selected==1" src="assets/imgs/vehicles/rsz_cycle.png" class="img">
-  <img *ngIf="selected==2" src="assets/imgs/vehicles/rsz_bike.png" class="img">
-  <img *ngIf="selected==3" src="assets/imgs/vehicles/rsz_auto.png" class="img">
-  <img *ngIf="selected==4" src="assets/imgs/vehicles/rsz_minicar.png" class="img">
-  <img *ngIf="selected==5" src="assets/imgs/vehicles/rsz_car3.png" class="img">
-  <img *ngIf="selected==6" src="assets/imgs/vehicles/rsz_van2.png" class="img">
-  <img *ngIf="selected==7" src="assets/imgs/vehicles/rsz_van2.png" class="img">
-  <img *ngIf="selected==8" src="assets/imgs/vehicles/rsz_van2.png" class="img">
-  <img *ngIf="selected==9" src="assets/imgs/vehicles/rsz_bus3.png" class="img">
-  <img *ngIf="selected==10" src="assets/imgs/vehicles/rsz_bus3.png" class="img">  
+        <div class="btn_div">
+            <button [ngClass]="(selected==1) ? 'selected_popup' : 'class2'" (click)="selectedcolor('1')">1</button>
+            <button [ngClass]="(selected==2) ? 'selected_popup' : 'class2'" (click)="selectedcolor('2')">2</button>
+            <button [ngClass]="(selected==3) ? 'selected_popup' : 'class2'" (click)="selectedcolor('3')">3</button>
+            <button [ngClass]="(selected==4) ? 'selected_popup' : 'class2'" (click)="selectedcolor('4')">4</button>
+            <button [ngClass]="(selected==5) ? 'selected_popup' : 'class2'" (click)="selectedcolor('5')">5</button>
+            <button [ngClass]="(selected==6) ? 'selected_popup' : 'class2'" (click)="selectedcolor('6')">6</button>
+            <button [ngClass]="(selected==7) ? 'selected_popup' : 'class2'" (click)="selectedcolor('7')">7</button>
+            <button [ngClass]="(selected==8) ? 'selected_popup' : 'class2'" (click)="selectedcolor('8')">8</button>
+            <button [ngClass]="(selected==9) ? 'selected_popup' : 'class2'" (click)="selectedcolor('9')">9</button>
+            <button [ngClass]="(selected==10) ? 'selected_popup' : 'class2'" (click)="selectedcolor('10')">10</button>
+        </div>
+    
 
+        <hr class="hr_line">
 
+        <ion-grid class="grid_set">
+            <ion-row>
+                <ion-col  col-5 class="col_set">
+                    <div class="seat-name">PLATINUM</div>
+                    <div class="ruppes">RS.130.00</div>
+                    <div class="available">Available</div>
+                </ion-col>
+    
+                <ion-col  col-2 ></ion-col>
 
-  <div class="btn_div">
- <button   [ngClass]="(selected==1) ? 'selected_popup' : 'class2'" (click)="selectedcolor('1')">1</button>
-  <button  [ngClass]="(selected==2) ? 'selected_popup' : 'class2'" (click)="selectedcolor('2')">2</button>
-  <button  [ngClass]="(selected==3) ? 'selected_popup' : 'class2'" (click)="selectedcolor('3')">3</button>
-  <button  [ngClass]="(selected==4) ? 'selected_popup' : 'class2'" (click)="selectedcolor('4')">4</button>
-  <button  [ngClass]="(selected==5) ? 'selected_popup' : 'class2'" (click)="selectedcolor('5')">5</button>
-  <button  [ngClass]="(selected==6) ? 'selected_popup' : 'class2'" (click)="selectedcolor('6')">6</button>
-  <button  [ngClass]="(selected==7) ? 'selected_popup' : 'class2'" (click)="selectedcolor('7')">7</button>
-  <button  [ngClass]="(selected==8) ? 'selected_popup' : 'class2'" (click)="selectedcolor('8')">8</button>
-  <button  [ngClass]="(selected==9) ? 'selected_popup' : 'class2'" (click)="selectedcolor('9')">9</button>
-  <button  [ngClass]="(selected==10) ? 'selected_popup' : 'class2'" (click)="selectedcolor('10')">10</button>
-</div>
-<div>
-
-    <hr class="hr_line">
-
-  <ion-grid class="grid_set" >
-  <ion-row>
-    <ion-col  col-5 class="col_set">
-         <div class="seat-name">PLATINUM</div>
-         <div class="ruppes">RS.130.00</div>
-         <div class="available">Available</div>
-    </ion-col>
- 
-    <ion-col  col-2 ></ion-col>
-    <ion-col col-5 class="all_col_padding">
-        <div class="seat-name_gold">GOLD</div>
-        <div class="ruppes">RS.130.00</div>
-        <div class="available_gold">Available</div>
-      </ion-col>
-    </ion-row>     
-    </ion-grid>
-</div>
-<button ion-button class="last_btn" (click)="seats()">Select Seats</button>
-</div>
+                <ion-col col-5 class="all_col_padding">
+                    <div class="seat-name_gold">GOLD</div>
+                    <div class="ruppes">RS.130.00</div>
+                    <div class="available_gold">Available</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        
+        <button ion-button class="last_btn" (click)="seats()">Select Seats</button>
+    </div>
 </ion-content>
