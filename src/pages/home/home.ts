@@ -246,14 +246,14 @@ export class HomePage {
         // this.navCtrl.push(OtpconformPage)
         console.log(results);
         // console.log(results.map.City.id.value)
-        this.showData=true;
+        this.showData = true;
         console.log(results.NowRunningMovie);
-        this.upcomingList=[];
-        this.movielist=[]; 
+        this.upcomingList = [];
+        this.movielist = []; 
        
         if (results.NowRunningMovie  && results.NowRunningMovie.length > 0) {
-            this.NowRunningmovie=false
-            console.log("I am inner if condition Now Running Movie");
+            this.NowRunningmovie = false;
+            // console.log("I am inner if condition Now Running Movie");
             this.movielist = results.NowRunningMovie.slice();         
             // console.log("Lists:" + this.movielist);
             this.displayArtist = this.movienamesuggest;

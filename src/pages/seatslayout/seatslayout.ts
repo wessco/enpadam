@@ -7,14 +7,6 @@ import { ServiceProvider } from '../../providers/service/service';
 import { HomePage } from '../home/home';
 import { PaytmentprovProvider } from '../../providers/paytmentprov/paytmentprov';
 import { PaymetdetailsPage } from '../paymetdetails/paymetdetails';
-
-/**
- * Generated class for the SeatslayoutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
     selector: 'page-seatslayout',
@@ -62,8 +54,12 @@ export class SeatslayoutPage {
     add_cost: number;
     amount_net: number;
     price: any;
+    selectedseatsPrice: any;
+    temp: number = 0;
+
     constructor(public paymentprov:PaytmentprovProvider, public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController) {
         this.selectedseats=[];
+        this.selectedseatsPrice=[];
     }
     ionViewDidLoad() {
         this.selectseats = localStorage.getItem('selectseats');
@@ -109,79 +105,13 @@ export class SeatslayoutPage {
 
         this.loading.present();        
         this.service.theaterlayout(this.theaterId, this.screenid, this.showid, this.moviedetailid, this.showdetailid)
-        .then((result)=> this.handletheaterlayout(result));
+            .then((result) => this.handletheaterlayout(result));
     }
        
     handletheaterlayout(result) {
         this.loading.dismiss();
-        console.log('Main Result', result);
-        // if(result.handletheaterlayout > 0) {
-        //     var n = this.handletheaterlayout.length;
-        //     for(var i = 0; i < n; i++) {
-
-        //     }
-        // }
-        
-        // console.log(n);
-        // let theaterdata = result.TheatreLayout[n];
-        let theaterdata = result.TheatreLayout[0];
-        console.log('Theater Data: ', theaterdata);
-        // let n = result.TheatreLayout.length;
-        // let i = n[];
-        // for(let i = 0; i > n; i++) {
-        //     console.log("I: ",i);
-        //     return i;
-        // }
-        // console.log("I: ",n);
-        // return n;
-        // this.price = result.TheatreLayout[n].CategoryName;
-        // console.log("SB: ",this.price);
-        // this.price = [];
-        // console.log("SB: ",this.price);
-        // for(let amount in this.price) {
-        //     this.price.push(amount);
-        // }
-        // return this.amount;
-        // this.seatname = theaterdata.ScreenCategoryDetail[0].ScreenStatus[0].SeatName;
-        // this.seatsblock = result.TheatreLayout;
-        // this.seatname = this.seatsblock.ScreenCategoryDetail[0].ScreenStatus[0].SeatName;
-        // console.log('SeatBlock: ', this.seatsblock);
-        // this.amount = this.seatsblock.CategoryName.Price;
-        //this.seatname=result.TheatreLayout[0]. ScreenCategoryDetail[0].ScreenStatus[0].SeatNameStr;
-        // console.log('Main Filter',result.TheatreLayout[0]);
-        // console.log('Main Filter 1',result.TheatreLayout[1]);
-        // console.log('Filter Result Seat Name', this.seatname);
-
-        // this.seatname1 = result.TheatreLayout[1].CategoryName.Price;
-        // this.seatname1 = result.TheatreLayout[0].CategoryName.Price;
-        // console.log('Seat Name 1: ', this.seatname1);
-        // let theaterdata1 = result.TheatreLayout[1];
-        // console.log('Theater Data: ', theaterdata1);
-        // this.seatname2 = result.TheatreLayout[1].ScreenCategoryDetail[0].ScreenStatus[0].SeatStatus;
-        this.amount = theaterdata.Price;
-        console.log(this.amount);
-        // this.seatname2 = result.TheatreLayout[1].CategoryName.Price;
-        // console.log('SeatName 2: ', this.seatname2);
-        // if(theaterdata.Price && theaterdata.Price.length > 0) {
-        //     this.amount = theaterdata.Price.slice();
-        //     this.amount = this.seatsblock.CategoryName.price;
-        //     console.log(this.amount);
-        //     var n = theaterdata.Price.length;
-        //     for (var i = 0; i < n; i++) {   
-        //         this.amount[i] = theaterdata.CategoryName.Price[i];              
-        //     }
-        // }
-        
-        // this.amount = result.TheatreLayout.CategoryName.Price;
-        // this.amount = theaterdata.CategoryName.Price;
-        
-        // console.log(result.TheatreLayout)
         this.seatsblock = result.TheatreLayout;
         console.log('SeatBlock: ', this.seatsblock);
-        
-        // this.amount = category.Price;
-        console.log(this.amount);
-        // console.log(this.seatsblock[0].ScreenStatus[0].SeatNameStr)
     }
 
     handleticketsolddetail(result) {
@@ -224,13 +154,13 @@ export class SeatslayoutPage {
         } else {
             alert("Please Select Atleast " + this.selectseats + " seats ");
         }
-    }      
+    }
 
     // validate(){
     //   console.log(this.display_date)
     //   if(this.display_date == ''|| this.display_date== undefined) {
-    //     alert("please select date-time")
-    //     return false
+    //      alert("please select date-time")
+    //      return false
     //   }
     //   return true  
     // }
@@ -240,13 +170,7 @@ export class SeatslayoutPage {
         this.selected = h;
     }
 
-    isDisable: boolean;
-
-    isActive(k) {
-        return !this.selectedseats;
-    }
-
-    selectedblock(k) {
+    selectedblock(k, p) {
         if(k.SeatActivateStatus == 3) {
             // this.isDisable == true;
             console.log("Seat Reserved Already")
@@ -262,57 +186,43 @@ export class SeatslayoutPage {
             console.log("INDEX: ",index);
             if (index > -1) {
                 this.selectedseats.splice(index, 1);
-                console.log("Selected Seats: ", this.selectedseats.splice(index, 1));
+                // console.log("Selected Seats: ", this.selectedseats.splice(index, 1));
             } else {
                 console.log("Else: ");
                 if(this.selectedseats.length < this.selectseats) {
                     this.selectedseats.push(k.SeatName);
-                    console.log(this.selectedseats.toString());
-                    this.amount = this.selectedseats.length * this.amount;
-                    console.log("Ticket Price: ",this.amount);
+                    console.log("KS: ",this.selectedseats);
+                    this.selectedseatsPrice.push(p);
+                    // console.log("SSP: ",this.selectedseatsPrice);
+                    // console.log("Selected Seats: ",this.selectedseats.toString());
+                    // if(this.selected)
+                    // let seatTemp = 0;
+                    // for(let i=0; i < this.selectedseats.length; i++) {
+                    //     seatTemp = this.selectedseats[i];
+                    //     console.log("seatTEMP: ", seatTemp);
+                    // }
+                    // if(seatTemp == seatTemp) {
+                    //     console.log("NO");
+                    // } else { console.log("YES"); }
+                    let temp = 0;
+                    for(let i=0; i < this.selectedseatsPrice.length; i++) {
+                        temp = temp + this.selectedseatsPrice[i];
+                        console.log("TEMP: ", this.selectedseatsPrice[i]);
+                    }
+                    this.amount = temp;
+                    console.log(temp);
                     this.add_cost = this.selectedseats.length * 2;
                     console.log(this.add_cost);
                     this.amount_net = this.amount + this.add_cost;
                     console.log(this.amount_net);
                     this.tickets = this.selectedseats.length;
                 } else {
-                    alert("Maximum seats selected");
+                    alert("Maximum Seats Selected");
                 }
             }
-            console.log("Before Pay: ", this.selectedseats.length, this.amount);    
+            console.log("Before Pay: ", this.selectedseats.length, this.amount);
         }              
     }
- 
-    // removeselected(){
-    //   var index = this.selectedseats.indexOf(5);
-    //   if (index > -1) {
-    //     this.selectedseats.splice(index, 1);
-    //   }
-
-    // }
-
-    // selectedblockgold(v) {  
-    //     if(v.SeatActivateStatus == 3) {
-    //         console.log("seat booked already")
-    //     } else {  
-    //         console.log(v)
-    //         // this.selected2=v
-    
-    //         var index = this.selectedseats.indexOf(v);
-    //         console.log(index);
-    //         if (index > -1) {
-    //             this.selectedseats.splice(index, 1);
-    //             console.log(this.selectedseats);
-    //         } else {
-    //             this.selectedseats.push(v.SeatName);
-    //             console.log(this.selectedseats);
-    //         }
-    //         console.log(this.selectedseats.length);
-          
-    //         this.amount = this.selectedseats.length * this.amount;
-    //         this.tickets = this.selectedseats.length;             
-    //     }
-    // }
 
     isInclude(chk_seats) {
         var hh = this.selectedseats.includes(chk_seats);
@@ -327,15 +237,4 @@ export class SeatslayoutPage {
     popup() {
         this.navCtrl.push(PopoverPage);
     }
-
-    // ticketbook(){
-    //   var d = new Date(this.display_date);
-    //   console.log(this.display_date)
-    //   var total_amt={
-    //     amount:this.amount,
-    //     ticket:this.tickets,
-    //     date:d 
-    //   }
-    //   this.navCtrl.push(BookingsummaryPage,total_amt)
-    // }
 }
