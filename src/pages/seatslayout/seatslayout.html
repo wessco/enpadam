@@ -12,25 +12,35 @@
     <ion-grid class="row_ticketblock">
         <ion-row *ngFor="let x of seatsblock" class="left w100 d-block">
             <ion-col class="left w100">
-                <div class="title_a">{{ x.CategoryName }} {{ x.Price }} </div>
+                <div class="title_a">{{ x.CategoryName | lowercase }} - Rs. {{ x.Price }} </div>
             </ion-col>
             <ion-col class="left w100" style="overflow:scroll!important;word-wrap:break-word;">
             <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 62px;"> -->      
                 <ion-row nowrap *ngFor="let scd of x.ScreenCategoryDetail">
-                    <ion-col *ngFor="let y of scd.ScreenStatus">
+                    <ion-col class="row-col">
+                        <button class="h100 row-name">
+                            {{ scd.categoryName }}
+                        </button>
+                    </ion-col>
+                    <ion-col *ngFor="let y of scd.ScreenStatus" class="seats">
                         <button *ngIf="!isInclude(y.SeatName)" 
                                 ion-button outline class="seat_block1 unselected_ticketbutton" 
                                 (tap)="selectedblock(y, x.Price)"
                                 [class.seatAvailable]="y.SeatActivateStatus == 0"
                                 [class.seatNotAvailable]="y.SeatActivateStatus == 3">
-                                {{ y.SeatName }} {{x.Price }}
+                                <!-- {{ y.SeatName }} {{x.Price }} -->
                         </button>
                         <button *ngIf="isInclude(y.SeatName)" 
                                 ion-button outline class="seat_block1 selected_ticketbutton"  
                                 (tap)="selectedblock(y, x.Price)"
                                 [class.seatAvailable]="y.SeatActivateStatus == 0"
                                 [class.seatNotAvailable]="y.SeatActivateStatus == 3">
-                                {{ y.SeatName }} {{x.Price }}
+                                <!-- {{ y.SeatName }} {{x.Price }} -->
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button class="h100 row-name">
+                            {{ scd.categoryName }}
                         </button>
                     </ion-col>
                 </ion-row>
