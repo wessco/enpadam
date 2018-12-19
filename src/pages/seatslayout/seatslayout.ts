@@ -56,6 +56,7 @@ export class SeatslayoutPage {
     price: any;
     selectedseatsPrice: any;
     temp: number = 0;
+    seats: any;
 
     constructor(public paymentprov:PaytmentprovProvider, public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController) {
         this.selectedseats=[];
@@ -201,6 +202,8 @@ export class SeatslayoutPage {
                     //     seatTemp = this.selectedseats[i];
                     //     console.log("seatTEMP: ", seatTemp);
                     // }
+                    // this.seats = seatTemp;
+                    // return seatTemp;
                     // if(seatTemp == seatTemp) {
                     //     console.log("NO");
                     // } else { console.log("YES"); }

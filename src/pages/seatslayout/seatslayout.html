@@ -11,7 +11,7 @@
        
     <ion-grid class="row_ticketblock">
         <ion-row *ngFor="let x of seatsblock" class="left w100 d-block">
-            <ion-col class="left w100">
+            <ion-col class="left w100 d-flex">
                 <div class="title_a">{{ x.CategoryName | lowercase }} - Rs. {{ x.Price }} </div>
             </ion-col>
             <ion-col class="left w100" style="overflow:scroll!important;word-wrap:break-word;">
@@ -50,7 +50,7 @@
             <img src="assets/imgs/screen.png" class="screen_png">
         </div>        
         <div class="disp_amount">
-            Selected Seats: {{ selectedseats.toString() }}
+            Selected Seats: <button class="danger"> {{ selectedseats.toString() }} </button>
         </div>
     </ion-grid>
 
