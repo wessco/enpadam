@@ -10,31 +10,22 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div style="text-align: -webkit-right;" >
-        <button ion-button outline > {{ showtimeMin }} : {{ showtimeSec }} </button>
-    </div>
-    <ion-item>
-        Movie Name:{{paymentdata.movie_name}}  
+    <ion-row class="d-block text-right">
+        <button ion-button outline> {{ showtimeMin }} : {{ showtimeSec }} </button>
+    </ion-row>
+
+    <ion-item class="booking-info">
+        <ion-list> Movie Name:{{paymentdata.movie_name}} </ion-list>
+        <ion-list> Theatre Name:{{paymentdata.TheatreName}} </ion-list>
+        <ion-list> Date :{{ paymentdata.dateId }}</ion-list>
+        <ion-list> Show time :{{paymentdata.showTime}}</ion-list>
+        <ion-list> Theatre Name:{{paymentdata.scrId}}</ion-list>
+        <ion-list> Total tickets:{{paymentdata.ticketsCount}}</ion-list>
+        <ion-list> Ticket price:{{ paymentdata.TicketPrice }}</ion-list>
+        <ion-list> Seats :{{paymentdata.seatStr}}</ion-list>
     </ion-item>
-    <ion-item>Theatre Name:{{paymentdata.TheatreName}}</ion-item>
-    <ion-item>
-        Theatre Name:{{paymentdata.screenId}}
-    </ion-item>
-    <ion-item>
-        Total tickets:{{paymentdata.ticketsCount}}
-    </ion-item>
-    <ion-item>
-        Ticket price:{{ paymentdata.TicketPrice }}
-    </ion-item>
-    <ion-item>
-        Seats :{{paymentdata.seatStr}}
-    </ion-item>
-    <ion-item>
-        Show time :{{paymentdata.showTime}}
-    </ion-item>
-    <ion-item>
-        Date :{{paymentdata.dateId }}
-    </ion-item>
-      
-    <button ion-button (click)=doPayment()>Pay Now</button>
+
+    <ion-row class="d-block text-center">
+        <button ion-button (click)=doPayment()>Pay Now</button>        
+    </ion-row>
 </ion-content>

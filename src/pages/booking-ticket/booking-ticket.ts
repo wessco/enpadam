@@ -194,10 +194,10 @@ export class BookingTicketPage {
                 this.datemovie = this.theatertime[i].DateId;
             } else {
                 this.theatertime[i].selected = false;
-            }   
-        }   
-
+            }
+        }
     }
+    
     handletheaterwisemoviedate(result) {
         console.log(result);
         this.theaterId = result.TheatreDetail[0].TheatreId;

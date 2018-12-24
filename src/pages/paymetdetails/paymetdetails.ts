@@ -29,9 +29,9 @@ export class PaymetdetailsPage {
     play = true;
     secinterval: number;
 
-    constructor(public bookticketprov:BookticketProvider,public service:ServiceProvider,public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public bookticketprov:BookticketProvider, public service:ServiceProvider, public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams) {
         console.log(this.paymentdata);
-        console.log(new Date(this.paymentdata.dateId));
+        console.log("DATE ID: ",new Date(this.paymentdata.dateId));
         this.startTimer();
         this.secondstimer();
     }
@@ -45,7 +45,7 @@ export class PaymetdetailsPage {
         this.showtimeMin = this.showtimeMin - 1;
         console.log(this.showtimeMin);
         if(this.showtimeMin == 0) {
-            console.log("time out");
+            console.log("Time Out");
             alert("Time out !!");
             clearInterval(this.interval);
             clearInterval(this.secinterval)
@@ -60,14 +60,14 @@ export class PaymetdetailsPage {
         this.interval = setInterval(() => {    
             console.log("In Minute Time");
             this.decMin();
-        }, 180000)
+        }, 60000)
     }       
 
     secondstimer() {
         console.log("in second timer function");
         this.secinterval = setInterval(() => {
             console.log("in second timer");
-            if( this.showtimeSec == 0){
+            if( this.showtimeSec == 0) {
                 this.showtimeSec = 60
             } else {
                 this.showtimeSec = this.showtimeSec - 1
@@ -111,17 +111,17 @@ export class PaymetdetailsPage {
         this.paymentprov.doPayment(this.paymentdata).then((res:any) => {
             if(res.success) {              
                 let obj={
-                    "theaterIdVal":this.paymentdata.theaterIdVal,
-                    "screenId":this.paymentdata.scrId,
-                    "ShowTimingId":this.paymentdata.showTimeId,
-                    "movieDetailsId":this.paymentdata.movieDetailsId,
-                    "showDetailId":this.paymentdata.showDetailId,
-                    "seatStr":this.paymentdata.seatStr,
-                    "dateId":this.paymentdata.dateId,
-                    "UserId":this.paymentdata.userId,
-                    "TicketPrice":this.paymentdata.TicketPrice * 100
+                    "theaterIdVal": this.paymentdata.theaterIdVal,
+                    "screenId": this.paymentdata.scrId,
+                    "ShowTimingId": this.paymentdata.showTimeId,
+                    "movieDetailsId": this.paymentdata.movieDetailsId,
+                    "showDetailId": this.paymentdata.showDetailId,
+                    "seatStr": this.paymentdata.seatStr,
+                    "dateId": this.paymentdata.dateId,
+                    "UserId": this.paymentdata.userId,
+                    "TicketPrice": parseFloat(this.paymentdata.TicketPrice)
                 }
-                console.log(obj);
+                console.table("OBJ",obj);
 
                 this.bookticketprov.bookTicket(obj).then((res:any) => {
                     console.log("booking status response", res);

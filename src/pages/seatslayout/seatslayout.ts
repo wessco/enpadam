@@ -38,7 +38,7 @@ export class SeatslayoutPage {
     seatsblock: any;
     loading: any;
     datemovie: any;
-    seatname: any;
+    seatname: boolean = false;
     seatstatus: any;
     userid: string;
     seatname2: any;
@@ -57,6 +57,8 @@ export class SeatslayoutPage {
     selectedseatsPrice: any;
     temp: number = 0;
     seats: any;
+    active: boolean = true;
+    clicked: boolean;
 
     constructor(public paymentprov:PaytmentprovProvider, public navCtrl: NavController, public navParams: NavParams, public service: ServiceProvider, public loadingCtrl: LoadingController) {
         this.selectedseats=[];
@@ -99,6 +101,7 @@ export class SeatslayoutPage {
         console.log(this.showtiming);
         console.log(this.theaterId);
         console.log(this.datemovie);
+        console.log("DATE ID: ",new Date(this.datemovie));
 
         this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
@@ -123,9 +126,6 @@ export class SeatslayoutPage {
         }  
         console.log(result);
         this.loading.dismiss();
-        //   if(this.selectseats!=undefined){
-        //     alert("Ticket Successfully Book")
-        // }
     }
    
     ticketbook() {   
@@ -137,8 +137,8 @@ export class SeatslayoutPage {
             var Params = {
                 userId: this.userid,
                 theaterIdVal: this.theaterId,
-                // scrId: this.screenid,
-                scrId: 2,
+                scrId: this.screenid,
+                // scrId: 2,
                 showTimeId: this.showid,
                 movieDetailsId: this.moviedetailid,
                 showDetailId: this.showdetailid,
@@ -150,7 +150,7 @@ export class SeatslayoutPage {
                 TheatreName: this.TheatreName,
                 ticketsCount: this.selectedseats.length
             }
-            this.navCtrl.push(PaymetdetailsPage,{data:Params});           
+            this.navCtrl.push(PaymetdetailsPage, { data:Params });           
             console.log("Seat Layout Parameter: " + Params);
         } else {
             alert("Please Select Atleast " + this.selectseats + " seats ");
@@ -171,15 +171,33 @@ export class SeatslayoutPage {
         this.selected = h;
     }
 
+    callFunction(seatname) {        
+        console.log("Clicked: ", seatname);
+        // this.seatname = !this.seatname;
+        if (!seatname.available)
+        return;
+        // this.active = !this.active;
+        // if(this.active == this.seatname) {
+        //     this.active = !this.active;
+        // }
+        // let newseatname;
+        // if(newseatname != this.seatname) {
+        //     newseatname = '';
+        // }
+        // if(this.seatname == !this.seatname) {
+        //     console.log("Sorry" + seatname + "not available");
+        // } else { console.log("Ohio") }
+    }
+
     selectedblock(k, p) {
-        if(k.SeatActivateStatus == 3) {
+        if(k.SeatActivateStatus == 3 && k.SeatStatus == 0) {
             // this.isDisable == true;
             console.log("Seat Reserved Already")
         // } else if(k.selectedseats == true) {
         //     this.selectedseats == false;
         //     console.log(this.selectedseats);
         } else {
-            console.log("K: ",k);
+            console.log("K: ",this.selectedseats);
             // this.selectedseats.push(k)
            // console.log(this.selectedseats)
             // this.selected1=k       
@@ -187,12 +205,13 @@ export class SeatslayoutPage {
             console.log("INDEX: ",index);
             if (index > -1) {
                 this.selectedseats.splice(index, 1);
-                // console.log("Selected Seats: ", this.selectedseats.splice(index, 1));
+                console.log("Selected Seats: ", this.selectedseats.splice(index, 1));
             } else {
                 console.log("Else: ");
                 if(this.selectedseats.length < this.selectseats) {
                     this.selectedseats.push(k.SeatName);
                     console.log("KS: ",this.selectedseats);
+                    this.callFunction(this.selectedseats);
                     this.selectedseatsPrice.push(p);
                     // console.log("SSP: ",this.selectedseatsPrice);
                     // console.log("Selected Seats: ",this.selectedseats.toString());
@@ -216,14 +235,14 @@ export class SeatslayoutPage {
                     console.log(temp);
                     this.add_cost = this.selectedseats.length * 2;
                     console.log(this.add_cost);
-                    this.amount_net = this.amount + this.add_cost;
+                    this.amount_net = parseFloat(this.amount + this.add_cost);
                     console.log(this.amount_net);
                     this.tickets = this.selectedseats.length;
                 } else {
                     alert("Maximum Seats Selected");
                 }
             }
-            console.log("Before Pay: ", this.selectedseats.length, this.amount);
+            console.log("Total Seats: ", this.selectedseats.length + " Total Amount: " + this.amount_net);
         }              
     }
 

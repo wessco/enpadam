@@ -1,4 +1,3 @@
-
 <ion-header>
     <ion-navbar>
         <ion-title>{{ MovieName }}</ion-title>
@@ -6,67 +5,64 @@
 </ion-header>
 
 <ion-content>
-<!-- <div class="div_images"> -->
-        <div class="div_images">
-            <div class="wall">
-                <img src="{{img}}" class="img_set"/>
-            </div>
-            <div class="movie_title">{{ MovieName }}
-            <button ion-button class="tamil">{{Certification}}</button>
-            <button ion-button class="tamil">{{Certification}}</button></div>
-            <!-- <button ion-button class="card-subtitle1">{{MovieLanguage}} | {{MovieGenre}}</button> -->
+    <!-- <div class="div_images"> -->
+    <div class="div_images">
+        <div class="wall">
+            <img src="{{img}}" class="img_set"/>
         </div>
-
-        <div class="movierelease_row">        
-            <ion-chip *ngFor="let x of genre" >
-                <ion-label>{{x}}</ion-label>
-            </ion-chip>
-            
-            <hr class="hr_line">
-            <ion-grid>
-                <ion-row >
-                    <ion-col>
-                        <div class="movierelease_title">MovieReleaseDate:</div>
-                        <div class="moviereleaseDate">{{moviereleaseDate}}</div>
-                    </ion-col>
-                    <ion-col>
-                        <div class="movierelease_title">MovieDuration:</div>
-                        <div class="moviereleaseDate">{{movieduration}}</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-            
-            <hr class="hr_line">
-            <div class="movierelease_title1">
-                {{ language }}
-            </div>
-            <!-- <div style="margin-bottom: 5px;"> <span class="span_2d">{{movieformat}}</span></div> -->
-            <div class="formate_2d">
-                {{ movieformat }}
-                {{ moviedetailid }}
-            </div>
-        </div>
-        <!-- ---one page to other page image send---- --> 
-        <!-- <img src="assets/imgs/{{img}}" class="picture back_img">
-        <div class="movie_name">{{name}}</div> -->
-        <div class="movierelease_title1">SYNOPSIS:</div>
-        <div class="moviedescription">
-            {{ description }}
-        </div>
-        
-        <hr class="hr_line">  
-        <div>
-        <ion-row>
-            <ion-col *ngFor="let showdate of theatertime" (click)="changeDate(showdate)">
-                <div class="showdate_time">
-                    <button ion-button  [style.background-color]="getStyle(showdate.selected)">
-                        {{ showdate.Date }}
-                    </button>
-                    {{ showdate.DayName }}
-                </div>
-            </ion-col>    
-       </ion-row>
+        <div class="movie_title">{{ MovieName }}
+        <button ion-button class="tamil">{{ Certification }}</button></div>
+        <!-- <button ion-button class="card-subtitle1">{{MovieLanguage}} | {{MovieGenre}}</button> -->
     </div>
+
+    <div class="movierelease_row">        
+        <ion-chip *ngFor="let x of genre" >
+            <ion-label>{{ x }}</ion-label>
+        </ion-chip>
+            
+        <hr class="hr_line">
+        <ion-grid>
+            <ion-row >
+                <ion-col>
+                    <div class="movierelease_title">MovieReleaseDate:</div>
+                    <div class="moviereleaseDate">{{ moviereleaseDate }}</div>
+                </ion-col>
+                <ion-col>
+                    <div class="movierelease_title">MovieDuration:</div>
+                    <div class="moviereleaseDate">{{ movieduration }}</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+            
+        <hr class="hr_line">
+        <div class="movierelease_title1">
+            {{ language }}
+        </div>
+        <!-- <div style="margin-bottom: 5px;"> <span class="span_2d">{{movieformat}}</span></div> -->
+        <div class="formate_2d">
+            {{ movieformat }}
+            {{ moviedetailid }}
+        </div>
+    </div>
+    <!-- ---one page to other page image send---- --> 
+    <!-- <img src="assets/imgs/{{img}}" class="picture back_img">
+    <div class="movie_name">{{name}}</div> -->
+    <div class="movierelease_title1">SYNOPSIS:</div>
+    <div class="moviedescription">
+        {{ description }}
+    </div>
+    
+    <hr class="hr_line">
+    <ion-row>
+        <ion-col *ngFor="let showdate of theatertime" (click)="changeDate(showdate)">
+            <div class="showdate_time">
+                <button ion-button  [style.background-color]="getStyle(showdate.selected)">
+                    {{ showdate.Date }}
+                </button>
+                {{ showdate.DayName }}
+            </div>
+        </ion-col>    
+    </ion-row>
     <!-- <div class="img-display" >
         <div class="img-out" *ngFor="let x of [1,2,3,4,5,6,7];let i=index" >
             <button ion-button outline class="time_btn image" (click)="presentPopover($event)">03:15 PM</button>        

@@ -14,8 +14,8 @@
             <ion-col class="left w100 d-flex">
                 <div class="title_a">{{ x.CategoryName | lowercase }} - Rs. {{ x.Price }} </div>
             </ion-col>
-            <ion-col class="left w100" style="overflow:scroll!important;word-wrap:break-word;">
-            <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 62px;"> -->      
+            <ion-col class="left w100" style="overflow-x : auto !important; word-wrap:break-word; -webkit-overflow-scrolling: touch;">
+            <!-- <ion-col  style="padding: 0px;display: inherit;min-width: fit-content;margin: 0px 62px;">"-->      
                 <ion-row nowrap *ngFor="let scd of x.ScreenCategoryDetail">
                     <ion-col class="row-col">
                         <button class="h100 row-name">
@@ -25,17 +25,24 @@
                     <ion-col *ngFor="let y of scd.ScreenStatus" class="seats">
                         <button *ngIf="!isInclude(y.SeatName)" 
                                 ion-button outline class="seat_block1 unselected_ticketbutton" 
+                                (click) = "callFunction(y.SeatName)"
                                 (tap)="selectedblock(y, x.Price)"
+                                [class.noseats]="y.SeatStatus == 0"
                                 [class.seatAvailable]="y.SeatActivateStatus == 0"
                                 [class.seatNotAvailable]="y.SeatActivateStatus == 3">
                                 <!-- {{ y.SeatName }} {{x.Price }} -->
                         </button>
-                        <button *ngIf="isInclude(y.SeatName)" 
+                        <button *ngIf="isInclude(y.SeatName) && !available" 
                                 ion-button outline class="seat_block1 selected_ticketbutton"  
+                                (click) = "callFunction(y.SeatName)"
                                 (tap)="selectedblock(y, x.Price)"
+                                [class.noseats]="y.SeatStatus == 0"
                                 [class.seatAvailable]="y.SeatActivateStatus == 0"
-                                [class.seatNotAvailable]="y.SeatActivateStatus == 3">
-                                <!-- {{ y.SeatName }} {{x.Price }} -->
+                                [class.seatNotAvailable]="y.SeatActivateStatus == 3"
+                                [disabled]="y.SeatName">
+                                <!-- [ngClass]="{'available': y.SeatName.available == true}"  -->
+                                <!-- [(ngModel)]="y.SeatName"> -->
+                                {{ y.SeatName }} <!-- {{x.Price }} -->
                         </button>
                     </ion-col>
                     <ion-col>
@@ -46,11 +53,13 @@
                 </ion-row>
             </ion-col>
         </ion-row>
+        <!-- SCREEN IMAEG -->
         <div class="screen_img">
             <img src="assets/imgs/screen.png" class="screen_png">
-        </div>        
-        <div class="disp_amount">
-            Selected Seats: <button class="danger"> {{ selectedseats.toString() }} </button>
+        </div>
+        <!-- SELECTED SEATS -->
+        <div class="text-center">
+            Selected Seats: <button> {{ selectedseats.toString() }} </button>
         </div>
     </ion-grid>
 

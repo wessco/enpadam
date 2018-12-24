@@ -1,7 +1,7 @@
 page-seatslayout {
     .seatAvailable {
-        background-color:white!important;
-        border: 0px !important;
+        // background-color:white;
+        border: 1px solid green;
         padding: 10px;
     }
     .back_img {
@@ -14,10 +14,11 @@ page-seatslayout {
     .screen_png {
         margin-top: 40px;
         height: 35px;
+        width: 100%;
     }
     .background_div {
         background-color: #232539;
-        height: 70px;
+        // height: 70px;
     }
     .all_col_padding {
         padding: 0px;
@@ -27,11 +28,10 @@ page-seatslayout {
         color: white;
     }
     .Children_ticket {
-        margin-right: 10px;
-        font-size: 18px;
-        color: white;
+        font-size: 14x;
+        color: #f4f4f4;
         text-align: center;
-        padding-top: 22px;
+        padding: 15px;
     }
     .Children_ticket1 {
         text-align: right;
@@ -87,33 +87,38 @@ page-seatslayout {
         margin-right: 10px;
     }
     .seat_block1.unselected_ticketbutton {
-        background-image: url('../../assets/imgs/seat.svg');
+        // background-image: url('../../assets/imgs/seat.svg');
     }
     .seat_block1.selected_ticketbutton {
-        background-image: url('../../assets/imgs/seat_selected.svg');
+        // background-image: url('../../assets/imgs/seat_selected.svg');
+        background-color: green;
     }
     .seat_block1.unselected_ticketbutton.seatNotAvailable {
-        border: 0px;
+        // border: 0px; 
         padding: 10px;
-        background-image: url('../../assets/imgs/seat_not_available.svg');
+        background-color: red;
+        // background-image: url('../../assets/imgs/seat_not_available.svg');
     }
-    .selected_goldticketbutton {
-        background-color:#D7D7D7;
-        border: 1px solid #D7D7D7;
-        padding: 10px;  
-        height: 25px;
-        width: 20px;
-        border-radius: 8px;
+    .seat_block1.unselected_ticketbutton.noseats {
+        visibility: hidden;
     }
-    .unselected_goldticketbutton {
-        background-color: transparent;
-        padding: 10px;  
-        border: 1px solid #a6a6a6;
-        height: 25px;
-        width: 20px;
-        border-radius: 8px;
-        border: 1px solid black;
-    }    
+    // .selected_goldticketbutton {
+    //     background-color:#D7D7D7;
+    //     border: 1px solid #D7D7D7;
+    //     padding: 10px;  
+    //     height: 25px;
+    //     width: 20px;
+    //     border-radius: 8px;
+    // }
+    // .unselected_goldticketbutton {
+    //     background-color: transparent;
+    //     padding: 10px;  
+    //     border: 1px solid #a6a6a6;
+    //     height: 25px;
+    //     width: 20px;
+    //     border-radius: 8px;
+    //     border: 1px solid black;
+    // }    
     .arrow-back {
         color: white;
         font-size: 30px;
@@ -180,8 +185,8 @@ page-seatslayout {
         white-space:nowrap;
     }
     .submit {
-        width: 83%;
-        border-radius: 12px;
+        width: 90%;
+        border-radius: 4px;
         margin: auto;
         display: table;
         background: linear-gradient(#a32d66, #c22e5e);
