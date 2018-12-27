@@ -44,15 +44,15 @@ export class SeatslayoutPage {
     seatname2: any;
     seatname1: any;
     showtimeMin: number = 2;   
-    showtimeSec:any=60
-    min:any
-    sec:any
+    showtimeSec: any = 60;
+    min:any;
+    sec:any;
     interval;
-    play=true
+    play = true;
     secinterval: number;
     TheatreName: any;
     add_cost: number;
-    amount_net: number;
+    amount_net: any;
     price: any;
     selectedseatsPrice: any;
     temp: number = 0;
@@ -176,31 +176,13 @@ export class SeatslayoutPage {
         // this.seatname = !this.seatname;
         if (!seatname.available)
         return;
-        // this.active = !this.active;
-        // if(this.active == this.seatname) {
-        //     this.active = !this.active;
-        // }
-        // let newseatname;
-        // if(newseatname != this.seatname) {
-        //     newseatname = '';
-        // }
-        // if(this.seatname == !this.seatname) {
-        //     console.log("Sorry" + seatname + "not available");
-        // } else { console.log("Ohio") }
     }
 
     selectedblock(k, p) {
         if(k.SeatActivateStatus == 3 && k.SeatStatus == 0) {
-            // this.isDisable == true;
-            console.log("Seat Reserved Already")
-        // } else if(k.selectedseats == true) {
-        //     this.selectedseats == false;
-        //     console.log(this.selectedseats);
+            console.log("Seat Reserved Already");
         } else {
             console.log("K: ",this.selectedseats);
-            // this.selectedseats.push(k)
-           // console.log(this.selectedseats)
-            // this.selected1=k       
             var index = this.selectedseats.indexOf(k.seatName);
             console.log("INDEX: ",index);
             if (index > -1) {
@@ -211,35 +193,35 @@ export class SeatslayoutPage {
                 if(this.selectedseats.length < this.selectseats) {
                     this.selectedseats.push(k.SeatName);
                     console.log("KS: ",this.selectedseats);
-                    this.callFunction(this.selectedseats);
+                    // this.callFunction(this.selectedseats);
                     this.selectedseatsPrice.push(p);
-                    // console.log("SSP: ",this.selectedseatsPrice);
-                    // console.log("Selected Seats: ",this.selectedseats.toString());
-                    // if(this.selected)
-                    // let seatTemp = 0;
-                    // for(let i=0; i < this.selectedseats.length; i++) {
-                    //     seatTemp = this.selectedseats[i];
-                    //     console.log("seatTEMP: ", seatTemp);
-                    // }
-                    // this.seats = seatTemp;
-                    // return seatTemp;
-                    // if(seatTemp == seatTemp) {
-                    //     console.log("NO");
-                    // } else { console.log("YES"); }
                     let temp = 0;
                     for(let i=0; i < this.selectedseatsPrice.length; i++) {
                         temp = temp + this.selectedseatsPrice[i];
                         console.log("TEMP: ", this.selectedseatsPrice[i]);
                     }
                     this.amount = temp;
-                    console.log(temp);
+                    // console.log(temp);
                     this.add_cost = this.selectedseats.length * 2;
-                    console.log(this.add_cost);
-                    this.amount_net = parseFloat(this.amount + this.add_cost);
+                    // console.log(this.add_cost);
+                    this.amount_net = parseFloat(this.amount + this.add_cost).toFixed(2);
                     console.log(this.amount_net);
                     this.tickets = this.selectedseats.length;
                 } else {
-                    alert("Maximum Seats Selected");
+                    // alert("Maximum Seats Selected");
+                    this.selectedseats.shift();
+                    this.selectedseatsPrice.shift(p);
+                    this.selectedseats.push(k.SeatName);
+                    // this.callFunction(this.selectedseats);
+                    this.selectedseatsPrice.push(p);
+                    let temp = 0;
+                    for(let i=0; i < this.selectedseatsPrice.length; i++) {
+                        temp = temp + this.selectedseatsPrice[i];
+                    }
+                    this.amount = temp;
+                    this.add_cost = this.selectedseats.length * 2;
+                    this.amount_net = parseFloat(this.amount + this.add_cost).toFixed(2);
+                    this.tickets = this.selectedseats.length;
                 }
             }
             console.log("Total Seats: ", this.selectedseats.length + " Total Amount: " + this.amount_net);
@@ -248,7 +230,6 @@ export class SeatslayoutPage {
 
     isInclude(chk_seats) {
         var hh = this.selectedseats.includes(chk_seats);
-        // hh = !hh;
         return hh;
     }
 

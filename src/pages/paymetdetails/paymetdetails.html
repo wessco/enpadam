@@ -16,12 +16,13 @@
 
     <ion-item class="booking-info">
         <ion-list> Movie Name:{{paymentdata.movie_name}} </ion-list>
+        <ion-list> Name:{{paymentdata.name}} </ion-list>
         <ion-list> Theatre Name:{{paymentdata.TheatreName}} </ion-list>
         <ion-list> Date :{{ paymentdata.dateId }}</ion-list>
         <ion-list> Show time :{{paymentdata.showTime}}</ion-list>
         <ion-list> Theatre Name:{{paymentdata.scrId}}</ion-list>
         <ion-list> Total tickets:{{paymentdata.ticketsCount}}</ion-list>
-        <ion-list> Ticket price:{{ paymentdata.TicketPrice }}</ion-list>
+        <ion-list> Ticket price:{{ paymentdata.TicketPrice | number:'3.2-2' }}</ion-list>
         <ion-list> Seats :{{paymentdata.seatStr}}</ion-list>
     </ion-item>
 

@@ -29,7 +29,7 @@ export class PaymetdetailsPage {
     play = true;
     secinterval: number;
 
-    constructor(public bookticketprov:BookticketProvider, public service:ServiceProvider, public paymentprov:PaytmentprovProvider,public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public bookticketprov:BookticketProvider, public service:ServiceProvider, public paymentprov:PaytmentprovProvider, public navCtrl: NavController, public navParams: NavParams) {
         console.log(this.paymentdata);
         console.log("DATE ID: ",new Date(this.paymentdata.dateId));
         this.startTimer();
@@ -119,7 +119,7 @@ export class PaymetdetailsPage {
                     "seatStr": this.paymentdata.seatStr,
                     "dateId": this.paymentdata.dateId,
                     "UserId": this.paymentdata.userId,
-                    "TicketPrice": parseFloat(this.paymentdata.TicketPrice)
+                    "TicketPrice": this.paymentdata.TicketPrice
                 }
                 console.table("OBJ",obj);
 

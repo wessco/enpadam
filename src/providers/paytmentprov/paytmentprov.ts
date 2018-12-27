@@ -25,9 +25,9 @@ export class PaytmentprovProvider {
                 image: 'https://i.imgur.com/3g7nmJC.png',
                 currency: 'INR',
                 key: 'rzp_live_1kzJgQOqdgLsey',  
-                amount: data.TicketPrice,
+                amount: data.TicketPrice*100,
                 // amount: 420,
-                name: 'foo',
+                name: data.userId,
                 prefill: {
                     email: '',
                     contact: '',
@@ -67,7 +67,7 @@ export class PaytmentprovProvider {
         return new Promise((resolve,reject) => {
             // this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=420`).subscribe(res=>{
             this.http.get(this.url+`userPrincingPlanInfomation?userId=${data.userId}&Amount=${data.TicketPrice}`)
-                .subscribe(res => {            
+                .subscribe(res => {
                 resolve(res)
             })
         })

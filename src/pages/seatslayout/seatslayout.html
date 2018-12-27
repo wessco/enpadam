@@ -67,7 +67,7 @@
 
     <button  ion-button class="submit" (click)="ticketbook(moviedetailid, screenid, showdetailid, showtiming, theaterId)">
     <div class="net_amount">
-        Total Pay Rs. <span> {{ amount_net }}  &nbsp; Total seats: {{ tickets }}  </span>
+        Total Pay Rs. <span> {{ amount_net | number:'3.2-2' }}  &nbsp; Total seats: {{ tickets }}  </span>
     </div>
     </button>
 </ion-content>

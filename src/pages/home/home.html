@@ -50,7 +50,7 @@
     <div class="img-display">    
         <!-- <h1>Im inline</h1> -->
         <div class="img-out" *ngFor="let x of movielist; let i=index">
-            <img class="image images" src="{{x.MovieImagePath}}" alt="no internet available" style="object-fit: cover !important;height: 230px;" (click)="movie_desc(x)">
+            <img class="image images" src="{{x.MovieImagePath}}" alt="no internet available" onerror="this.src='../../assets/imgs/movie.svg'" style="object-fit: cover !important;height: 115px;" (click)="movie_desc(x)">
             <!-- <ion-row>
                 <div style="margin: auto;" class="vertical_centr">
                     <button ion-button class="star_button" >

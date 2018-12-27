@@ -1,0 +1,1 @@
+export { SeatModel } from './seat-layout.model';
