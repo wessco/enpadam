@@ -1,6 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { NavController, NavParams, ModalController, AlertController } from "ionic-angular";
-import { GalleryPage } from "../gallery/gallery";
+// import { GalleryPage } from "../gallery/gallery";
 import { BookingTicketPage } from "../booking-ticket/booking-ticket";
 import { ServiceProvider } from "../../providers/service/service";
 import { CitylistModalPage } from "../citylist-modal/citylist-modal";
@@ -13,7 +13,6 @@ import { Slides } from 'ionic-angular';
 })
 export class HomePage {
     @ViewChild(Slides) slides: Slides;
-
 
     imagelist: any;
     select_city: number;
@@ -39,19 +38,18 @@ export class HomePage {
     SlideOptions = {    
         initialSlide: 0,
         loop: true,
-        autoplay:2000,
-        autoplayDisableOnInteraction: false
+        autoplay: 2000,
+        autoplayDisableOnInteraction: false,
       };
       suggestedMoviesBackUp=[]
 
-    constructor(
+    constructor (
         public navCtrl: NavController,
         public service: ServiceProvider,
         public navParams: NavParams,
         public modalCtrl: ModalController,
         private alertCtrl: AlertController
-    ) {
-       
+    ) {       
         // this.choosecity={}
         this.cities = [];
         this.movielist = [];
@@ -116,44 +114,40 @@ export class HomePage {
     onInput(searchkey) {
         console.log(searchkey);
         let val=searchkey.data
-        if(val==null){
-            this.searchMovie=false
+        if(val == null) {
+            this.searchMovie = false;
         }     
-      else if (val && val.trim() != '') {
-          console.log("in key ")
-            this.searchMovie=true
-           val=searchkey.data.toLowerCase()
-          this.movienamesuggest = this.movienamesuggest.filter((item) => {
-                  if(item.MovieName)
-               return (item.MovieName.toLowerCase().indexOf(val) > -1);
-
-          })      
-        }    
-        else{
-
-        } 
-        if(searchkey.inputType=='deleteContentBackward'){
-       this.movienamesuggest=this.suggestedMoviesBackUp
-       if (val && val.trim() != '') {
-        val=searchkey.data.toLowerCase()    
-        this.movienamesuggest = this.movienamesuggest.filter((item) => {
-            if(item.MovieName)
-          return (item.MovieName.toLowerCase().indexOf(val) > -1);
-          })
-       }
+        else if (val && val.trim() != '') {
+            console.log("In Key: ");
+            this.searchMovie = true;
+            val = searchkey.data.toLowerCase();
+            this.movienamesuggest = this.movienamesuggest.filter((item) => {
+                if(item.MovieName)
+                    return (item.MovieName.toLowerCase().indexOf(val) > -1);
+            })      
+        } else { } 
+        if(searchkey.inputType == 'deleteContentBackward') {
+            this.movienamesuggest = this.suggestedMoviesBackUp;
+            if (val && val.trim() != '') {
+                val=searchkey.data.toLowerCase()    
+                this.movienamesuggest = this.movienamesuggest.filter((item) => {
+                    if(item.MovieName)
+                    return (item.MovieName.toLowerCase().indexOf(val) > -1);
+                })
+            }
+        }  
     }
-  
-    }
+
     onCancel(ev: any) {
         console.log("onCancel");
         ev.target.value = "";
-        this.searchMovie=true
+        this.searchMovie = true;
         this.displayArtist = this.movienamesuggest;
     }
    
-    ionViewWillEnter() {    
+    ionViewWillEnter() {
         let city = localStorage.getItem("ticket_selectedcity");
-        console.log("From Local Storage", city)
+        console.log("Local Storage: ", city)
         if(city == null || city == undefined ) {
             this.callCityModal();
         } else {
@@ -176,8 +170,8 @@ export class HomePage {
                 this.showAlert()
             } else {
                 localStorage.setItem("ticket_selectedcity", data.id)
-                this.choosecity=data.id;
-                this.cityname=data.value;
+                this.choosecity = data.id;
+                this.cityname = data.value;
                 localStorage.setItem("selectedCityName", data.value)
                 this.service
                     .selectcity(this.choosecity)
@@ -236,10 +230,6 @@ export class HomePage {
         };
         this.navCtrl.push(BookingTicketPage, params);
     }
-        
-    // pic1(){
-    //   this.navCtrl.push(BookingTicketPage)
-    // }
     
     selectcity(results) {
     // selectcity(results: { [x: string]: any[]; NowRunningMovie?: any; UpcommingMovie?: any; }) {
@@ -253,22 +243,20 @@ export class HomePage {
        
         if (results.NowRunningMovie  && results.NowRunningMovie.length > 0) {
             this.NowRunningmovie = false;
-            // console.log("I am inner if condition Now Running Movie");
-            this.movielist = results.NowRunningMovie.slice();         
+            this.movielist = results.NowRunningMovie.slice();
             // console.log("Lists:" + this.movielist);
             this.displayArtist = this.movienamesuggest;
             var n = this.movielist.length;
-            console.log(n);        
+            // console.log(n);
             for (var i = 0; i < n; i++) {   
                 this.movienamesuggest[i]=this.movielist[i];              
             }
-            this.suggestedMoviesBackUp=this.movienamesuggest;          
-            //   console.log(this.slideimage);
+            this.suggestedMoviesBackUp=this.movienamesuggest;
         } else {
             this.NowRunningmovie=true;
         }
         if(results.UpcommingMovie && results.UpcommingMovie.length > 0) {
-            console.log("In upcoming true: ");
+            // console.log("In upcoming true: ");
             this.UpcomingmovieData = false;
             this.upcomingList = results['UpcommingMovie'];
             for(let i=0; i<this.upcomingList.length; i++) {
