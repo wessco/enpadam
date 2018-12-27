@@ -21,7 +21,7 @@ export class PaytmentprovProvider {
     doPayment(data) {
         return new Promise(resolve => {
             var options = {
-                description: 'Booking Tickets Through Ticketlite',
+                description: 'Enpadam',
                 image: 'https://i.imgur.com/3g7nmJC.png',
                 currency: 'INR',
                 key: 'rzp_live_1kzJgQOqdgLsey',  

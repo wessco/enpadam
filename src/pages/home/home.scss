@@ -172,6 +172,7 @@ page-home {
     }        
     .img-display .img-out img {
         width: 100%;
-        height: 100px;
+        height: 115px;
+        object-fit: cover !important;
     }
 } 
