@@ -1,35 +1,70 @@
-page-booking-ticket {    
+page-booking-ticket {
+    .fixed-content,
+    .scroll-content {
+        margin-top: 0 !important;
+    }
+    .toolbar-background-md {
+        background: transparent;
+    }
     .div_images {
-        position: relative;            
+        position: relative;
+        box-shadow: 0px 20px 21px -8px rgba(221,221,221,1);
+    }
+    .back-button.show-back-button {
+        color: #fff;
+    }
+    .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after {
+        background: none;
     }
     .div_images > div.wall::before {
         content: "";
         /* color: #000; */
         width: 100%;
-        height: 235px;
+        height: 350px;
         z-index: 100;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
         top: 0;
         left: 0;
         position: absolute;
     }
     .img_set {
-        height: 235px;
+        height: 350px;
         width: 100%;
         margin: auto;
         display: table;
-        // margin-top: 6px;
         object-fit: cover;
+        object-position: top;
     }
     .movie_title {
         position: absolute;
-        top: 82%;
-        font-size: 2.0em;
+        top: 45%;
         font-weight: bold;
-        text-shadow: 1px 1px 0px #ffffff;
-        margin-left: 8px;
+        // text-shadow: 1px 1px 0px #ffffff;
+        // margin-left: 8px;
+        color: #fff;
         z-index: 101;
-    }        
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .movie_title>h1,
+    .movie_title>h6 {
+        margin: 0;
+    }
+    .movie_title .inner {
+        // line-height: 235px;
+    }
+    .movie_title>h1 {        
+        font-size: 3em !important;
+        text-transform: uppercase;
+    }
+    .movie_title>h6 {
+        font-weight: 400;
+    }
     // .card-subtitle1 {
     //     font-size: 1.0em;
     //     position: absolute;
@@ -43,9 +78,15 @@ page-booking-ticket {
     //     background-color: #939393;
     //     margin-left: 20px;
     // }
-    .movierelease_row {
+    .movie_header {
         // text-align: center;
-        background-color: #F2f7F8;
+        // background-color: #F2f7F8;
+    }
+    .movie_header>button {
+        padding: 7px;
+        width: auto;
+        height: auto;
+        border-radius: 4px;
     }
     .movierelease_title {
         font-size: 17px;
@@ -53,9 +94,6 @@ page-booking-ticket {
         margin-left: 3px;
     }
     .moviereleaseDate {
-        line-height: 1.5;
-        font-size: 15px;
-        font-weight: 500;
         margin-left: 3px;
     }
     .formate_2d {
@@ -81,9 +119,7 @@ page-booking-ticket {
     }
     .moviedescription {
         line-height: 1.5;
-        font-size: 14px;
-        font-weight: 500; 
-        margin-left: 8px;
+        font-size: 1.4rem;
     }
     .chip-md {
         margin-top: 5px;
@@ -146,12 +182,6 @@ page-booking-ticket {
         padding: 10px;    
         border-color: gray;
     }
-    .hr_line {
-         width: 100%;
-        background-color: #DCDCDC;
-        height: 2px;
-        margin-top: 7px;        
-    }
     .showdate_time,
     .button-md {
         font-size: 1.1rem;
@@ -174,11 +204,9 @@ page-booking-ticket {
     .food {
         color: #FFA340;
     }
-    .Multiplax_title {
+    .theatre_title {
         font-weight: 500;
-        margin-top: 5px;
-        font-size: 17px;
-        // text-decoration: underline;
+        font-size: 1.6rem;
     }
     .item-md.item-block .item-inner {
         border-bottom: none !important;
@@ -223,5 +251,8 @@ page-booking-ticket {
     .img-display .img-out img {
         width: 100%;
         height: 100px;
+    }
+    .col {
+        padding: 0px;
     }
 }

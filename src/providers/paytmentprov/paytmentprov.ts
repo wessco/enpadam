@@ -1,14 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { resolveDefinition } from '@angular/core/src/view/util';
+// import { resolveDefinition } from '@angular/core/src/view/util';
 import { ConfigProvider } from '../config/config';
 declare var RazorpayCheckout: any;
-/*
-  Generated class for the PaytmentprovProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class PaytmentprovProvider {
     url: any;

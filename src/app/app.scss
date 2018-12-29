@@ -125,6 +125,21 @@
 .text-right {
     text-align: right !important;
 }
+.p20 {
+    padding: 20px !important;
+}
+.p30 {
+    padding: 30px !important;
+}
+.pt0 {
+    padding-top: 0 !important;
+}
+.hr_line {
+    width: 100%;
+    background-color: #f4f4f4;
+    height: 1px;
+    margin: 10px auto;
+}
 ion-menu {
     ion-header{
         &::after{
@@ -174,8 +189,8 @@ ion-menu {
         font-weight: normal;
         text-transform: uppercase;
         color: #000;
-        ion-icon[item-left]{
-            + .item-inner{
+        ion-icon[item-left] {
+            + .item-inner {
                 margin-left: 0;
             }
         }
@@ -222,8 +237,3 @@ ion-menu {
 .col .item-inner .input-wrapper {
     padding: 0px 10px;
 }
-
-  
-
-    
-     

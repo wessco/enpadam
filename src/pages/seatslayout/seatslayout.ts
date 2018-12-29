@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { PopoverPage } from '../popover/popover';
 import { BookingTicketPage } from '../booking-ticket/booking-ticket';
-import { BookingsummaryPage } from '../bookingsummary/bookingsummary';
+// import { BookingsummaryPage } from '../bookingsummary/bookingsummary';
 import { ServiceProvider } from '../../providers/service/service';
 import { HomePage } from '../home/home';
 import { PaytmentprovProvider } from '../../providers/paytmentprov/paytmentprov';
