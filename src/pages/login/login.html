@@ -18,11 +18,11 @@
         <input type="text" placeholder="Username"  [(ngModel)]="logindata.emailid" class="txtbox" />
         <input type="password" placeholder="Password" [(ngModel)]="logindata.password"  class="txtbox" />
         <ion-grid>
-            <ion-row>
+            <!-- <ion-row>
                 <ion-col class="all_col_padding">
                     <div style="margin-top: 15px;">
                         <!-- <input type="checkbox" class="chkbox"> 
-                        <span class="remember"> Remember Me</span>  -->
+                        <span class="remember"> Remember Me</span>  
                     </div>
                 </ion-col>
                 <ion-col class="all_col_padding" >
@@ -30,9 +30,22 @@
                         Forgot Password ?
                     </div>
                 </ion-col>
-            </ion-row>
+            </ion-row> -->
         </ion-grid>
-        <button ion-button (click)="login_success()">Login to proceed</button>
-        <button ion-button (click)="register()">Register Now</button>
+        <ion-row>
+            <ion-col>
+                <button ion-button (click)="login_success()">Login</button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <div class="forgot_pwd" (click)="forgot()"> Forgot Password ? </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>            
+            <ion-col>
+                <button ion-button (click)="register()" class="btn-primary-border">Register</button>
+            </ion-col>
+        </ion-row>
     </div>
 </ion-content>

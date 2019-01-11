@@ -6,21 +6,22 @@ page-login {
         box-shadow:         inset -352px 0px 21px 45px rgba(50, 48, 50, 0.88);
     }
 
-    .background_div{
+    .background_div {
         width: 100%;
-        background-color: white;
+        // background-color: white;
     }
     .img_set{
-        height: 75px;
-        margin: auto;
+        height: 125px;
+        margin: 25% auto;
+        margin-bottom: 0px;
         display: table;
     }
-    .register{
+    .register {
         color:#ffffff;
         font-size: 25px;
         font-weight: bold;
         text-align: center;
-        margin-top: 40px;
+        margin-top: 5%;
     }
     .all_col_padding{
         padding: 0px;
@@ -30,44 +31,50 @@ page-login {
         margin: auto;
         margin-top: 25px;
     }
-    .txtbox{
+    .txtbox {
         margin: auto;
         background-color: #ffffff;
-        margin-top: 15px;
+        margin-top: 5px;
         width: 100%;
         height: 40px;
         border-radius: 5px;
-        font-size: 16px;
+        // font-size: 16px;
         border: 1px solid #CA37C0;
         padding-left: 10px;
-        }
-    .chkbox{
+    }
+    .chkbox {
         border: 1px solid #ffffff;
-        }
+    }
     .remember{
         color: white;
         font-size: 18px;
         font-weight: 500;
     }
-    .forgot_pwd{
+    .forgot_pwd {
         color: white;
-        font-size:18px;
+        // font-size:18px;
         font-weight: 300;
-        text-align: right;
-        background-color: transparent;
-        margin-top: 15px
+        text-align: center;
+        // background-color: transparent;
+        // margin-top: 15px
     }
-    .button-md{ 
-        margin-top: 15px;
+    .button-md { 
+        // margin-top: 15px;
         width: 100%;
         height: 40px;
         border-radius: 5px;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 400;
         border-color: #c22e5e;
         background: linear-gradient(#a32d66, #c22e5e);
             // background-color: #BB3161;
-        }
+        letter-spacing: 1px;    
+    }
+    .btn-primary-border {
+        border: 1px solid;
+        border-color: #CA37C0;
+        background: transparent;
+    }
 
         // .item:hover{
         //     color: red !important;
@@ -75,6 +82,8 @@ page-login {
         .item-md.item-block .item-inner{
             border-bottom: none !important;
         }
-        
+        ion-row > ion-col:first-child {
+            padding-left: 0px;
+        }
         
 }
